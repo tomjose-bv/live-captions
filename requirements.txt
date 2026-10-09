@@ -1,0 +1,5 @@
+faster-whisper==1.2.1
+numpy==2.5.3
+PyAudioWPatch==0.2.12.8
+truststore==0.10.4
+useful-moonshine-onnx==20251121
