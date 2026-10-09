@@ -75,9 +75,20 @@ def test_empty_engine_output_not_emitted():
 
 
 def test_append_text_labels_new_source():
-    s, label = append_text("", None, "Mic", "hi")
-    assert (s, label) == ("[Mic] hi", "Mic")
-    s, label = append_text("[Mic] hi", "Mic", "Mic", "there")
+    s, label = append_text("", None, "You", "hi")
+    assert (s, label) == ("You: hi", "You")
+    s, label = append_text("You: hi", "You", "You", "there")
     assert s == " there"
-    s, label = append_text("[Mic] hi there", "Mic", "Speakers", "yo")
-    assert s == "\n[Speakers] yo" and label == "Speakers"
+    s, label = append_text("You: hi there", "You", "Them", "yo")
+    assert s == "\nThem: yo" and label == "Them"
+
+
+def test_append_after_user_typed_newline_has_no_extra_blank_line():
+    s, _ = append_text("You: hi\n", "You", "Them", "yo")
+    assert s == "Them: yo"
+
+
+def test_source_labels_are_you_and_them():
+    from livecaptions import transcriber
+    assert transcriber.LABEL_MIC == "You"
+    assert transcriber.LABEL_SPEAKERS == "Them"

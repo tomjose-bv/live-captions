@@ -66,8 +66,8 @@ class App:
         self.use_mic = tk.BooleanVar(value=True)
         self.use_speakers = tk.BooleanVar(value=True)
         self.source_checks = [
-            ttk.Checkbutton(bottom, text="Microphone", variable=self.use_mic),
-            ttk.Checkbutton(bottom, text="Speakers", variable=self.use_speakers),
+            ttk.Checkbutton(bottom, text="Microphone (You)", variable=self.use_mic),
+            ttk.Checkbutton(bottom, text="Speakers (Them)", variable=self.use_speakers),
         ]
         for cb in self.source_checks:
             cb.pack(side="right", padx=4)

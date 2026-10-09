@@ -9,8 +9,8 @@ from .engines import create_engine
 
 # Source labels. The app knows which device audio came from, which gives a simple
 # two-party attribution without speaker diarization: loopback = the other side.
-LABEL_SPEAKERS = "Speakers"
-LABEL_MIC = "Mic"
+LABEL_SPEAKERS = "Them"
+LABEL_MIC = "You"
 
 
 class Transcriber:
