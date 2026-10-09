@@ -16,3 +16,6 @@ bench_results/
 *.wav
 *.onnx
 *.bin
+
+# Local list of blocked employer/client names (never committed)
+.employer-terms
