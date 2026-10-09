@@ -4,11 +4,24 @@ Heavy imports (onnxruntime, ctranslate2) happen lazily inside the constructors s
 that the rest of the package can be imported and tested without them.
 """
 
-from typing import Callable, Dict, Protocol
+import os
+from typing import Callable, Dict, List, Protocol
 
 
 class Engine(Protocol):
     def transcribe(self, audio) -> str: ...
+
+
+def files_size_bytes(paths: List[str]) -> int:
+    """Total on-disk size of the given files/directories (follows HF cache symlinks)."""
+    total = 0
+    for p in paths:
+        if os.path.isdir(p):
+            for root, _, names in os.walk(p):
+                total += sum(os.path.getsize(os.path.join(root, n)) for n in names)
+        elif os.path.exists(p):
+            total += os.path.getsize(p)
+    return total
 
 
 class MoonshineEngine:
@@ -28,6 +41,10 @@ class MoonshineEngine:
         audio = audio[speech[0]["start"]:speech[-1]["end"]]
         return self.tokenizer.decode_batch(self.model.generate(audio[None, :]))[0].strip()
 
+    def model_files(self):
+        from moonshine_onnx.model import _get_onnx_weights
+        return list(_get_onnx_weights(self.name.split("/")[-1]))
+
 
 class WhisperEngine:
     """faster-whisper (CTranslate2), int8 on CPU, greedy decoding with Silero VAD."""
@@ -41,6 +58,10 @@ class WhisperEngine:
         segments, _ = self.model.transcribe(audio, language="en", beam_size=1, vad_filter=True,
                                             condition_on_previous_text=False)
         return " ".join(s.text.strip() for s in segments).strip()
+
+    def model_files(self):
+        from faster_whisper.utils import download_model
+        return [download_model(self.name, local_files_only=True)]
 
 
 ENGINES: Dict[str, Callable[[str], Engine]] = {
