@@ -9,8 +9,9 @@ your PC, nothing is saved unless you export it, and it works offline once the mo
 downloaded. It also ships with `livecaptions-bench`, a small reproducible benchmark that
 measures accuracy, latency and CPU cost of local speech-to-text engines on your hardware.
 
-> **Screenshot / GIF:** _coming soon_ — see [docs/DEMO_SCRIPT.md](docs/DEMO_SCRIPT.md) for the
-> 60-second demo this placeholder will be replaced with.
+![Live Captions window: clicking Start turns the banner red, then captions for a LibriSpeech audiobook clip appear as grey interim text and are finalised in black, labelled "Them:"](docs/media/live-captions-demo.gif)
+
+*A real capture: Moonshine base, speakers only, captioning an 18-second LibriSpeech test-clean clip played through the default output device. Grey italic text is the live preview. It can wobble (here it briefly repeats a phrase) before the speaker pauses and the final text replaces it.*
 
 ## Why
 
@@ -53,6 +54,10 @@ The setup script creates `.venv`, installs pinned dependencies, copies `.env.exa
 `.env`, runs the tests and (with `-Run`) starts the app. Afterwards, start it with
 `.venv\Scripts\livecaptions.exe` (no console window) — pin that to your taskbar if you like.
 Models download automatically the first time you press **Start**.
+
+![The Live Captions window after stopping: the finalised transcript of the clip under the "Them:" label, Speakers ticked and Microphone unticked](docs/media/live-captions.png)
+
+*After clicking **Stop**: the transcript stays in an editable box until you copy, export or clear it.*
 
 Manual install: `python -m venv .venv`, then
 `.venv\Scripts\pip install -r requirements.txt -e ".[bench,dev]"`.
@@ -186,7 +191,7 @@ Reproduce:
 
 ## Roadmap
 
-- [ ] Screenshot/GIF in this README
+- [x] Screenshot/GIF in this README
 - [ ] Hotkey and always-on-top caption overlay
 - [ ] Device pickers (not just the defaults)
 - [ ] Echo handling when not using headphones (suppress mic text that duplicates speaker text)
