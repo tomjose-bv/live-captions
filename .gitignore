@@ -1,3 +1,18 @@
 .venv/
 __pycache__/
 *.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+
+# Secrets / local config
+.env
+
+# Benchmark downloads and scratch output (never commit audio or models)
+data/
+bench_results/
+*.flac
+*.wav
+*.onnx
+*.bin

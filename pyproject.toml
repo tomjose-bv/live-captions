@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "livecaptions"
+description = "Offline live captions for Windows system audio and microphone, with a local ASR benchmark harness."
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dynamic = ["version"]
+dependencies = [
+    "faster-whisper>=1.1",
+    "numpy>=1.26",
+    "PyAudioWPatch>=0.2.12; sys_platform == 'win32'",
+    "truststore>=0.9",
+    "useful-moonshine-onnx>=20250000",
+]
+
+[project.optional-dependencies]
+bench = ["jiwer>=3.0", "soundfile>=0.12", "psutil>=5.9"]
+dev = ["pytest>=8"]
+
+[project.gui-scripts]
+livecaptions = "livecaptions.app:main"
+
+[project.scripts]
+livecaptions-bench = "livecaptions.bench.cli:main"
+
+[tool.setuptools.dynamic]
+version = { attr = "livecaptions.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
