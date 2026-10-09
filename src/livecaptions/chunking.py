@@ -8,8 +8,8 @@ import time
 
 import numpy as np
 
-from .config import (IDLE_FLUSH_SEC, MAX_CHUNK_SEC, MIN_CHUNK_SEC, PAUSE_SEC, SILENCE_RMS,
-                     TARGET_RATE)
+from .config import (IDLE_FLUSH_SEC, MAX_CHUNK_SEC, MIN_CHUNK_SEC, PARTIAL_INTERVAL_SEC,
+                     PARTIAL_MIN_SEC, PAUSE_SEC, SILENCE_RMS, TARGET_RATE)
 
 
 def rms(audio):
@@ -86,3 +86,30 @@ class PhraseChunker:
         audio = np.concatenate(self.buf) if self.buf else np.zeros(0, dtype=np.float32)
         self.buf, self.buf_len = [], 0
         return audio
+
+    def peek(self):
+        """Current buffered audio without consuming it (for interim captions)."""
+        return np.concatenate(self.buf) if self.buf else np.zeros(0, dtype=np.float32)
+
+
+class PartialScheduler:
+    """Decides when to re-transcribe the growing buffer for an interim caption.
+
+    Interim passes run at most every ``interval`` seconds, and back off to twice the
+    cost of the previous pass so slow models on slow CPUs never fall behind.
+    """
+
+    def __init__(self, interval=PARTIAL_INTERVAL_SEC, min_audio=PARTIAL_MIN_SEC):
+        self.interval = interval
+        self.min_audio = min_audio
+        self.next_at = 0.0
+
+    def due(self, now, buffered_sec):
+        return buffered_sec >= self.min_audio and now >= self.next_at
+
+    def record(self, now, cost):
+        self.next_at = now + max(self.interval, 2 * cost)
+
+    def reset(self, now):
+        """Call after a final chunk so the next interim waits a full interval."""
+        self.next_at = now + self.interval

@@ -14,3 +14,7 @@ MODELS = {
     "Whisper base.en": ("whisper", "base.en"),
     "Whisper small.en (slow)": ("whisper", "small.en"),
 }
+
+# Interim ("partial") captions: re-transcribe the growing phrase buffer while speech continues.
+PARTIAL_INTERVAL_SEC = 1.0   # at most this often (backs off on slow CPUs)
+PARTIAL_MIN_SEC = 0.8        # don't bother until this much audio is buffered
