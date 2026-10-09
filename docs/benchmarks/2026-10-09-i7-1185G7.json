@@ -1,0 +1,2646 @@
+{
+  "date": "2026-10-09T15:43:00",
+  "machine": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "python": "3.12.10",
+    "machine": "AMD64",
+    "cpu": "11th Gen Intel(R) Core(TM) i7-1185G7 @ 3.00GHz",
+    "logical_cpus": 8,
+    "physical_cores": 4,
+    "ram_gb": 15.7
+  },
+  "dataset": "data/librispeech-test-clean-2per-speaker (livecaptions-bench --download)",
+  "utterances": 80,
+  "audio_minutes": 9.61,
+  "results": [
+    {
+      "engine": "moonshine:moonshine/tiny",
+      "utterances": 80,
+      "audio_s": 576.6800625,
+      "wer": 0.054616384915474644,
+      "rtf": 0.033038886618437534,
+      "latency_p50_s": 0.19315569999162108,
+      "latency_p95_s": 0.6289406600233632,
+      "cpu_s_per_audio_s": 0.17094075451932242,
+      "avg_cores_busy": 5.173926001002951,
+      "load_s": 2.5902519000228494,
+      "model_size_mb": 109.109881,
+      "peak_rss_mb": 522.1015625,
+      "rows": [
+        {
+          "id": "6930-75918-0000",
+          "duration": 3.505,
+          "latency_s": 0.1985700999503024,
+          "cpu_s": 0.40625,
+          "ref": "CONCORD RETURNED TO ITS PLACE AMIDST THE TENTS",
+          "hyp": "Conancord returned to its place amidst the tents."
+        },
+        {
+          "id": "6930-75918-0007",
+          "duration": 3.315,
+          "latency_s": 0.14503610000247136,
+          "cpu_s": 0.6875,
+          "ref": "YOU WILL BE FRANK WITH ME I ALWAYS AM",
+          "hyp": "You will be frank with me, I always am."
+        },
+        {
+          "id": "1320-122617-0003",
+          "duration": 6.285,
+          "latency_s": 0.2489126999862492,
+          "cpu_s": 1.125,
+          "ref": "THERE WAS SOMETHING IN HIS AIR AND MANNER THAT BETRAYED TO THE SCOUT THE UTTER CONFUSION OF THE STATE OF HIS MIND",
+          "hyp": "There was something in his air and manner that betrayed to the scout the utter confusion of the state of his mind."
+        },
+        {
+          "id": "1320-122617-0012",
+          "duration": 7.59,
+          "latency_s": 0.2654288000194356,
+          "cpu_s": 1.328125,
+          "ref": "FOUR OR FIVE OF THE LATTER ONLY LINGERED ABOUT THE DOOR OF THE PRISON OF UNCAS WARY BUT CLOSE OBSERVERS OF THE MANNER OF THEIR CAPTIVE",
+          "hyp": "Four or five of the latter only lingered about the door of the prison of Onca, sweary but close observers of the manner of their captive."
+        },
+        {
+          "id": "5639-40744-0032",
+          "duration": 17.43,
+          "latency_s": 0.7529445000109263,
+          "cpu_s": 3.140625,
+          "ref": "FOR GOD'S SAKE MY LADY MOTHER GIVE ME A WIFE WHO WOULD BE AN AGREEABLE COMPANION NOT ONE WHO WILL DISGUST ME SO THAT WE MAY BOTH BEAR EVENLY AND WITH MUTUAL GOOD WILL THE YOKE IMPOSED ON US BY HEAVEN INSTEAD OF PULLING THIS WAY AND THAT WAY AND FRETTING EACH OTHER TO DEATH",
+          "hyp": "For God's sake, my lady Mother, give me a wife who would be an agreeable companion. Not one who will disgust me, so that we may both bear evenly, and with mutual goodwill, the yoke imposed on us by heaven, instead of pulling this way and that way and fretting each other to death."
+        },
+        {
+          "id": "5639-40744-0002",
+          "duration": 8.91,
+          "latency_s": 0.3194196000113152,
+          "cpu_s": 1.5625,
+          "ref": "RODOLFO AND HIS COMPANIONS WITH THEIR FACES MUFFLED IN THEIR CLOAKS STARED RUDELY AND INSOLENTLY AT THE MOTHER THE DAUGHTER AND THE SERVANT MAID",
+          "hyp": "Ridolfo and his companions, where their faces muffled in their cloaks, stared rudely and insolently at the mother, the daughter and the servant made."
+        },
+        {
+          "id": "260-123440-0018",
+          "duration": 3.64,
+          "latency_s": 0.11344909999752417,
+          "cpu_s": 0.640625,
+          "ref": "I AM VERY TIRED OF SWIMMING ABOUT HERE O MOUSE",
+          "hyp": "I am very tired of swimming about here. Oh, mouse."
+        },
+        {
+          "id": "260-123440-0004",
+          "duration": 12.02,
+          "latency_s": 0.37224980001337826,
+          "cpu_s": 1.8125,
+          "ref": "ALICE TOOK UP THE FAN AND GLOVES AND AS THE HALL WAS VERY HOT SHE KEPT FANNING HERSELF ALL THE TIME SHE WENT ON TALKING DEAR DEAR HOW QUEER EVERYTHING IS TO DAY",
+          "hyp": "Alice took up the fan and gloves, and as the hall was very hot, she kept fanning herself all the time she went on talking. Dear, dear, how queer everything is to-day"
+        },
+        {
+          "id": "7729-102255-0045",
+          "duration": 6.805,
+          "latency_s": 0.1771790999919176,
+          "cpu_s": 0.90625,
+          "ref": "CAPTAIN MARTIN SAID I SHALL GIVE YOU A PISTOL TO HELP PROTECT YOURSELF IF WORSE COMES TO WORST",
+          "hyp": "Captain Martin said, I shall give you a pistol to help protect yourself if worse comes to worst."
+        },
+        {
+          "id": "7729-102255-0041",
+          "duration": 12.415,
+          "latency_s": 0.4415732999914326,
+          "cpu_s": 1.9375,
+          "ref": "THE WHOLE PROCEEDING WAS SO CHILDISH THE MISERABLE PLOT SO TRANSPARENT THE OUTRAGE SO GROSS AS TO BRING DISGUST TO THE BETTER CLASS OF BORDER RUFFIANS WHO WERE WITNESSES AND ACCESSORIES",
+          "hyp": "The whole proceeding was so childish, the miserable plot, so transparent, the outrage so gross as to bring disgust to the better class of border ruffians who were witnesses and accessories."
+        },
+        {
+          "id": "2094-142345-0059",
+          "duration": 10.01,
+          "latency_s": 0.4057870000251569,
+          "cpu_s": 1.890625,
+          "ref": "THIS MISSUS POYSER SAID BLUSHING AND BELIEVING THAT THE CAPTAIN WAS REALLY INTERESTED IN HER MILK PANS AND WOULD ADJUST HIS OPINION OF HER TO THE APPEARANCE OF HER DAIRY",
+          "hyp": "This Mrs. Poice of said blushing, and believing that the captain was really interested in her milk-pans and would adjust his opinion of her to the appearance of her dairy."
+        },
+        {
+          "id": "2094-142345-0045",
+          "duration": 3.005,
+          "latency_s": 0.12235540000256151,
+          "cpu_s": 0.8125,
+          "ref": "OH SIR DON'T MENTION IT SAID MISSUS POYSER",
+          "hyp": "Oh, sir, don't mention it, said Mrs. Poiser."
+        },
+        {
+          "id": "3575-170457-0016",
+          "duration": 1.695,
+          "latency_s": 0.04282579995924607,
+          "cpu_s": 0.328125,
+          "ref": "FAREWELL MADAM",
+          "hyp": "Fair well, madame."
+        },
+        {
+          "id": "3575-170457-0023",
+          "duration": 9.095,
+          "latency_s": 0.23643059999449179,
+          "cpu_s": 1.390625,
+          "ref": "I CAREFULLY AVOID ANY APPEARANCE OF PREOCCUPATION AND ECCENTRICITY WHICH MIGHT LEAD THOSE I LIVE AMONGST TO SUSPECT THE NATURE OF MY PURSUITS",
+          "hyp": "I carefully avoid any appearance of preoccupation and eccentricity, which might lead those I live amongst to suspect the nature of my pursuits."
+        },
+        {
+          "id": "7127-75947-0011",
+          "duration": 3.62,
+          "latency_s": 0.11871299997437745,
+          "cpu_s": 0.828125,
+          "ref": "REMAIN I IMPLORE YOU THE EVENING IS MOST LOVELY",
+          "hyp": "Remain, I implore you, the evening is most lovely."
+        },
+        {
+          "id": "7127-75947-0004",
+          "duration": 1.905,
+          "latency_s": 0.040467599988915026,
+          "cpu_s": 0.21875,
+          "ref": "EXPLAIN YOURSELF",
+          "hyp": "Explain yourself."
+        },
+        {
+          "id": "2961-960-0012",
+          "duration": 6.89,
+          "latency_s": 0.2011216999962926,
+          "cpu_s": 1.234375,
+          "ref": "MANY IF NOT ALL THE ELEMENTS OF THE PRE SOCRATIC PHILOSOPHY ARE INCLUDED IN THE TIMAEUS",
+          "hyp": "Many, if not all the elements of the pre-socratic philosophy are included in the T. M. S."
+        },
+        {
+          "id": "2961-960-0022",
+          "duration": 7.425,
+          "latency_s": 0.2123645000392571,
+          "cpu_s": 1.21875,
+          "ref": "PLATO HAD NOT THE COMMAND OF HIS MATERIALS WHICH WOULD HAVE ENABLED HIM TO PRODUCE A PERFECT WORK OF ART",
+          "hyp": "Plato had not the command of his materials, which would have enabled him to produce a perfect work of art."
+        },
+        {
+          "id": "8463-287645-0008",
+          "duration": 3.325,
+          "latency_s": 0.15983869996853173,
+          "cpu_s": 0.8125,
+          "ref": "AS USUAL NOTHING WAS DONE IN THE WAY OF PUNISHMENT",
+          "hyp": "As usual, nothing was done in the way of punishment."
+        },
+        {
+          "id": "8463-287645-0010",
+          "duration": 4.325,
+          "latency_s": 0.13087209995137528,
+          "cpu_s": 0.8125,
+          "ref": "HE WORKED ME VERY HARD HE WANTED TO BE BEATING ME ALL THE TIME",
+          "hyp": "He worked me very hard. He wanted to be beating me all the time."
+        },
+        {
+          "id": "8230-279154-0036",
+          "duration": 3.235,
+          "latency_s": 0.06273500004317611,
+          "cpu_s": 0.40625,
+          "ref": "A FURTHER STAGE IS RECOGNITION",
+          "hyp": "A further stage is recognition."
+        },
+        {
+          "id": "8230-279154-0015",
+          "duration": 8.05,
+          "latency_s": 0.19808280002325773,
+          "cpu_s": 1.21875,
+          "ref": "THEY MUST HAVE SOME CHARACTERISTIC WHICH MAKES US REGARD THEM AS REFERRING TO MORE OR LESS REMOTE PORTIONS OF THE PAST",
+          "hyp": "They must have some characteristic which makes us regard them as referring to more or less remote portions of the past."
+        },
+        {
+          "id": "7176-92135-0018",
+          "duration": 8.94,
+          "latency_s": 0.2922003999701701,
+          "cpu_s": 1.625,
+          "ref": "IN THE MODERN WELL CONSTRUCTED PLAY HE SIMPLY RINGS UP AN IMAGINARY CONFEDERATE AND TELLS HIM WHAT HE IS GOING TO DO COULD ANYTHING BE MORE NATURAL",
+          "hyp": "In the modern well-constructed play, he simply rings up an imaginary Confederate and tells him what he is going to do, could anything be more natural."
+        },
+        {
+          "id": "7176-92135-0034",
+          "duration": 4.465,
+          "latency_s": 0.2034097999567166,
+          "cpu_s": 1.1875,
+          "ref": "THE DUCHESS OF SOUTHBRIDGE TO LORD REGGIE OH REGGIE WHAT DID YOU SAY",
+          "hyp": "The Duchess of Southbridge, too, Lord Reggie, Oh, Reggie, what did you say?"
+        },
+        {
+          "id": "1995-1836-0007",
+          "duration": 3.435,
+          "latency_s": 0.09850009996443987,
+          "cpu_s": 0.609375,
+          "ref": "BUT YOU BELIEVE IN SOME EDUCATION ASKED MARY TAYLOR",
+          "hyp": "Do believe in some education? Ask Mary Taylor."
+        },
+        {
+          "id": "1995-1836-0008",
+          "duration": 6.985,
+          "latency_s": 0.17858690000139177,
+          "cpu_s": 1.203125,
+          "ref": "I BELIEVE IN THE TRAINING OF PEOPLE TO THEIR HIGHEST CAPACITY THE ENGLISHMAN HERE HEARTILY SECONDED HIM",
+          "hyp": "I believe in the training of people to their highest capacity. The Englishman here heartily suckended him."
+        },
+        {
+          "id": "1284-1181-0019",
+          "duration": 3.2,
+          "latency_s": 0.10748030000831932,
+          "cpu_s": 0.703125,
+          "ref": "I NOW USE THEM AS ORNAMENTAL STATUARY IN MY GARDEN",
+          "hyp": "I now use them as ornamental statuary in my garden."
+        },
+        {
+          "id": "1284-1181-0002",
+          "duration": 3.835,
+          "latency_s": 0.11596149997785687,
+          "cpu_s": 0.8125,
+          "ref": "THE HEAD OF THE PATCHWORK GIRL WAS THE MOST CURIOUS PART OF HER",
+          "hyp": "The head of the patchwork girl was the most curious part of her."
+        },
+        {
+          "id": "5142-36377-0003",
+          "duration": 3.91,
+          "latency_s": 0.14928020001389086,
+          "cpu_s": 0.859375,
+          "ref": "AMBROSE MET ME AT THE BOTTOM OF THE STAIRS AND SHOWED ME THE WAY TO THE SUPPER ROOM",
+          "hyp": "Ambrose met me at the bottom of the stairs and showed me the way to the supper room."
+        },
+        {
+          "id": "5142-36377-0008",
+          "duration": 15.425,
+          "latency_s": 0.6370871000108309,
+          "cpu_s": 2.9375,
+          "ref": "MISTER MEADOWCROFT THE ELDER HAVING NOT SPOKEN ONE WORD THUS FAR HIMSELF INTRODUCED THE NEWCOMER TO ME WITH A SIDE GLANCE AT HIS SONS WHICH HAD SOMETHING LIKE DEFIANCE IN IT A GLANCE WHICH AS I WAS SORRY TO NOTICE WAS RETURNED WITH THE DEFIANCE ON THEIR SIDE BY THE TWO YOUNG MEN",
+          "hyp": "Mr. Metacroft, the elder, having not spoken one word thus far, himself introduced the new-comer to me with a sidelines at his sons, which had something like defiance in it, a glance which, as I was sorry to notice, was returned with the defiance on their side by the two young men."
+        },
+        {
+          "id": "8455-210777-0069",
+          "duration": 8.915,
+          "latency_s": 0.2930105000268668,
+          "cpu_s": 1.5625,
+          "ref": "IF YOU WILL GIVE US YOUR PROMISE TO MEET CAPTAIN BATTLEAX HERE AT THIS TIME TO MORROW WE WILL STRETCH A POINT AND DELAY THE DEPARTURE OF THE JOHN BRIGHT FOR TWENTY FOUR HOURS",
+          "hyp": "If you will give us your promise to meet Captain Adalax here at this time to-morrow we will stretch a point and delay the departure of the John Bright for twenty-four hours."
+        },
+        {
+          "id": "8455-210777-0017",
+          "duration": 5.3300625,
+          "latency_s": 0.15751390001969412,
+          "cpu_s": 0.96875,
+          "ref": "MY WIFE ON THE SPUR OF THE MOMENT MANAGED TO GIVE THE GENTLEMEN A VERY GOOD DINNER",
+          "hyp": "My wife, on the spur of the moment, managed to give the gentleman a very good dinner."
+        },
+        {
+          "id": "2830-3980-0046",
+          "duration": 2.84,
+          "latency_s": 0.08037989999866113,
+          "cpu_s": 0.5,
+          "ref": "WAS IT NOT ENOUGH TO SAY FROM GOD THE FATHER",
+          "hyp": "Was it not enough to say from God the Father?"
+        },
+        {
+          "id": "2830-3980-0055",
+          "duration": 7.335,
+          "latency_s": 0.200812200026121,
+          "cpu_s": 1.203125,
+          "ref": "TO BESTOW PEACE AND GRACE LIES IN THE PROVINCE OF GOD WHO ALONE CAN CREATE THESE BLESSINGS THE ANGELS CANNOT",
+          "hyp": "To bestow peace and grace lies in the province of God, who alone can create these blessings. The angels cannot."
+        },
+        {
+          "id": "4446-2271-0024",
+          "duration": 3.16,
+          "latency_s": 0.11665539996465668,
+          "cpu_s": 0.765625,
+          "ref": "I SHOULDN'T WONDER IF SHE COULD LAUGH ABOUT IT WITH ME NOW",
+          "hyp": "I shouldn't wonder if she could laugh about it with me now."
+        },
+        {
+          "id": "4446-2271-0007",
+          "duration": 2.1,
+          "latency_s": 0.07550209999317303,
+          "cpu_s": 0.421875,
+          "ref": "SHE DOESN'T TAKE UP WITH ANYBODY YOU KNOW",
+          "hyp": "She doesn't take up with anybody, you know."
+        },
+        {
+          "id": "4077-13754-0003",
+          "duration": 5.68,
+          "latency_s": 0.1534805999835953,
+          "cpu_s": 1.03125,
+          "ref": "MOREOVER HAD THE PEOPLE BEEN INCLINED TO REBELLION WHAT GREATER OPPORTUNITY COULD THEY HAVE WISHED",
+          "hyp": "Moreover, had the people been inclined to rebellion, what greater opportunity could they have wished?"
+        },
+        {
+          "id": "4077-13754-0010",
+          "duration": 11.955,
+          "latency_s": 0.41675180004676804,
+          "cpu_s": 2.015625,
+          "ref": "IN EIGHTEEN SIXTY TWO A LAW WAS ENACTED WITH THE PURPOSE OF SUPPRESSING PLURAL MARRIAGE AND AS HAD BEEN PREDICTED IN THE NATIONAL SENATE PRIOR TO ITS PASSAGE IT LAY FOR MANY YEARS A DEAD LETTER",
+          "hyp": "In eighteen sixty two, a law was enacted with a purpose of suppressing plural marriage, and as had been predicted in the national Senate prior to its passage, it lay for many years a dead letter."
+        },
+        {
+          "id": "1221-135767-0022",
+          "duration": 14.395,
+          "latency_s": 0.4362956999684684,
+          "cpu_s": 2.046875,
+          "ref": "BUT THE PROPRIETOR APPEARED ALREADY TO HAVE RELINQUISHED AS HOPELESS THE EFFORT TO PERPETUATE ON THIS SIDE OF THE ATLANTIC IN A HARD SOIL AND AMID THE CLOSE STRUGGLE FOR SUBSISTENCE THE NATIVE ENGLISH TASTE FOR ORNAMENTAL GARDENING",
+          "hyp": "But the proprietor appeared already to every linguist as hopeless, the effort to perpetuate on this side of the Atlantic in a hard soil, and amid the close struggle for subsistence, the native English taste for ornamental gardening."
+        },
+        {
+          "id": "1221-135767-0019",
+          "duration": 3.78,
+          "latency_s": 0.11895729997195303,
+          "cpu_s": 0.765625,
+          "ref": "MOTHER CRIED SHE I SEE YOU HERE LOOK LOOK",
+          "hyp": "Mother cried, She, I see you here. Look, look."
+        },
+        {
+          "id": "908-157963-0018",
+          "duration": 4.255,
+          "latency_s": 0.11707109998678789,
+          "cpu_s": 0.875,
+          "ref": "AND FEAREST THOU BECAUSE I VANISH AND AM SEEN NO MORE",
+          "hyp": "And fearst thou because I vanish, and am seen no more."
+        },
+        {
+          "id": "908-157963-0020",
+          "duration": 9.8,
+          "latency_s": 0.2530865999870002,
+          "cpu_s": 1.28125,
+          "ref": "TILL WE ARISE LINK'D IN A GOLDEN BAND AND NEVER PART BUT WALK UNITED BEARING FOOD TO ALL OUR TENDER FLOWERS",
+          "hyp": "Till we arise, linked in a golden band, and never part, but walk united bearing food to all our tender flowers."
+        },
+        {
+          "id": "7021-79759-0005",
+          "duration": 13.02,
+          "latency_s": 0.3229597000172362,
+          "cpu_s": 1.578125,
+          "ref": "THE PAIN PRODUCED BY AN ACT OF HASTY AND ANGRY VIOLENCE TO WHICH A FATHER SUBJECTS HIS SON MAY SOON PASS AWAY BUT THE MEMORY OF IT DOES NOT PASS AWAY WITH THE PAIN",
+          "hyp": "The pain produced by an act of hasty and angry violence, to which a father subjects his son may soon pass away, but the memory of it does not pass away with the pain."
+        },
+        {
+          "id": "7021-79759-0003",
+          "duration": 4.62,
+          "latency_s": 0.11058559996308759,
+          "cpu_s": 0.71875,
+          "ref": "VAST IMPORTANCE AND INFLUENCE OF THIS MENTAL FURNISHING",
+          "hyp": "Vast importance and influence of this mental furnishing."
+        },
+        {
+          "id": "8224-274384-0011",
+          "duration": 22.36,
+          "latency_s": 0.6787830000394024,
+          "cpu_s": 3.140625,
+          "ref": "THE ENGLISH IT IS EVIDENT HAD THEY NOT BEEN PREVIOUSLY ASSURED OF RECEIVING THE KING WOULD NEVER HAVE PARTED WITH SO CONSIDERABLE A SUM AND WHILE THEY WEAKENED THEMSELVES BY THE SAME MEASURE HAVE STRENGTHENED A PEOPLE WITH WHOM THEY MUST AFTERWARDS HAVE SO MATERIAL AN INTEREST TO DISCUSS",
+          "hyp": "The English, it is evident, had they not been previously assured of receiving the king, would never have parted with so considerable a sum, and while they weaken themselves by the same measure, have strengthened a people with whom they must afterwards have so material an interest to discuss."
+        },
+        {
+          "id": "8224-274384-0000",
+          "duration": 7.605,
+          "latency_s": 0.18822859995998442,
+          "cpu_s": 1.125,
+          "ref": "HE PASSED THROUGH HENLEY SAINT ALBANS AND CAME SO NEAR TO LONDON AS HARROW ON THE HILL",
+          "hyp": "He passed through Henley, St Albans, and came so near to London as Harrow on the hill."
+        },
+        {
+          "id": "4507-16021-0025",
+          "duration": 9.215,
+          "latency_s": 0.23129530000733212,
+          "cpu_s": 1.375,
+          "ref": "TO MEET THE NEEDS OF THIS CONFLICT WRETCHEDNESS HAS INVENTED A LANGUAGE OF COMBAT WHICH IS SLANG",
+          "hyp": "To meet the needs of this conflict, wretchedness has invented a language of combat, which is slang."
+        },
+        {
+          "id": "4507-16021-0052",
+          "duration": 6.275,
+          "latency_s": 0.16360440000426024,
+          "cpu_s": 1.03125,
+          "ref": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+          "hyp": "The real human division is this, the luminous and the shady."
+        },
+        {
+          "id": "672-122797-0038",
+          "duration": 8.8,
+          "latency_s": 0.23324359999969602,
+          "cpu_s": 1.375,
+          "ref": "THOUGHT THE FIR TREE AND BELIEVED IT ALL BECAUSE THE MAN WHO TOLD THE STORY WAS SO GOOD LOOKING WELL WELL",
+          "hyp": "Thought the fir tree, and believed it all, because the man who told the story was so good-looking well well."
+        },
+        {
+          "id": "672-122797-0004",
+          "duration": 10.25,
+          "latency_s": 0.26892480003880337,
+          "cpu_s": 1.484375,
+          "ref": "IN WINTER WHEN THE SNOW LAY GLITTERING ON THE GROUND A HARE WOULD OFTEN COME LEAPING ALONG AND JUMP RIGHT OVER THE LITTLE TREE",
+          "hyp": "In winter, when the snow lay glittering on the ground, a hare would often come leaping along and jump right over the little tree."
+        },
+        {
+          "id": "5105-28241-0010",
+          "duration": 2.31,
+          "latency_s": 0.0653096999740228,
+          "cpu_s": 0.390625,
+          "ref": "OCEAN REIGNED SUPREME",
+          "hyp": "Ocean reigned supreme."
+        },
+        {
+          "id": "5105-28241-0007",
+          "duration": 1.88,
+          "latency_s": 0.07072299998253584,
+          "cpu_s": 0.53125,
+          "ref": "THERE IS NO FEAR OF THAT SIR",
+          "hyp": "There's no fear of that, sir."
+        },
+        {
+          "id": "3729-6852-0036",
+          "duration": 5.24,
+          "latency_s": 0.1329062000149861,
+          "cpu_s": 0.890625,
+          "ref": "WHEN THE KING COMES TO PARIS EVERYBODY CALLS OUT VIVE LE ROI",
+          "hyp": "When the king comes to Paris, everybody calls out Viva La Roy."
+        },
+        {
+          "id": "3729-6852-0027",
+          "duration": 3.0,
+          "latency_s": 0.08613580005476251,
+          "cpu_s": 0.578125,
+          "ref": "THAT IS TRUE BADAUDERIE",
+          "hyp": "That is true, bad, dear, great."
+        },
+        {
+          "id": "1089-134691-0016",
+          "duration": 9.06,
+          "latency_s": 0.22329250001348555,
+          "cpu_s": 1.296875,
+          "ref": "THEY WERE VOYAGING ACROSS THE DESERTS OF THE SKY A HOST OF NOMADS ON THE MARCH VOYAGING HIGH OVER IRELAND WESTWARD BOUND",
+          "hyp": "They were voyaging across the deserts of the sky, a host of nomads on the march, voyaging high over Ireland westward bound."
+        },
+        {
+          "id": "1089-134691-0000",
+          "duration": 2.085,
+          "latency_s": 0.0630595000111498,
+          "cpu_s": 0.4375,
+          "ref": "HE COULD WAIT NO LONGER",
+          "hyp": "He could wait no longer."
+        },
+        {
+          "id": "1188-133604-0019",
+          "duration": 13.93,
+          "latency_s": 0.39143300004070625,
+          "cpu_s": 2.046875,
+          "ref": "THE LARGE LETTER CONTAINS INDEED ENTIRELY FEEBLE AND ILL DRAWN FIGURES THAT IS MERELY CHILDISH AND FAILING WORK OF AN INFERIOR HAND IT IS NOT CHARACTERISTIC OF GOTHIC OR ANY OTHER SCHOOL",
+          "hyp": "The large letter contains, indeed, entirely feeble and ill-drawn figures. That is merely childish and failing work of an inferior hand. It is not characteristic of Gothic or any other school."
+        },
+        {
+          "id": "1188-133604-0038",
+          "duration": 5.365,
+          "latency_s": 0.16760860005160794,
+          "cpu_s": 1.0625,
+          "ref": "BUT NOW HERE IS A SUBJECT OF WHICH YOU WILL WONDER AT FIRST WHY TURNER DREW IT AT ALL",
+          "hyp": "But now here is a subject of which you will wonder at first why Turner druid it all."
+        },
+        {
+          "id": "2300-131720-0037",
+          "duration": 7.965,
+          "latency_s": 0.21848019998287782,
+          "cpu_s": 1.234375,
+          "ref": "HE WEIGHED AND REWEIGHED THE METER PLATES AND PURSUED EVERY LINE OF INVESTIGATION IMAGINABLE BUT ALL IN VAIN",
+          "hyp": "He weighed and re-waved the meter plates and pursued every line of investigation imaginable, but all in vain."
+        },
+        {
+          "id": "2300-131720-0018",
+          "duration": 12.54,
+          "latency_s": 0.36172810004791245,
+          "cpu_s": 1.84375,
+          "ref": "HE SOON FORESAW THAT STILL GREATER ECONOMY WOULD BE NECESSARY FOR COMMERCIAL SUCCESS NOT ALONE FOR THE LARGER TERRITORY OPENING BUT FOR THE COMPACT DISTRICTS OF LARGE CITIES",
+          "hyp": "He soon foresaw that still greater economy would be necessary for commercial success, not alone for the larger territory opening, but for the compact district of large cities."
+        },
+        {
+          "id": "6829-68769-0016",
+          "duration": 4.12,
+          "latency_s": 0.1985819999827072,
+          "cpu_s": 1.046875,
+          "ref": "HE UNLOCKED THE DOOR AND CALLED HERE'S VISITORS TOM",
+          "hyp": "He unlocked the door and called. Here's visitors, Tom."
+        },
+        {
+          "id": "6829-68769-0019",
+          "duration": 2.665,
+          "latency_s": 0.12109169998439029,
+          "cpu_s": 0.703125,
+          "ref": "SORRY WE HAVEN'T ANY RECEPTION ROOM IN THE JAIL",
+          "hyp": "Sorry, we haven't any reception room in the jail."
+        },
+        {
+          "id": "1580-141083-0047",
+          "duration": 2.605,
+          "latency_s": 0.08208700001705438,
+          "cpu_s": 0.609375,
+          "ref": "DID YOU LOOK AT THESE PAPERS ON THE TABLE",
+          "hyp": "Did you look at these papers on the table?"
+        },
+        {
+          "id": "1580-141083-0004",
+          "duration": 4.515,
+          "latency_s": 0.11938559997361153,
+          "cpu_s": 0.78125,
+          "ref": "I HAD TO READ IT OVER CAREFULLY AS THE TEXT MUST BE ABSOLUTELY CORRECT",
+          "hyp": "I had to read it over carefully as the text must be absolutely correct."
+        },
+        {
+          "id": "4970-29095-0016",
+          "duration": 6.945,
+          "latency_s": 0.18360299995401874,
+          "cpu_s": 1.09375,
+          "ref": "RUTH SAT QUITE STILL FOR A TIME WITH FACE INTENT AND FLUSHED IT WAS OUT NOW",
+          "hyp": "Ruth sat quite still for a time, with face intent and flushed. It was out now."
+        },
+        {
+          "id": "4970-29095-0020",
+          "duration": 12.365,
+          "latency_s": 0.38415050000185147,
+          "cpu_s": 1.90625,
+          "ref": "THERE CERTAINLY WAS NO END TO IT AND EVEN RUTH WAS PHILADELPHIAN ENOUGH TO BELIEVE THAT A STREET OUGHT NOT TO HAVE ANY END OR ARCHITECTURAL POINT UPON WHICH THE WEARY EYE COULD REST",
+          "hyp": "There certainly was no end to it, and even Ruth was Philadelphia in enough to believe that a street ought not to have any end, or architectural blight upon which the weary eye could rest."
+        },
+        {
+          "id": "4992-41797-0001",
+          "duration": 28.41,
+          "latency_s": 1.233034199976828,
+          "cpu_s": 5.203125,
+          "ref": "WELL AS I SAY IT'S AN AWFUL QUEER WORLD THEY CLAP ALL THE BURGLARS INTO JAIL AND THE MURDERERS AND THE WIFE BEATERS I'VE ALLERS THOUGHT A GENTLE REPROOF WOULD BE ENOUGH PUNISHMENT FOR A WIFE BEATER CAUSE HE PROBABLY HAS A LOT O PROVOCATION THAT NOBODY KNOWS AND THE FIREBUGS CAN'T THINK O THE RIGHT NAME SOMETHING LIKE CENDENARIES AN THE BREAKERS O THE PEACE AN WHAT NOT AN YET THE LAW HAS NOTHIN TO SAY TO A MAN LIKE HEN LORD",
+          "hyp": "Well, as I say, it's an awful queer world. They clap all the burglars and gel in the murderers in the wife beaters. I always thought a general reproof would be enough punishment for a wife beater, because he probably has a lot of provocation that nobody knows. And the firebugs can't think of the right name something like Cindy Aries. And the breakers are the piece and what not, and yet the law has nothing to say to a man like Han Lord."
+        },
+        {
+          "id": "4992-41797-0009",
+          "duration": 13.195,
+          "latency_s": 0.39448660000925884,
+          "cpu_s": 2.015625,
+          "ref": "HENRY LORD WITH THE DEGREE OF PH D TO HIS CREDIT HAD BEEN PROFESSOR OF ZOOLOGY AT A NEW ENGLAND COLLEGE BUT HAD RESIGNED HIS POST IN ORDER TO WRITE A SERIES OF SCIENTIFIC TEXT BOOKS",
+          "hyp": "Henry Lord, with the degree of Ph D to his credit, had been professor of zoology at a New England college, but had resigned his post in order to write a series of scientific text books."
+        },
+        {
+          "id": "61-70968-0004",
+          "duration": 3.885,
+          "latency_s": 0.1205201999982819,
+          "cpu_s": 0.6875,
+          "ref": "ALSO THERE WAS A STRIPLING PAGE WHO TURNED INTO A MAID",
+          "hyp": "Also, there was a stripling page who turned into a maid."
+        },
+        {
+          "id": "61-70968-0011",
+          "duration": 6.375,
+          "latency_s": 0.26956630003405735,
+          "cpu_s": 1.46875,
+          "ref": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+          "hyp": "He gave way to the others very readily and retreated unperceived by the squire in Mistress Fitzzuth to the rear of the tent."
+        },
+        {
+          "id": "8555-292519-0005",
+          "duration": 9.575,
+          "latency_s": 0.4109136000042781,
+          "cpu_s": 1.453125,
+          "ref": "WHILE THE OLD GOLD AND THE MARBLE STAYS FOREVER GLEAMING ITS SOFT STRONG BLAZE CALM IN THE EARLY EVENING GLOW",
+          "hyp": "While the old gold and the marble stays forever gleaming, its soft, strong blaze calm in the early evening glow."
+        },
+        {
+          "id": "8555-292519-0003",
+          "duration": 14.58,
+          "latency_s": 0.6285119000240229,
+          "cpu_s": 2.25,
+          "ref": "IN A SUNSET GLOWING OF CRIMSON AND GOLD SHE LIES THE GLORY OF THE WORLD A BEACHED KING'S GALLEY WHOSE SAILS ARE FURLED WHO IS HUNG WITH TAPESTRIES RICH AND OLD",
+          "hyp": "In a sunset glowing of crimson and gold, she lies the glory of the world, a beached king's galley, whose sails are furled, who is hung with tapestries, rich and old."
+        },
+        {
+          "id": "237-134500-0014",
+          "duration": 4.25,
+          "latency_s": 0.2439390000072308,
+          "cpu_s": 1.0,
+          "ref": "AND EMIL MOWED HIS WAY SLOWLY DOWN TOWARD THE CHERRY TREES",
+          "hyp": "And Amule mode his way slowly down toward the cherry-trees"
+        },
+        {
+          "id": "237-134500-0003",
+          "duration": 3.17,
+          "latency_s": 0.16756999999051914,
+          "cpu_s": 0.796875,
+          "ref": "THE ORCHARD WAS SPARKLING AND RIPPLING IN THE SUN",
+          "hyp": "The orchard was sparkling and rippling in the sun."
+        },
+        {
+          "id": "3570-5694-0021",
+          "duration": 10.555,
+          "latency_s": 0.4241228000028059,
+          "cpu_s": 1.828125,
+          "ref": "WHENEVER AS IN THESE CASES THE MENIAL SERVICE IN QUESTION HAS TO DO DIRECTLY WITH THE PRIMARY LEISURE EMPLOYMENTS OF FIGHTING AND HUNTING IT EASILY ACQUIRES A REFLECTED HONORIFIC CHARACTER",
+          "hyp": "Whenever, as in these cases, the menial service in question has to do directly with a primary leisure employment of fighting and hunting. It easily acquires a reflected on a riffick character."
+        },
+        {
+          "id": "3570-5694-0017",
+          "duration": 8.335,
+          "latency_s": 0.32590460003120825,
+          "cpu_s": 1.765625,
+          "ref": "THE WEARING OF UNIFORMS OR LIVERIES IMPLIES A CONSIDERABLE DEGREE OF DEPENDENCE AND MAY EVEN BE SAID TO BE A MARK OF SERVITUDE REAL OR OSTENSIBLE",
+          "hyp": "The wearing of uniforms or liveries implies a considerable degree of dependence, and may even be said to be a mark of servitude, real or ostensible."
+        },
+        {
+          "id": "5683-32865-0002",
+          "duration": 2.78,
+          "latency_s": 0.08783360000234097,
+          "cpu_s": 0.578125,
+          "ref": "HE HAD HIS HAND UPON LAKE'S SHOULDER",
+          "hyp": "He had his hand upon Lake's shoulder."
+        },
+        {
+          "id": "5683-32865-0008",
+          "duration": 6.12,
+          "latency_s": 0.1764786000130698,
+          "cpu_s": 1.109375,
+          "ref": "I BELIEVE I HAVE A LITTLE TASTE THAT WAY THOSE ARE ALL REAL YOU KNOW THOSE JEWELS",
+          "hyp": "I believe I have a little taste that way. Those are all real. You know those jewels."
+        },
+        {
+          "id": "121-121726-0004",
+          "duration": 4.02,
+          "latency_s": 0.10968990001128986,
+          "cpu_s": 0.671875,
+          "ref": "HEAVEN A GOOD PLACE TO BE RAISED TO",
+          "hyp": "Heaven, a good place to be raised to."
+        },
+        {
+          "id": "121-121726-0000",
+          "duration": 8.46,
+          "latency_s": 0.22471380000934005,
+          "cpu_s": 1.375,
+          "ref": "ALSO A POPULAR CONTRIVANCE WHEREBY LOVE MAKING MAY BE SUSPENDED BUT NOT STOPPED DURING THE PICNIC SEASON",
+          "hyp": "Also a popular contrivance whereby love-making may be suspended, but not stopped during the picnic season."
+        }
+      ],
+      "bench_wall_s": 23.6
+    },
+    {
+      "engine": "moonshine:moonshine/base",
+      "utterances": 80,
+      "audio_s": 576.6800625,
+      "wer": 0.03836150845253576,
+      "rtf": 0.05649941140476205,
+      "latency_p50_s": 0.3309472499822732,
+      "latency_p95_s": 0.9416689150442832,
+      "cpu_s_per_audio_s": 0.26623297731920464,
+      "avg_cores_busy": 4.712137183375422,
+      "load_s": 3.307411699963268,
+      "model_size_mb": 247.030126,
+      "peak_rss_mb": 741.21484375,
+      "rows": [
+        {
+          "id": "6930-75918-0000",
+          "duration": 3.505,
+          "latency_s": 0.1515654000104405,
+          "cpu_s": 0.9375,
+          "ref": "CONCORD RETURNED TO ITS PLACE AMIDST THE TENTS",
+          "hyp": "Concord returned to its place amidst the tents,"
+        },
+        {
+          "id": "6930-75918-0007",
+          "duration": 3.315,
+          "latency_s": 0.16362190002109855,
+          "cpu_s": 0.921875,
+          "ref": "YOU WILL BE FRANK WITH ME I ALWAYS AM",
+          "hyp": "You will be frank with me. I always am."
+        },
+        {
+          "id": "1320-122617-0003",
+          "duration": 6.285,
+          "latency_s": 0.36242320004384965,
+          "cpu_s": 1.890625,
+          "ref": "THERE WAS SOMETHING IN HIS AIR AND MANNER THAT BETRAYED TO THE SCOUT THE UTTER CONFUSION OF THE STATE OF HIS MIND",
+          "hyp": "There was something in his air and manner that betrayed to the scout the utter confusion of the state of his mind."
+        },
+        {
+          "id": "1320-122617-0012",
+          "duration": 7.59,
+          "latency_s": 0.536686000006739,
+          "cpu_s": 2.3125,
+          "ref": "FOUR OR FIVE OF THE LATTER ONLY LINGERED ABOUT THE DOOR OF THE PRISON OF UNCAS WARY BUT CLOSE OBSERVERS OF THE MANNER OF THEIR CAPTIVE",
+          "hyp": "Four or five of the latter only lingered about the door of the prison of Uncas, wary but close observers of the manner of their captive."
+        },
+        {
+          "id": "5639-40744-0032",
+          "duration": 17.43,
+          "latency_s": 1.1881663000094704,
+          "cpu_s": 5.0625,
+          "ref": "FOR GOD'S SAKE MY LADY MOTHER GIVE ME A WIFE WHO WOULD BE AN AGREEABLE COMPANION NOT ONE WHO WILL DISGUST ME SO THAT WE MAY BOTH BEAR EVENLY AND WITH MUTUAL GOOD WILL THE YOKE IMPOSED ON US BY HEAVEN INSTEAD OF PULLING THIS WAY AND THAT WAY AND FRETTING EACH OTHER TO DEATH",
+          "hyp": "For God's sake, my lady Mother, give me a wife who would be an agreeable companion, not one who will disgust me, so that we may both bear evenly, and with mutual good-will the yoke imposed on us by heaven, instead of pulling this way and that way and fretting each other to death."
+        },
+        {
+          "id": "5639-40744-0002",
+          "duration": 8.91,
+          "latency_s": 0.5514894999796525,
+          "cpu_s": 2.625,
+          "ref": "RODOLFO AND HIS COMPANIONS WITH THEIR FACES MUFFLED IN THEIR CLOAKS STARED RUDELY AND INSOLENTLY AT THE MOTHER THE DAUGHTER AND THE SERVANT MAID",
+          "hyp": "Rodolfo and his companions, with their faces muffled in their cloaks, stared rudely and insolently at the mother, the dog, rend the servant made."
+        },
+        {
+          "id": "260-123440-0018",
+          "duration": 3.64,
+          "latency_s": 0.19415840000147,
+          "cpu_s": 1.21875,
+          "ref": "I AM VERY TIRED OF SWIMMING ABOUT HERE O MOUSE",
+          "hyp": "I am very tired of swimming about here, o mouse."
+        },
+        {
+          "id": "260-123440-0004",
+          "duration": 12.02,
+          "latency_s": 0.6421805000281893,
+          "cpu_s": 2.953125,
+          "ref": "ALICE TOOK UP THE FAN AND GLOVES AND AS THE HALL WAS VERY HOT SHE KEPT FANNING HERSELF ALL THE TIME SHE WENT ON TALKING DEAR DEAR HOW QUEER EVERYTHING IS TO DAY",
+          "hyp": "Alice took up the fan and gloves, and as the hall was very hot, she kept fanning herself all the time. She went on talking, dear, dear, how queer everything is to-day"
+        },
+        {
+          "id": "7729-102255-0045",
+          "duration": 6.805,
+          "latency_s": 0.3245541999931447,
+          "cpu_s": 1.59375,
+          "ref": "CAPTAIN MARTIN SAID I SHALL GIVE YOU A PISTOL TO HELP PROTECT YOURSELF IF WORSE COMES TO WORST",
+          "hyp": "Captain Martin said, I shall give you a pistol to help protect yourself if worse comes to worst."
+        },
+        {
+          "id": "7729-102255-0041",
+          "duration": 12.415,
+          "latency_s": 0.7073892999906093,
+          "cpu_s": 3.140625,
+          "ref": "THE WHOLE PROCEEDING WAS SO CHILDISH THE MISERABLE PLOT SO TRANSPARENT THE OUTRAGE SO GROSS AS TO BRING DISGUST TO THE BETTER CLASS OF BORDER RUFFIANS WHO WERE WITNESSES AND ACCESSORIES",
+          "hyp": "The whole proceeding was so childish, the miserable plot, so transparent, the outrage so gross as to bring disgust to the better class of border ruffians who were witnesses and accessories."
+        },
+        {
+          "id": "2094-142345-0059",
+          "duration": 10.01,
+          "latency_s": 0.7638156000175513,
+          "cpu_s": 2.703125,
+          "ref": "THIS MISSUS POYSER SAID BLUSHING AND BELIEVING THAT THE CAPTAIN WAS REALLY INTERESTED IN HER MILK PANS AND WOULD ADJUST HIS OPINION OF HER TO THE APPEARANCE OF HER DAIRY",
+          "hyp": "This Mrs. Poyser said, blushing, and believing that the captain was really interested in her milk pans, and would adjust his opinion of her to the appearance of her dairy."
+        },
+        {
+          "id": "2094-142345-0045",
+          "duration": 3.005,
+          "latency_s": 0.20637789997272193,
+          "cpu_s": 1.21875,
+          "ref": "OH SIR DON'T MENTION IT SAID MISSUS POYSER",
+          "hyp": "Oh, sir, don't mention it, said Mrs. Poyser."
+        },
+        {
+          "id": "3575-170457-0016",
+          "duration": 1.695,
+          "latency_s": 0.11083670001244172,
+          "cpu_s": 0.75,
+          "ref": "FAREWELL MADAM",
+          "hyp": "Farewell, madam."
+        },
+        {
+          "id": "3575-170457-0023",
+          "duration": 9.095,
+          "latency_s": 0.45466400001896545,
+          "cpu_s": 2.203125,
+          "ref": "I CAREFULLY AVOID ANY APPEARANCE OF PREOCCUPATION AND ECCENTRICITY WHICH MIGHT LEAD THOSE I LIVE AMONGST TO SUSPECT THE NATURE OF MY PURSUITS",
+          "hyp": "I carefully avoid any appearance of preoccupation and eccentricity, which might lead those I live amongst to suspect the nature of my pursuits."
+        },
+        {
+          "id": "7127-75947-0011",
+          "duration": 3.62,
+          "latency_s": 0.2086925000185147,
+          "cpu_s": 1.171875,
+          "ref": "REMAIN I IMPLORE YOU THE EVENING IS MOST LOVELY",
+          "hyp": "Remain, I implore you, the evening is most lovely."
+        },
+        {
+          "id": "7127-75947-0004",
+          "duration": 1.905,
+          "latency_s": 0.05771109997294843,
+          "cpu_s": 0.328125,
+          "ref": "EXPLAIN YOURSELF",
+          "hyp": "Explain yourself"
+        },
+        {
+          "id": "2961-960-0012",
+          "duration": 6.89,
+          "latency_s": 0.3103495999821462,
+          "cpu_s": 1.703125,
+          "ref": "MANY IF NOT ALL THE ELEMENTS OF THE PRE SOCRATIC PHILOSOPHY ARE INCLUDED IN THE TIMAEUS",
+          "hyp": "Many, if not all, the elements of the pre-Socratic philosophy are included in the Timius."
+        },
+        {
+          "id": "2961-960-0022",
+          "duration": 7.425,
+          "latency_s": 0.4331340999924578,
+          "cpu_s": 1.890625,
+          "ref": "PLATO HAD NOT THE COMMAND OF HIS MATERIALS WHICH WOULD HAVE ENABLED HIM TO PRODUCE A PERFECT WORK OF ART",
+          "hyp": "Plato had not the command of his materials, which would have enabled him to produce a perfect work of art."
+        },
+        {
+          "id": "8463-287645-0008",
+          "duration": 3.325,
+          "latency_s": 0.23040379997109994,
+          "cpu_s": 1.109375,
+          "ref": "AS USUAL NOTHING WAS DONE IN THE WAY OF PUNISHMENT",
+          "hyp": "As usual, nothing was done in the way of punishment."
+        },
+        {
+          "id": "8463-287645-0010",
+          "duration": 4.325,
+          "latency_s": 0.3383567000273615,
+          "cpu_s": 1.421875,
+          "ref": "HE WORKED ME VERY HARD HE WANTED TO BE BEATING ME ALL THE TIME",
+          "hyp": "He worked me very hard. He wanted to be beating me all the time."
+        },
+        {
+          "id": "8230-279154-0036",
+          "duration": 3.235,
+          "latency_s": 0.18167650001123548,
+          "cpu_s": 0.84375,
+          "ref": "A FURTHER STAGE IS RECOGNITION",
+          "hyp": "A further stage is recognition."
+        },
+        {
+          "id": "8230-279154-0015",
+          "duration": 8.05,
+          "latency_s": 0.461854699999094,
+          "cpu_s": 1.921875,
+          "ref": "THEY MUST HAVE SOME CHARACTERISTIC WHICH MAKES US REGARD THEM AS REFERRING TO MORE OR LESS REMOTE PORTIONS OF THE PAST",
+          "hyp": "They must have some characteristic which makes us regard them as referring to more or less remote portions of the past."
+        },
+        {
+          "id": "7176-92135-0018",
+          "duration": 8.94,
+          "latency_s": 0.5171712000155821,
+          "cpu_s": 2.390625,
+          "ref": "IN THE MODERN WELL CONSTRUCTED PLAY HE SIMPLY RINGS UP AN IMAGINARY CONFEDERATE AND TELLS HIM WHAT HE IS GOING TO DO COULD ANYTHING BE MORE NATURAL",
+          "hyp": "In the modern well-constructed play, he simply rings up an imaginary confederate and tells him what he is going to do. Could anything be more natural?"
+        },
+        {
+          "id": "7176-92135-0034",
+          "duration": 4.465,
+          "latency_s": 0.27860090002650395,
+          "cpu_s": 1.28125,
+          "ref": "THE DUCHESS OF SOUTHBRIDGE TO LORD REGGIE OH REGGIE WHAT DID YOU SAY",
+          "hyp": "The Dutchers of Southbridge, too, Lord Reggie, Oh Reggie, what did you say?"
+        },
+        {
+          "id": "1995-1836-0007",
+          "duration": 3.435,
+          "latency_s": 0.15385360002983361,
+          "cpu_s": 0.953125,
+          "ref": "BUT YOU BELIEVE IN SOME EDUCATION ASKED MARY TAYLOR",
+          "hyp": "Do you believe in some education? Ask Mary Taylor."
+        },
+        {
+          "id": "1995-1836-0008",
+          "duration": 6.985,
+          "latency_s": 0.39999889995669946,
+          "cpu_s": 2.0,
+          "ref": "I BELIEVE IN THE TRAINING OF PEOPLE TO THEIR HIGHEST CAPACITY THE ENGLISHMAN HERE HEARTILY SECONDED HIM",
+          "hyp": "I believe in the training of people to the Hask passity. The Englishman here heartily seconded him."
+        },
+        {
+          "id": "1284-1181-0019",
+          "duration": 3.2,
+          "latency_s": 0.2216613999917172,
+          "cpu_s": 1.28125,
+          "ref": "I NOW USE THEM AS ORNAMENTAL STATUARY IN MY GARDEN",
+          "hyp": "I now use them as ornamental statuary in my garden."
+        },
+        {
+          "id": "1284-1181-0002",
+          "duration": 3.835,
+          "latency_s": 0.20635089999996126,
+          "cpu_s": 1.15625,
+          "ref": "THE HEAD OF THE PATCHWORK GIRL WAS THE MOST CURIOUS PART OF HER",
+          "hyp": "The head of the patchwork girl was the most curious part of her."
+        },
+        {
+          "id": "5142-36377-0003",
+          "duration": 3.91,
+          "latency_s": 0.29107010003644973,
+          "cpu_s": 1.453125,
+          "ref": "AMBROSE MET ME AT THE BOTTOM OF THE STAIRS AND SHOWED ME THE WAY TO THE SUPPER ROOM",
+          "hyp": "Ambrose met me at the bottom of the stairs and showed me the way to the supper-room."
+        },
+        {
+          "id": "5142-36377-0008",
+          "duration": 15.425,
+          "latency_s": 1.2526101999683306,
+          "cpu_s": 4.65625,
+          "ref": "MISTER MEADOWCROFT THE ELDER HAVING NOT SPOKEN ONE WORD THUS FAR HIMSELF INTRODUCED THE NEWCOMER TO ME WITH A SIDE GLANCE AT HIS SONS WHICH HAD SOMETHING LIKE DEFIANCE IN IT A GLANCE WHICH AS I WAS SORRY TO NOTICE WAS RETURNED WITH THE DEFIANCE ON THEIR SIDE BY THE TWO YOUNG MEN",
+          "hyp": "Mr. Metacroft, the elder, having not spoken one word thus far, himself introduced the newcomer to me with a sigh, glanced at his sons, which had something like defiance in it, a glance, which, as I was sorry to notice, was returned with the defiance on their side by the two young men."
+        },
+        {
+          "id": "8455-210777-0069",
+          "duration": 8.915,
+          "latency_s": 0.5510303999762982,
+          "cpu_s": 2.484375,
+          "ref": "IF YOU WILL GIVE US YOUR PROMISE TO MEET CAPTAIN BATTLEAX HERE AT THIS TIME TO MORROW WE WILL STRETCH A POINT AND DELAY THE DEPARTURE OF THE JOHN BRIGHT FOR TWENTY FOUR HOURS",
+          "hyp": "If you will give us your promise to meet Captain Adalax here at this time tomorrow, we will stretch a point and delay the departure of the John Bright for twenty-four hours."
+        },
+        {
+          "id": "8455-210777-0017",
+          "duration": 5.3300625,
+          "latency_s": 0.2758517999900505,
+          "cpu_s": 1.5,
+          "ref": "MY WIFE ON THE SPUR OF THE MOMENT MANAGED TO GIVE THE GENTLEMEN A VERY GOOD DINNER",
+          "hyp": "My wife, on the spur of the moment, managed to give the gentleman a very good dinner."
+        },
+        {
+          "id": "2830-3980-0046",
+          "duration": 2.84,
+          "latency_s": 0.16210610000416636,
+          "cpu_s": 0.953125,
+          "ref": "WAS IT NOT ENOUGH TO SAY FROM GOD THE FATHER",
+          "hyp": "Was it not enough to say from God the Father?"
+        },
+        {
+          "id": "2830-3980-0055",
+          "duration": 7.335,
+          "latency_s": 0.38100150000536814,
+          "cpu_s": 1.890625,
+          "ref": "TO BESTOW PEACE AND GRACE LIES IN THE PROVINCE OF GOD WHO ALONE CAN CREATE THESE BLESSINGS THE ANGELS CANNOT",
+          "hyp": "To bestow peace and grace lies in the province of God, who alone can create these blessings. The angels cannot."
+        },
+        {
+          "id": "4446-2271-0024",
+          "duration": 3.16,
+          "latency_s": 0.22998860001098365,
+          "cpu_s": 1.125,
+          "ref": "I SHOULDN'T WONDER IF SHE COULD LAUGH ABOUT IT WITH ME NOW",
+          "hyp": "I should be wonder if she could laugh about it with me now."
+        },
+        {
+          "id": "4446-2271-0007",
+          "duration": 2.1,
+          "latency_s": 0.2085736999870278,
+          "cpu_s": 0.984375,
+          "ref": "SHE DOESN'T TAKE UP WITH ANYBODY YOU KNOW",
+          "hyp": "She doesn't take up with anybody, you know."
+        },
+        {
+          "id": "4077-13754-0003",
+          "duration": 5.68,
+          "latency_s": 0.3460178999812342,
+          "cpu_s": 1.640625,
+          "ref": "MOREOVER HAD THE PEOPLE BEEN INCLINED TO REBELLION WHAT GREATER OPPORTUNITY COULD THEY HAVE WISHED",
+          "hyp": "Moreover, had the people been inclined to rebellion, what greater opportunity could they have wished?"
+        },
+        {
+          "id": "4077-13754-0010",
+          "duration": 11.955,
+          "latency_s": 0.6736459999810904,
+          "cpu_s": 2.984375,
+          "ref": "IN EIGHTEEN SIXTY TWO A LAW WAS ENACTED WITH THE PURPOSE OF SUPPRESSING PLURAL MARRIAGE AND AS HAD BEEN PREDICTED IN THE NATIONAL SENATE PRIOR TO ITS PASSAGE IT LAY FOR MANY YEARS A DEAD LETTER",
+          "hyp": "In eighteen sixty two, a law was enacted with the purpose of suppressing plural marriage, and as had been predicted in the National Senate prior to its passage, it lay for many years a dead letter."
+        },
+        {
+          "id": "1221-135767-0022",
+          "duration": 14.395,
+          "latency_s": 0.8263520000036806,
+          "cpu_s": 3.375,
+          "ref": "BUT THE PROPRIETOR APPEARED ALREADY TO HAVE RELINQUISHED AS HOPELESS THE EFFORT TO PERPETUATE ON THIS SIDE OF THE ATLANTIC IN A HARD SOIL AND AMID THE CLOSE STRUGGLE FOR SUBSISTENCE THE NATIVE ENGLISH TASTE FOR ORNAMENTAL GARDENING",
+          "hyp": "But the proprietor appeared already to have relinquished as hopeless the effort to perpetuate on this side of the Atlantic in a hard soil, and amid the close struggle for subsistence, the native English taste for ornamental gardening."
+        },
+        {
+          "id": "1221-135767-0019",
+          "duration": 3.78,
+          "latency_s": 0.21660810004686937,
+          "cpu_s": 1.21875,
+          "ref": "MOTHER CRIED SHE I SEE YOU HERE LOOK LOOK",
+          "hyp": "Mother cried, She, I see you here. Look, look."
+        },
+        {
+          "id": "908-157963-0018",
+          "duration": 4.255,
+          "latency_s": 0.2393273999914527,
+          "cpu_s": 1.25,
+          "ref": "AND FEAREST THOU BECAUSE I VANISH AND AM SEEN NO MORE",
+          "hyp": "And fear'st thou, because I vanish, and am seen no more."
+        },
+        {
+          "id": "908-157963-0020",
+          "duration": 9.8,
+          "latency_s": 0.4732633999665268,
+          "cpu_s": 2.0,
+          "ref": "TILL WE ARISE LINK'D IN A GOLDEN BAND AND NEVER PART BUT WALK UNITED BEARING FOOD TO ALL OUR TENDER FLOWERS",
+          "hyp": "Till we arise linked in a golden band, and never part but walk, united bearing food to all our tender flowers."
+        },
+        {
+          "id": "7021-79759-0005",
+          "duration": 13.02,
+          "latency_s": 0.6164271999732591,
+          "cpu_s": 2.8125,
+          "ref": "THE PAIN PRODUCED BY AN ACT OF HASTY AND ANGRY VIOLENCE TO WHICH A FATHER SUBJECTS HIS SON MAY SOON PASS AWAY BUT THE MEMORY OF IT DOES NOT PASS AWAY WITH THE PAIN",
+          "hyp": "The pain produced by an act of hasty and angry violence to which a father subjects his son may soon pass away, but the memory of it does not pass away with the pain."
+        },
+        {
+          "id": "7021-79759-0003",
+          "duration": 4.62,
+          "latency_s": 0.18336229998385534,
+          "cpu_s": 1.109375,
+          "ref": "VAST IMPORTANCE AND INFLUENCE OF THIS MENTAL FURNISHING",
+          "hyp": "Vast importance and influence of this mental furnishing."
+        },
+        {
+          "id": "8224-274384-0011",
+          "duration": 22.36,
+          "latency_s": 1.0582322999835014,
+          "cpu_s": 4.4375,
+          "ref": "THE ENGLISH IT IS EVIDENT HAD THEY NOT BEEN PREVIOUSLY ASSURED OF RECEIVING THE KING WOULD NEVER HAVE PARTED WITH SO CONSIDERABLE A SUM AND WHILE THEY WEAKENED THEMSELVES BY THE SAME MEASURE HAVE STRENGTHENED A PEOPLE WITH WHOM THEY MUST AFTERWARDS HAVE SO MATERIAL AN INTEREST TO DISCUSS",
+          "hyp": "The English, it is evident, had they not been previously assured of receiving the king, would never have parted with so considerable a sum, and while they weakened themselves by the same measure, have strengthened the people with whom they must afterwards have so material an interest to discuss."
+        },
+        {
+          "id": "8224-274384-0000",
+          "duration": 7.605,
+          "latency_s": 0.3503991999896243,
+          "cpu_s": 1.8125,
+          "ref": "HE PASSED THROUGH HENLEY SAINT ALBANS AND CAME SO NEAR TO LONDON AS HARROW ON THE HILL",
+          "hyp": "He passed through Henley St. Albans, and came so near to London as Harrow on the hill."
+        },
+        {
+          "id": "4507-16021-0025",
+          "duration": 9.215,
+          "latency_s": 0.37810800003353506,
+          "cpu_s": 1.859375,
+          "ref": "TO MEET THE NEEDS OF THIS CONFLICT WRETCHEDNESS HAS INVENTED A LANGUAGE OF COMBAT WHICH IS SLANG",
+          "hyp": "To meet the needs of this conflict, wretchedness has invented a language of combat which is slang."
+        },
+        {
+          "id": "4507-16021-0052",
+          "duration": 6.275,
+          "latency_s": 0.2698254999704659,
+          "cpu_s": 1.421875,
+          "ref": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+          "hyp": "The real human division is this, the luminous and the shady."
+        },
+        {
+          "id": "672-122797-0038",
+          "duration": 8.8,
+          "latency_s": 0.4111587000079453,
+          "cpu_s": 2.0,
+          "ref": "THOUGHT THE FIR TREE AND BELIEVED IT ALL BECAUSE THE MAN WHO TOLD THE STORY WAS SO GOOD LOOKING WELL WELL",
+          "hyp": "Thought the fir tree, and believed it all because the man who told the story was so good-looking well, well."
+        },
+        {
+          "id": "672-122797-0004",
+          "duration": 10.25,
+          "latency_s": 0.4845899000065401,
+          "cpu_s": 2.328125,
+          "ref": "IN WINTER WHEN THE SNOW LAY GLITTERING ON THE GROUND A HARE WOULD OFTEN COME LEAPING ALONG AND JUMP RIGHT OVER THE LITTLE TREE",
+          "hyp": "In winter, when the snow lay glittering on the ground, a hare would often come leaping along and jump right over the little tree."
+        },
+        {
+          "id": "5105-28241-0010",
+          "duration": 2.31,
+          "latency_s": 0.11205070000141859,
+          "cpu_s": 0.765625,
+          "ref": "OCEAN REIGNED SUPREME",
+          "hyp": "Ocean reigned supreme."
+        },
+        {
+          "id": "5105-28241-0007",
+          "duration": 1.88,
+          "latency_s": 0.12042320001637563,
+          "cpu_s": 0.71875,
+          "ref": "THERE IS NO FEAR OF THAT SIR",
+          "hyp": "There's no fear of that, sir."
+        },
+        {
+          "id": "3729-6852-0036",
+          "duration": 5.24,
+          "latency_s": 0.19635059998836368,
+          "cpu_s": 1.15625,
+          "ref": "WHEN THE KING COMES TO PARIS EVERYBODY CALLS OUT VIVE LE ROI",
+          "hyp": "When the king comes to Paris, everybody calls out Viva La Roy."
+        },
+        {
+          "id": "3729-6852-0027",
+          "duration": 3.0,
+          "latency_s": 0.12304420000873506,
+          "cpu_s": 0.734375,
+          "ref": "THAT IS TRUE BADAUDERIE",
+          "hyp": "That is true, bad old cree."
+        },
+        {
+          "id": "1089-134691-0016",
+          "duration": 9.06,
+          "latency_s": 0.43433309998363256,
+          "cpu_s": 2.03125,
+          "ref": "THEY WERE VOYAGING ACROSS THE DESERTS OF THE SKY A HOST OF NOMADS ON THE MARCH VOYAGING HIGH OVER IRELAND WESTWARD BOUND",
+          "hyp": "They were voyaging across the deserts of the sky, a host of nomads on the march voyaging high over Ireland, westward bound."
+        },
+        {
+          "id": "1089-134691-0000",
+          "duration": 2.085,
+          "latency_s": 0.10640420002164319,
+          "cpu_s": 0.59375,
+          "ref": "HE COULD WAIT NO LONGER",
+          "hyp": "He could wait no longer."
+        },
+        {
+          "id": "1188-133604-0019",
+          "duration": 13.93,
+          "latency_s": 0.6735612999764271,
+          "cpu_s": 3.015625,
+          "ref": "THE LARGE LETTER CONTAINS INDEED ENTIRELY FEEBLE AND ILL DRAWN FIGURES THAT IS MERELY CHILDISH AND FAILING WORK OF AN INFERIOR HAND IT IS NOT CHARACTERISTIC OF GOTHIC OR ANY OTHER SCHOOL",
+          "hyp": "The large letter contains indeed entirely feeble and ill-drawn figures. That is merely childish and failing work of an inferior hand. It is not characteristic of Gothic or any other school."
+        },
+        {
+          "id": "1188-133604-0038",
+          "duration": 5.365,
+          "latency_s": 0.2541155999642797,
+          "cpu_s": 1.453125,
+          "ref": "BUT NOW HERE IS A SUBJECT OF WHICH YOU WILL WONDER AT FIRST WHY TURNER DREW IT AT ALL",
+          "hyp": "But now here is the subject of which you will wonder at first why Turner drew it at all."
+        },
+        {
+          "id": "2300-131720-0037",
+          "duration": 7.965,
+          "latency_s": 0.4151127000222914,
+          "cpu_s": 1.953125,
+          "ref": "HE WEIGHED AND REWEIGHED THE METER PLATES AND PURSUED EVERY LINE OF INVESTIGATION IMAGINABLE BUT ALL IN VAIN",
+          "hyp": "He weighed and rewaved the meter plates and pursued every line of investigation imaginable, but all in vain."
+        },
+        {
+          "id": "2300-131720-0018",
+          "duration": 12.54,
+          "latency_s": 0.5700383000075817,
+          "cpu_s": 2.703125,
+          "ref": "HE SOON FORESAW THAT STILL GREATER ECONOMY WOULD BE NECESSARY FOR COMMERCIAL SUCCESS NOT ALONE FOR THE LARGER TERRITORY OPENING BUT FOR THE COMPACT DISTRICTS OF LARGE CITIES",
+          "hyp": "He soon foresaw that still greater economy would be necessary for commercial success, not alone for the larger territory opening, but for the compact district of large cities."
+        },
+        {
+          "id": "6829-68769-0016",
+          "duration": 4.12,
+          "latency_s": 0.2444289000122808,
+          "cpu_s": 1.3125,
+          "ref": "HE UNLOCKED THE DOOR AND CALLED HERE'S VISITORS TOM",
+          "hyp": "He unlocked the door and called, Here's visitors, Tom."
+        },
+        {
+          "id": "6829-68769-0019",
+          "duration": 2.665,
+          "latency_s": 0.18691270000999793,
+          "cpu_s": 1.046875,
+          "ref": "SORRY WE HAVEN'T ANY RECEPTION ROOM IN THE JAIL",
+          "hyp": "Sorry, we haven't any reception room in the jail."
+        },
+        {
+          "id": "1580-141083-0047",
+          "duration": 2.605,
+          "latency_s": 0.13422279997030273,
+          "cpu_s": 0.78125,
+          "ref": "DID YOU LOOK AT THESE PAPERS ON THE TABLE",
+          "hyp": "Did you look at these papers on the table?"
+        },
+        {
+          "id": "1580-141083-0004",
+          "duration": 4.515,
+          "latency_s": 0.23473820002982393,
+          "cpu_s": 1.296875,
+          "ref": "I HAD TO READ IT OVER CAREFULLY AS THE TEXT MUST BE ABSOLUTELY CORRECT",
+          "hyp": "I had to read it over carefully, as the text must be absolutely correct."
+        },
+        {
+          "id": "4970-29095-0016",
+          "duration": 6.945,
+          "latency_s": 0.3040729999775067,
+          "cpu_s": 1.625,
+          "ref": "RUTH SAT QUITE STILL FOR A TIME WITH FACE INTENT AND FLUSHED IT WAS OUT NOW",
+          "hyp": "Ruth sat quite still for a time with face and tint and flushed. It was out now."
+        },
+        {
+          "id": "4970-29095-0020",
+          "duration": 12.365,
+          "latency_s": 0.7060517999925651,
+          "cpu_s": 2.921875,
+          "ref": "THERE CERTAINLY WAS NO END TO IT AND EVEN RUTH WAS PHILADELPHIAN ENOUGH TO BELIEVE THAT A STREET OUGHT NOT TO HAVE ANY END OR ARCHITECTURAL POINT UPON WHICH THE WEARY EYE COULD REST",
+          "hyp": "There certainly was no end to it, and even Ruth was Philadelphia enough to believe that a street ought not to have any end or architectural point upon which the weary eye could rest."
+        },
+        {
+          "id": "4992-41797-0001",
+          "duration": 28.41,
+          "latency_s": 2.002949699992314,
+          "cpu_s": 8.0625,
+          "ref": "WELL AS I SAY IT'S AN AWFUL QUEER WORLD THEY CLAP ALL THE BURGLARS INTO JAIL AND THE MURDERERS AND THE WIFE BEATERS I'VE ALLERS THOUGHT A GENTLE REPROOF WOULD BE ENOUGH PUNISHMENT FOR A WIFE BEATER CAUSE HE PROBABLY HAS A LOT O PROVOCATION THAT NOBODY KNOWS AND THE FIREBUGS CAN'T THINK O THE RIGHT NAME SOMETHING LIKE CENDENARIES AN THE BREAKERS O THE PEACE AN WHAT NOT AN YET THE LAW HAS NOTHIN TO SAY TO A MAN LIKE HEN LORD",
+          "hyp": "Well, as I say, it's an awful queer world. They clap all the burglars and jail and the murderers and the wife-beaters. I, allers thought a general reproof would be enough punishment for a wife-beater, because he probably has a lot of provocation that nobody knows. And the firebugs can't think of the right name something like Cendiaries. And the breakers of the piece and whatnot, and yet the law has nothing to say to a man like Han Lord."
+        },
+        {
+          "id": "4992-41797-0009",
+          "duration": 13.195,
+          "latency_s": 0.7470061000203714,
+          "cpu_s": 3.15625,
+          "ref": "HENRY LORD WITH THE DEGREE OF PH D TO HIS CREDIT HAD BEEN PROFESSOR OF ZOOLOGY AT A NEW ENGLAND COLLEGE BUT HAD RESIGNED HIS POST IN ORDER TO WRITE A SERIES OF SCIENTIFIC TEXT BOOKS",
+          "hyp": "Henry Lord, with the degree of Ph D to his credit, had been professor of zoology at a New England college, but had resigned his post in order to write a series of scientific text books."
+        },
+        {
+          "id": "61-70968-0004",
+          "duration": 3.885,
+          "latency_s": 0.23464530002092943,
+          "cpu_s": 1.296875,
+          "ref": "ALSO THERE WAS A STRIPLING PAGE WHO TURNED INTO A MAID",
+          "hyp": "Also, there was a stripling page who turned into a maid."
+        },
+        {
+          "id": "61-70968-0011",
+          "duration": 6.375,
+          "latency_s": 0.4870708000380546,
+          "cpu_s": 2.34375,
+          "ref": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+          "hyp": "He gave way to the others very readily, and retreated unperceived by the squire, and Mistress Fitz-uth to the rear of the tent."
+        },
+        {
+          "id": "8555-292519-0005",
+          "duration": 9.575,
+          "latency_s": 0.49272179999388754,
+          "cpu_s": 2.421875,
+          "ref": "WHILE THE OLD GOLD AND THE MARBLE STAYS FOREVER GLEAMING ITS SOFT STRONG BLAZE CALM IN THE EARLY EVENING GLOW",
+          "hyp": "While the old gold and the marble stays forever gleaming its soft, strong blaze, calm in the early evening glow."
+        },
+        {
+          "id": "8555-292519-0003",
+          "duration": 14.58,
+          "latency_s": 0.9355340000474826,
+          "cpu_s": 4.15625,
+          "ref": "IN A SUNSET GLOWING OF CRIMSON AND GOLD SHE LIES THE GLORY OF THE WORLD A BEACHED KING'S GALLEY WHOSE SAILS ARE FURLED WHO IS HUNG WITH TAPESTRIES RICH AND OLD",
+          "hyp": "In a sunset glowing of crimson and gold, she lies the glory of the world, a beached king's galley, whose sails are furled, who is hung with tapestries rich and old."
+        },
+        {
+          "id": "237-134500-0014",
+          "duration": 4.25,
+          "latency_s": 0.19880499999271706,
+          "cpu_s": 1.21875,
+          "ref": "AND EMIL MOWED HIS WAY SLOWLY DOWN TOWARD THE CHERRY TREES",
+          "hyp": "And Emil mowed his way slowly down toward the cherry trees."
+        },
+        {
+          "id": "237-134500-0003",
+          "duration": 3.17,
+          "latency_s": 0.18461639998713508,
+          "cpu_s": 1.109375,
+          "ref": "THE ORCHARD WAS SPARKLING AND RIPPLING IN THE SUN",
+          "hyp": "The orchard was sparkling and rippling in the sun."
+        },
+        {
+          "id": "3570-5694-0021",
+          "duration": 10.555,
+          "latency_s": 0.6470839000539854,
+          "cpu_s": 3.0,
+          "ref": "WHENEVER AS IN THESE CASES THE MENIAL SERVICE IN QUESTION HAS TO DO DIRECTLY WITH THE PRIMARY LEISURE EMPLOYMENTS OF FIGHTING AND HUNTING IT EASILY ACQUIRES A REFLECTED HONORIFIC CHARACTER",
+          "hyp": "Whenever, as in these cases, the menial service in question has to do directly with the primary leisure employments of fighting and hunting, it easily acquires a reflected honorific character."
+        },
+        {
+          "id": "3570-5694-0017",
+          "duration": 8.335,
+          "latency_s": 0.537402399990242,
+          "cpu_s": 2.546875,
+          "ref": "THE WEARING OF UNIFORMS OR LIVERIES IMPLIES A CONSIDERABLE DEGREE OF DEPENDENCE AND MAY EVEN BE SAID TO BE A MARK OF SERVITUDE REAL OR OSTENSIBLE",
+          "hyp": "The wearing of uniforms or liveries implies a considerable degree of dependence, and may even be said to be a mark of servitude, real or ostensible."
+        },
+        {
+          "id": "5683-32865-0002",
+          "duration": 2.78,
+          "latency_s": 0.14856599998893216,
+          "cpu_s": 0.9375,
+          "ref": "HE HAD HIS HAND UPON LAKE'S SHOULDER",
+          "hyp": "He had his hand upon Lake's shoulder."
+        },
+        {
+          "id": "5683-32865-0008",
+          "duration": 6.12,
+          "latency_s": 0.3373402999714017,
+          "cpu_s": 1.84375,
+          "ref": "I BELIEVE I HAVE A LITTLE TASTE THAT WAY THOSE ARE ALL REAL YOU KNOW THOSE JEWELS",
+          "hyp": "I believe I have a little taste that way. Those are all real. You know those jewels."
+        },
+        {
+          "id": "121-121726-0004",
+          "duration": 4.02,
+          "latency_s": 0.16181420005159453,
+          "cpu_s": 1.046875,
+          "ref": "HEAVEN A GOOD PLACE TO BE RAISED TO",
+          "hyp": "Heaven, a good place to be raised to."
+        },
+        {
+          "id": "121-121726-0000",
+          "duration": 8.46,
+          "latency_s": 0.4133717999793589,
+          "cpu_s": 2.0,
+          "ref": "ALSO A POPULAR CONTRIVANCE WHEREBY LOVE MAKING MAY BE SUSPENDED BUT NOT STOPPED DURING THE PICNIC SEASON",
+          "hyp": "Also a popular contrivance whereby love-making may be suspended, but not stopped during the picnic season."
+        }
+      ],
+      "bench_wall_s": 38.2
+    },
+    {
+      "engine": "whisper:base.en",
+      "utterances": 80,
+      "audio_s": 576.6800625,
+      "wer": 0.054616384915474644,
+      "rtf": 0.11609235788415147,
+      "latency_p50_s": 0.7965811500325799,
+      "latency_p95_s": 1.121604435009066,
+      "cpu_s_per_audio_s": 0.43917874306604804,
+      "avg_cores_busy": 3.7830116561531497,
+      "load_s": 1.1709981999592856,
+      "model_size_mb": 147.76951,
+      "peak_rss_mb": 377.078125,
+      "rows": [
+        {
+          "id": "6930-75918-0000",
+          "duration": 3.505,
+          "latency_s": 0.5083002999890596,
+          "cpu_s": 2.078125,
+          "ref": "CONCORD RETURNED TO ITS PLACE AMIDST THE TENTS",
+          "hyp": "Concorde returned to its place amidst the tents."
+        },
+        {
+          "id": "6930-75918-0007",
+          "duration": 3.315,
+          "latency_s": 0.572757999994792,
+          "cpu_s": 2.296875,
+          "ref": "YOU WILL BE FRANK WITH ME I ALWAYS AM",
+          "hyp": "You will be frank with me. I always am."
+        },
+        {
+          "id": "1320-122617-0003",
+          "duration": 6.285,
+          "latency_s": 1.0298838999588042,
+          "cpu_s": 4.046875,
+          "ref": "THERE WAS SOMETHING IN HIS AIR AND MANNER THAT BETRAYED TO THE SCOUT THE UTTER CONFUSION OF THE STATE OF HIS MIND",
+          "hyp": "There was something in his air and manner that betrayed to the scout the utter confusion of the state of his mind."
+        },
+        {
+          "id": "1320-122617-0012",
+          "duration": 7.59,
+          "latency_s": 1.0740472000325099,
+          "cpu_s": 4.28125,
+          "ref": "FOUR OR FIVE OF THE LATTER ONLY LINGERED ABOUT THE DOOR OF THE PRISON OF UNCAS WARY BUT CLOSE OBSERVERS OF THE MANNER OF THEIR CAPTIVE",
+          "hyp": "Four or five of the latter only lingered about the door of the prison of Unkus, wary but close observers of the manner of their captive."
+        },
+        {
+          "id": "5639-40744-0032",
+          "duration": 17.43,
+          "latency_s": 1.0893627000041306,
+          "cpu_s": 3.84375,
+          "ref": "FOR GOD'S SAKE MY LADY MOTHER GIVE ME A WIFE WHO WOULD BE AN AGREEABLE COMPANION NOT ONE WHO WILL DISGUST ME SO THAT WE MAY BOTH BEAR EVENLY AND WITH MUTUAL GOOD WILL THE YOKE IMPOSED ON US BY HEAVEN INSTEAD OF PULLING THIS WAY AND THAT WAY AND FRETTING EACH OTHER TO DEATH",
+          "hyp": "For God's sake, my lady mother, give me a wife who would be an agreeable companion. Not one who will disgust me so that we may both bear evenly and with mutual goodwill, the yoke imposed on us by heaven, instead of pulling this way and that way and fretting each other to death."
+        },
+        {
+          "id": "5639-40744-0002",
+          "duration": 8.91,
+          "latency_s": 1.1043689000071026,
+          "cpu_s": 3.78125,
+          "ref": "RODOLFO AND HIS COMPANIONS WITH THEIR FACES MUFFLED IN THEIR CLOAKS STARED RUDELY AND INSOLENTLY AT THE MOTHER THE DAUGHTER AND THE SERVANT MAID",
+          "hyp": "Rudolfo and his companions, with their faces muffled in their cloaks, stared rudely and insolently at the mother, the daughter and the servant made."
+        },
+        {
+          "id": "260-123440-0018",
+          "duration": 3.64,
+          "latency_s": 0.9304610999533907,
+          "cpu_s": 3.640625,
+          "ref": "I AM VERY TIRED OF SWIMMING ABOUT HERE O MOUSE",
+          "hyp": "I am very tired of swimming about here. O mouse!"
+        },
+        {
+          "id": "260-123440-0004",
+          "duration": 12.02,
+          "latency_s": 1.5509847000357695,
+          "cpu_s": 6.046875,
+          "ref": "ALICE TOOK UP THE FAN AND GLOVES AND AS THE HALL WAS VERY HOT SHE KEPT FANNING HERSELF ALL THE TIME SHE WENT ON TALKING DEAR DEAR HOW QUEER EVERYTHING IS TO DAY",
+          "hyp": "Alice took up the fan and gloves. And as the hall was very hot, she kept fanning herself all the time she went on talking. Dear, dear, how queer everything is today."
+        },
+        {
+          "id": "7729-102255-0045",
+          "duration": 6.805,
+          "latency_s": 0.6903347999905236,
+          "cpu_s": 2.75,
+          "ref": "CAPTAIN MARTIN SAID I SHALL GIVE YOU A PISTOL TO HELP PROTECT YOURSELF IF WORSE COMES TO WORST",
+          "hyp": "Captain Martin said, I shall give you a pistol to help protect yourself if worse comes to worst."
+        },
+        {
+          "id": "7729-102255-0041",
+          "duration": 12.415,
+          "latency_s": 0.9626011999789625,
+          "cpu_s": 3.53125,
+          "ref": "THE WHOLE PROCEEDING WAS SO CHILDISH THE MISERABLE PLOT SO TRANSPARENT THE OUTRAGE SO GROSS AS TO BRING DISGUST TO THE BETTER CLASS OF BORDER RUFFIANS WHO WERE WITNESSES AND ACCESSORIES",
+          "hyp": "The whole proceeding was so childish, the miserable plot so transparent, the outrage so gross, as to bring disgust to the better class of border ruffians who were witnesses and accessories. // // // // // // // // // // // // // // // //"
+        },
+        {
+          "id": "2094-142345-0059",
+          "duration": 10.01,
+          "latency_s": 0.8028905999963172,
+          "cpu_s": 3.046875,
+          "ref": "THIS MISSUS POYSER SAID BLUSHING AND BELIEVING THAT THE CAPTAIN WAS REALLY INTERESTED IN HER MILK PANS AND WOULD ADJUST HIS OPINION OF HER TO THE APPEARANCE OF HER DAIRY",
+          "hyp": "This, Mrs. Poiser, said blushing and believing that the captain was really interested in her milk pans and would adjust his opinion of her to the appearance of her dairy."
+        },
+        {
+          "id": "2094-142345-0045",
+          "duration": 3.005,
+          "latency_s": 0.7790678000310436,
+          "cpu_s": 2.859375,
+          "ref": "OH SIR DON'T MENTION IT SAID MISSUS POYSER",
+          "hyp": "Oh, sir, don't mention it, said Mrs. Poiser."
+        },
+        {
+          "id": "3575-170457-0016",
+          "duration": 1.695,
+          "latency_s": 0.691019200021401,
+          "cpu_s": 2.375,
+          "ref": "FAREWELL MADAM",
+          "hyp": "Farewell, Madame."
+        },
+        {
+          "id": "3575-170457-0023",
+          "duration": 9.095,
+          "latency_s": 0.9174850000417791,
+          "cpu_s": 3.421875,
+          "ref": "I CAREFULLY AVOID ANY APPEARANCE OF PREOCCUPATION AND ECCENTRICITY WHICH MIGHT LEAD THOSE I LIVE AMONGST TO SUSPECT THE NATURE OF MY PURSUITS",
+          "hyp": "I carefully avoid any appearance of preoccupation and eccentricity, which might lead those I live amongst to suspect the nature of my pursuits."
+        },
+        {
+          "id": "7127-75947-0011",
+          "duration": 3.62,
+          "latency_s": 0.6630777000100352,
+          "cpu_s": 2.484375,
+          "ref": "REMAIN I IMPLORE YOU THE EVENING IS MOST LOVELY",
+          "hyp": "Remain, and I implore you. The evening is most lovely."
+        },
+        {
+          "id": "7127-75947-0004",
+          "duration": 1.905,
+          "latency_s": 0.6342895000125282,
+          "cpu_s": 2.515625,
+          "ref": "EXPLAIN YOURSELF",
+          "hyp": "Explain yourself."
+        },
+        {
+          "id": "2961-960-0012",
+          "duration": 6.89,
+          "latency_s": 0.7983491000486538,
+          "cpu_s": 3.046875,
+          "ref": "MANY IF NOT ALL THE ELEMENTS OF THE PRE SOCRATIC PHILOSOPHY ARE INCLUDED IN THE TIMAEUS",
+          "hyp": "Many, if not all the elements of the pre-so-cretic philosophy are included in the timias."
+        },
+        {
+          "id": "2961-960-0022",
+          "duration": 7.425,
+          "latency_s": 0.6869361000135541,
+          "cpu_s": 2.53125,
+          "ref": "PLATO HAD NOT THE COMMAND OF HIS MATERIALS WHICH WOULD HAVE ENABLED HIM TO PRODUCE A PERFECT WORK OF ART",
+          "hyp": "Plato had not the command of his materials, which would have enabled him to produce a perfect work of art."
+        },
+        {
+          "id": "8463-287645-0008",
+          "duration": 3.325,
+          "latency_s": 0.6839394000126049,
+          "cpu_s": 2.53125,
+          "ref": "AS USUAL NOTHING WAS DONE IN THE WAY OF PUNISHMENT",
+          "hyp": "As usual, nothing was done in the way of punishment."
+        },
+        {
+          "id": "8463-287645-0010",
+          "duration": 4.325,
+          "latency_s": 0.6836873000138439,
+          "cpu_s": 2.5,
+          "ref": "HE WORKED ME VERY HARD HE WANTED TO BE BEATING ME ALL THE TIME",
+          "hyp": "He worked me very hard. He wanted to be beating me all the time."
+        },
+        {
+          "id": "8230-279154-0036",
+          "duration": 3.235,
+          "latency_s": 0.7508691999828443,
+          "cpu_s": 2.84375,
+          "ref": "A FURTHER STAGE IS RECOGNITION",
+          "hyp": "A further stage is recognition."
+        },
+        {
+          "id": "8230-279154-0015",
+          "duration": 8.05,
+          "latency_s": 0.8260410000220872,
+          "cpu_s": 3.25,
+          "ref": "THEY MUST HAVE SOME CHARACTERISTIC WHICH MAKES US REGARD THEM AS REFERRING TO MORE OR LESS REMOTE PORTIONS OF THE PAST",
+          "hyp": "They must have some characteristic, which makes us regard them as referring to more or less remote portions of the past."
+        },
+        {
+          "id": "7176-92135-0018",
+          "duration": 8.94,
+          "latency_s": 0.9721872999798506,
+          "cpu_s": 3.140625,
+          "ref": "IN THE MODERN WELL CONSTRUCTED PLAY HE SIMPLY RINGS UP AN IMAGINARY CONFEDERATE AND TELLS HIM WHAT HE IS GOING TO DO COULD ANYTHING BE MORE NATURAL",
+          "hyp": "In the modern, well-constructed play, he simply rings up an imaginary Confederate and tells him what he is going to do. Could anything be more natural?"
+        },
+        {
+          "id": "7176-92135-0034",
+          "duration": 4.465,
+          "latency_s": 0.6951730000437237,
+          "cpu_s": 2.609375,
+          "ref": "THE DUCHESS OF SOUTHBRIDGE TO LORD REGGIE OH REGGIE WHAT DID YOU SAY",
+          "hyp": "The Duchess of Southbridge, to Lord Reggie. Oh Reggie, what did you say?"
+        },
+        {
+          "id": "1995-1836-0007",
+          "duration": 3.435,
+          "latency_s": 1.4490796000463888,
+          "cpu_s": 5.703125,
+          "ref": "BUT YOU BELIEVE IN SOME EDUCATION ASKED MARY TAYLOR",
+          "hyp": "Do you believe in some education? Ask Mary Taylor."
+        },
+        {
+          "id": "1995-1836-0008",
+          "duration": 6.985,
+          "latency_s": 0.794813200016506,
+          "cpu_s": 3.171875,
+          "ref": "I BELIEVE IN THE TRAINING OF PEOPLE TO THEIR HIGHEST CAPACITY THE ENGLISHMAN HERE HEARTILY SECONDED HIM",
+          "hyp": "I believe in the training of people to their highest capacity. The Englishman here heartily seconded him."
+        },
+        {
+          "id": "1284-1181-0019",
+          "duration": 3.2,
+          "latency_s": 0.8205001999740489,
+          "cpu_s": 3.234375,
+          "ref": "I NOW USE THEM AS ORNAMENTAL STATUARY IN MY GARDEN",
+          "hyp": "I now use them as ornamental statuary in my garden."
+        },
+        {
+          "id": "1284-1181-0002",
+          "duration": 3.835,
+          "latency_s": 0.828639600018505,
+          "cpu_s": 3.28125,
+          "ref": "THE HEAD OF THE PATCHWORK GIRL WAS THE MOST CURIOUS PART OF HER",
+          "hyp": "The head of the Patchwork Girl was the most curious part of her."
+        },
+        {
+          "id": "5142-36377-0003",
+          "duration": 3.91,
+          "latency_s": 0.8955710000009276,
+          "cpu_s": 3.53125,
+          "ref": "AMBROSE MET ME AT THE BOTTOM OF THE STAIRS AND SHOWED ME THE WAY TO THE SUPPER ROOM",
+          "hyp": "Ambrose met me at the bottom of the stairs and showed me the way to the supper room."
+        },
+        {
+          "id": "5142-36377-0008",
+          "duration": 15.425,
+          "latency_s": 0.9970642000553198,
+          "cpu_s": 3.796875,
+          "ref": "MISTER MEADOWCROFT THE ELDER HAVING NOT SPOKEN ONE WORD THUS FAR HIMSELF INTRODUCED THE NEWCOMER TO ME WITH A SIDE GLANCE AT HIS SONS WHICH HAD SOMETHING LIKE DEFIANCE IN IT A GLANCE WHICH AS I WAS SORRY TO NOTICE WAS RETURNED WITH THE DEFIANCE ON THEIR SIDE BY THE TWO YOUNG MEN",
+          "hyp": "Mr. Metacroft the Elder, having not spoken one word thus far, himself introduced the newcomer to me, with a side glance at his sons, which had something like defiance in it. A glance which, as I was sorry to notice, was returned with the defiance on their side by the two young men."
+        },
+        {
+          "id": "8455-210777-0069",
+          "duration": 8.915,
+          "latency_s": 0.7336747000226751,
+          "cpu_s": 2.90625,
+          "ref": "IF YOU WILL GIVE US YOUR PROMISE TO MEET CAPTAIN BATTLEAX HERE AT THIS TIME TO MORROW WE WILL STRETCH A POINT AND DELAY THE DEPARTURE OF THE JOHN BRIGHT FOR TWENTY FOUR HOURS",
+          "hyp": "If you will give us your promise to meet Captain Adelax here at this time tomorrow, we will stretch a point and delay the departure of the John Bright for 24 hours."
+        },
+        {
+          "id": "8455-210777-0017",
+          "duration": 5.3300625,
+          "latency_s": 0.6417722000041977,
+          "cpu_s": 2.515625,
+          "ref": "MY WIFE ON THE SPUR OF THE MOMENT MANAGED TO GIVE THE GENTLEMEN A VERY GOOD DINNER",
+          "hyp": "My wife, on the spur of the moment, managed to give the gentleman a very good dinner."
+        },
+        {
+          "id": "2830-3980-0046",
+          "duration": 2.84,
+          "latency_s": 0.5959243000252172,
+          "cpu_s": 2.390625,
+          "ref": "WAS IT NOT ENOUGH TO SAY FROM GOD THE FATHER",
+          "hyp": "Was it not enough to say from God the Father?"
+        },
+        {
+          "id": "2830-3980-0055",
+          "duration": 7.335,
+          "latency_s": 0.9036169999744743,
+          "cpu_s": 2.640625,
+          "ref": "TO BESTOW PEACE AND GRACE LIES IN THE PROVINCE OF GOD WHO ALONE CAN CREATE THESE BLESSINGS THE ANGELS CANNOT",
+          "hyp": "To bestow peace and grace lies in the province of God, who alone can create these blessings. The angels cannot."
+        },
+        {
+          "id": "4446-2271-0024",
+          "duration": 3.16,
+          "latency_s": 0.6350650999811478,
+          "cpu_s": 2.328125,
+          "ref": "I SHOULDN'T WONDER IF SHE COULD LAUGH ABOUT IT WITH ME NOW",
+          "hyp": "I shouldn't wonder if she could laugh about it with me now."
+        },
+        {
+          "id": "4446-2271-0007",
+          "duration": 2.1,
+          "latency_s": 0.6073003000346944,
+          "cpu_s": 2.296875,
+          "ref": "SHE DOESN'T TAKE UP WITH ANYBODY YOU KNOW",
+          "hyp": "She doesn't take up with anybody, you know."
+        },
+        {
+          "id": "4077-13754-0003",
+          "duration": 5.68,
+          "latency_s": 0.6635031999903731,
+          "cpu_s": 2.59375,
+          "ref": "MOREOVER HAD THE PEOPLE BEEN INCLINED TO REBELLION WHAT GREATER OPPORTUNITY COULD THEY HAVE WISHED",
+          "hyp": "Moreover, had the people been inclined to rebellion, what greater opportunity could they have wished?"
+        },
+        {
+          "id": "4077-13754-0010",
+          "duration": 11.955,
+          "latency_s": 0.830958999984432,
+          "cpu_s": 3.15625,
+          "ref": "IN EIGHTEEN SIXTY TWO A LAW WAS ENACTED WITH THE PURPOSE OF SUPPRESSING PLURAL MARRIAGE AND AS HAD BEEN PREDICTED IN THE NATIONAL SENATE PRIOR TO ITS PASSAGE IT LAY FOR MANY YEARS A DEAD LETTER",
+          "hyp": "In 1862, a law was enacted with the purpose of suppressing plural marriage, and, as had been predicted in the National Senate prior to its passage, it lay for many years a dead letter."
+        },
+        {
+          "id": "1221-135767-0022",
+          "duration": 14.395,
+          "latency_s": 0.8155754000181332,
+          "cpu_s": 3.171875,
+          "ref": "BUT THE PROPRIETOR APPEARED ALREADY TO HAVE RELINQUISHED AS HOPELESS THE EFFORT TO PERPETUATE ON THIS SIDE OF THE ATLANTIC IN A HARD SOIL AND AMID THE CLOSE STRUGGLE FOR SUBSISTENCE THE NATIVE ENGLISH TASTE FOR ORNAMENTAL GARDENING",
+          "hyp": "But the proprietor appeared already to have relinquished as hopeless the effort to perpetuate on this side of the Atlantic in a hard soil and amid the close struggle for subsistence, the native English taste for ornamental gardening."
+        },
+        {
+          "id": "1221-135767-0019",
+          "duration": 3.78,
+          "latency_s": 0.6399786999681965,
+          "cpu_s": 2.390625,
+          "ref": "MOTHER CRIED SHE I SEE YOU HERE LOOK LOOK",
+          "hyp": "Mother cried she, I see you here. Look, look."
+        },
+        {
+          "id": "908-157963-0018",
+          "duration": 4.255,
+          "latency_s": 0.8278863999876194,
+          "cpu_s": 3.265625,
+          "ref": "AND FEAREST THOU BECAUSE I VANISH AND AM SEEN NO MORE",
+          "hyp": "and fear style because I vanish and am seeing no more."
+        },
+        {
+          "id": "908-157963-0020",
+          "duration": 9.8,
+          "latency_s": 0.8786771000013687,
+          "cpu_s": 3.453125,
+          "ref": "TILL WE ARISE LINK'D IN A GOLDEN BAND AND NEVER PART BUT WALK UNITED BEARING FOOD TO ALL OUR TENDER FLOWERS",
+          "hyp": "till we arise linked in a golden band, and never part, but walk, united bearing, food to all our tender flowers."
+        },
+        {
+          "id": "7021-79759-0005",
+          "duration": 13.02,
+          "latency_s": 1.0239791999920271,
+          "cpu_s": 3.9375,
+          "ref": "THE PAIN PRODUCED BY AN ACT OF HASTY AND ANGRY VIOLENCE TO WHICH A FATHER SUBJECTS HIS SON MAY SOON PASS AWAY BUT THE MEMORY OF IT DOES NOT PASS AWAY WITH THE PAIN",
+          "hyp": "The pain produced by an act of hasty and angry violence, to which a father subjects his son, may soon pass away, but the memory of it does not pass away with the pain."
+        },
+        {
+          "id": "7021-79759-0003",
+          "duration": 4.62,
+          "latency_s": 0.7112075000186451,
+          "cpu_s": 2.71875,
+          "ref": "VAST IMPORTANCE AND INFLUENCE OF THIS MENTAL FURNISHING",
+          "hyp": "vast importance and influence of this mental furnishing."
+        },
+        {
+          "id": "8224-274384-0011",
+          "duration": 22.36,
+          "latency_s": 1.7412751999800093,
+          "cpu_s": 5.640625,
+          "ref": "THE ENGLISH IT IS EVIDENT HAD THEY NOT BEEN PREVIOUSLY ASSURED OF RECEIVING THE KING WOULD NEVER HAVE PARTED WITH SO CONSIDERABLE A SUM AND WHILE THEY WEAKENED THEMSELVES BY THE SAME MEASURE HAVE STRENGTHENED A PEOPLE WITH WHOM THEY MUST AFTERWARDS HAVE SO MATERIAL AN INTEREST TO DISCUSS",
+          "hyp": "The English, it is evident, had they not been previously assured of receiving the king, would never have parted with so considerable a sum, and while they weakened themselves, by the same measure, have strengthened the people with whom they must afterwards have so material and interest to discuss."
+        },
+        {
+          "id": "8224-274384-0000",
+          "duration": 7.605,
+          "latency_s": 0.7586139000486583,
+          "cpu_s": 2.53125,
+          "ref": "HE PASSED THROUGH HENLEY SAINT ALBANS AND CAME SO NEAR TO LONDON AS HARROW ON THE HILL",
+          "hyp": "He passed through Henley, St. Albans and came so near to London as Harrow on the hill."
+        },
+        {
+          "id": "4507-16021-0025",
+          "duration": 9.215,
+          "latency_s": 0.7200487999944016,
+          "cpu_s": 2.765625,
+          "ref": "TO MEET THE NEEDS OF THIS CONFLICT WRETCHEDNESS HAS INVENTED A LANGUAGE OF COMBAT WHICH IS SLANG",
+          "hyp": "To meet the needs of this conflict, wretchedness has invented a language of combat, which is slang."
+        },
+        {
+          "id": "4507-16021-0052",
+          "duration": 6.275,
+          "latency_s": 0.7444179999874905,
+          "cpu_s": 2.90625,
+          "ref": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+          "hyp": "The real human division is this, the luminous and the shady."
+        },
+        {
+          "id": "672-122797-0038",
+          "duration": 8.8,
+          "latency_s": 0.7679888000129722,
+          "cpu_s": 3.0,
+          "ref": "THOUGHT THE FIR TREE AND BELIEVED IT ALL BECAUSE THE MAN WHO TOLD THE STORY WAS SO GOOD LOOKING WELL WELL",
+          "hyp": "thought the fir tree, and believed it all, because the man who told the story was so good-looking. Well, well..."
+        },
+        {
+          "id": "672-122797-0004",
+          "duration": 10.25,
+          "latency_s": 0.7819201999809593,
+          "cpu_s": 3.09375,
+          "ref": "IN WINTER WHEN THE SNOW LAY GLITTERING ON THE GROUND A HARE WOULD OFTEN COME LEAPING ALONG AND JUMP RIGHT OVER THE LITTLE TREE",
+          "hyp": "In winter, when the snow lay glittering on the ground, a hair would often come leaping along and jump right over the little tree."
+        },
+        {
+          "id": "5105-28241-0010",
+          "duration": 2.31,
+          "latency_s": 0.6784189000027254,
+          "cpu_s": 2.625,
+          "ref": "OCEAN REIGNED SUPREME",
+          "hyp": "Ocean-reigned Supreme"
+        },
+        {
+          "id": "5105-28241-0007",
+          "duration": 1.88,
+          "latency_s": 0.6507912999950349,
+          "cpu_s": 2.609375,
+          "ref": "THERE IS NO FEAR OF THAT SIR",
+          "hyp": "There's no fear of that sir"
+        },
+        {
+          "id": "3729-6852-0036",
+          "duration": 5.24,
+          "latency_s": 0.6911090999492444,
+          "cpu_s": 2.546875,
+          "ref": "WHEN THE KING COMES TO PARIS EVERYBODY CALLS OUT VIVE LE ROI",
+          "hyp": "When the king comes to Paris, everybody calls out, Viva Le Roy."
+        },
+        {
+          "id": "3729-6852-0027",
+          "duration": 3.0,
+          "latency_s": 0.8212545000133105,
+          "cpu_s": 3.21875,
+          "ref": "THAT IS TRUE BADAUDERIE",
+          "hyp": "That is true bad deal degree"
+        },
+        {
+          "id": "1089-134691-0016",
+          "duration": 9.06,
+          "latency_s": 0.7695303999935277,
+          "cpu_s": 2.71875,
+          "ref": "THEY WERE VOYAGING ACROSS THE DESERTS OF THE SKY A HOST OF NOMADS ON THE MARCH VOYAGING HIGH OVER IRELAND WESTWARD BOUND",
+          "hyp": "They were voyaging across the deserts of the sky, a host of nomads on the march, voyaging high over Ireland, westward bound."
+        },
+        {
+          "id": "1089-134691-0000",
+          "duration": 2.085,
+          "latency_s": 0.9748364000115544,
+          "cpu_s": 2.953125,
+          "ref": "HE COULD WAIT NO LONGER",
+          "hyp": "He could wait no longer."
+        },
+        {
+          "id": "1188-133604-0019",
+          "duration": 13.93,
+          "latency_s": 0.8861776999547146,
+          "cpu_s": 3.34375,
+          "ref": "THE LARGE LETTER CONTAINS INDEED ENTIRELY FEEBLE AND ILL DRAWN FIGURES THAT IS MERELY CHILDISH AND FAILING WORK OF AN INFERIOR HAND IT IS NOT CHARACTERISTIC OF GOTHIC OR ANY OTHER SCHOOL",
+          "hyp": "The large letter contains, indeed, entirely feeble and ill-drawn figures. That is merely childish and failing work of an inferior hand. It is not characteristic of Gothic or any other school."
+        },
+        {
+          "id": "1188-133604-0038",
+          "duration": 5.365,
+          "latency_s": 0.7491310000186786,
+          "cpu_s": 2.921875,
+          "ref": "BUT NOW HERE IS A SUBJECT OF WHICH YOU WILL WONDER AT FIRST WHY TURNER DREW IT AT ALL",
+          "hyp": "But now here is the subject of which you will wonder at first why Turner drew it at all."
+        },
+        {
+          "id": "2300-131720-0037",
+          "duration": 7.965,
+          "latency_s": 0.7925098999985494,
+          "cpu_s": 2.921875,
+          "ref": "HE WEIGHED AND REWEIGHED THE METER PLATES AND PURSUED EVERY LINE OF INVESTIGATION IMAGINABLE BUT ALL IN VAIN",
+          "hyp": "He weighed and re-waved the meter plates and pursued every line of investigation imaginable, but all in vain."
+        },
+        {
+          "id": "2300-131720-0018",
+          "duration": 12.54,
+          "latency_s": 0.8536899000173435,
+          "cpu_s": 3.015625,
+          "ref": "HE SOON FORESAW THAT STILL GREATER ECONOMY WOULD BE NECESSARY FOR COMMERCIAL SUCCESS NOT ALONE FOR THE LARGER TERRITORY OPENING BUT FOR THE COMPACT DISTRICTS OF LARGE CITIES",
+          "hyp": "He soon foresaw that still greater economy would be necessary for commercial success, not alone for the larger territory opening, but for the compact district of large cities."
+        },
+        {
+          "id": "6829-68769-0016",
+          "duration": 4.12,
+          "latency_s": 0.5971410000347532,
+          "cpu_s": 2.328125,
+          "ref": "HE UNLOCKED THE DOOR AND CALLED HERE'S VISITORS TOM",
+          "hyp": "He unlocked the door and called. Here's visitors Tom."
+        },
+        {
+          "id": "6829-68769-0019",
+          "duration": 2.665,
+          "latency_s": 0.6667781000141986,
+          "cpu_s": 2.609375,
+          "ref": "SORRY WE HAVEN'T ANY RECEPTION ROOM IN THE JAIL",
+          "hyp": "Sorry, we haven't any reception room in the jail."
+        },
+        {
+          "id": "1580-141083-0047",
+          "duration": 2.605,
+          "latency_s": 0.8092871999833733,
+          "cpu_s": 3.125,
+          "ref": "DID YOU LOOK AT THESE PAPERS ON THE TABLE",
+          "hyp": "Did you look at these papers on the table?"
+        },
+        {
+          "id": "1580-141083-0004",
+          "duration": 4.515,
+          "latency_s": 0.6864906999981031,
+          "cpu_s": 2.625,
+          "ref": "I HAD TO READ IT OVER CAREFULLY AS THE TEXT MUST BE ABSOLUTELY CORRECT",
+          "hyp": "I had to read it over carefully as the text must be absolutely correct."
+        },
+        {
+          "id": "4970-29095-0016",
+          "duration": 6.945,
+          "latency_s": 0.8917083999840543,
+          "cpu_s": 3.453125,
+          "ref": "RUTH SAT QUITE STILL FOR A TIME WITH FACE INTENT AND FLUSHED IT WAS OUT NOW",
+          "hyp": "Ruth sat quite still for a time, with face intent and flushed. It was out now."
+        },
+        {
+          "id": "4970-29095-0020",
+          "duration": 12.365,
+          "latency_s": 1.0315028000040911,
+          "cpu_s": 4.109375,
+          "ref": "THERE CERTAINLY WAS NO END TO IT AND EVEN RUTH WAS PHILADELPHIAN ENOUGH TO BELIEVE THAT A STREET OUGHT NOT TO HAVE ANY END OR ARCHITECTURAL POINT UPON WHICH THE WEARY EYE COULD REST",
+          "hyp": "There certainly was no end to it, and even Ruth was Philadelphian enough to believe that a street ought not to have any end, or architectural point upon which the weary eye could rest."
+        },
+        {
+          "id": "4992-41797-0001",
+          "duration": 28.41,
+          "latency_s": 1.9858613000251353,
+          "cpu_s": 7.734375,
+          "ref": "WELL AS I SAY IT'S AN AWFUL QUEER WORLD THEY CLAP ALL THE BURGLARS INTO JAIL AND THE MURDERERS AND THE WIFE BEATERS I'VE ALLERS THOUGHT A GENTLE REPROOF WOULD BE ENOUGH PUNISHMENT FOR A WIFE BEATER CAUSE HE PROBABLY HAS A LOT O PROVOCATION THAT NOBODY KNOWS AND THE FIREBUGS CAN'T THINK O THE RIGHT NAME SOMETHING LIKE CENDENARIES AN THE BREAKERS O THE PEACE AN WHAT NOT AN YET THE LAW HAS NOTHIN TO SAY TO A MAN LIKE HEN LORD",
+          "hyp": "Well, as I say, it's an awful queer world. They clap all the burglars and jailing the murderers and the wife-beaters. I allers thought a general reproof would be enough punishment for a wife-beater, because he probably has a lot of provocation that nobody knows. And the fire-bugs can't think of the right name something like sendiaries. And the breakers of the peace and whatnot, and yet the law has nothing to say to a man like I can't lord."
+        },
+        {
+          "id": "4992-41797-0009",
+          "duration": 13.195,
+          "latency_s": 0.9814074000460096,
+          "cpu_s": 3.75,
+          "ref": "HENRY LORD WITH THE DEGREE OF PH D TO HIS CREDIT HAD BEEN PROFESSOR OF ZOOLOGY AT A NEW ENGLAND COLLEGE BUT HAD RESIGNED HIS POST IN ORDER TO WRITE A SERIES OF SCIENTIFIC TEXT BOOKS",
+          "hyp": "Henry Lord, with a degree of PhD to his credit, had been Professor of Zoology at a New England College, but had resigned his post in order to write a series of scientific textbooks."
+        },
+        {
+          "id": "61-70968-0004",
+          "duration": 3.885,
+          "latency_s": 0.8831545999855734,
+          "cpu_s": 3.515625,
+          "ref": "ALSO THERE WAS A STRIPLING PAGE WHO TURNED INTO A MAID",
+          "hyp": "Also, there was a stripling page who turned it to a maid."
+        },
+        {
+          "id": "61-70968-0011",
+          "duration": 6.375,
+          "latency_s": 0.9386756000458263,
+          "cpu_s": 3.71875,
+          "ref": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+          "hyp": "He gave way to the others very readily and retreated unperceived by the squire and Mistress Fitzsuth to the rear of the tent."
+        },
+        {
+          "id": "8555-292519-0005",
+          "duration": 9.575,
+          "latency_s": 0.9242665000492707,
+          "cpu_s": 3.484375,
+          "ref": "WHILE THE OLD GOLD AND THE MARBLE STAYS FOREVER GLEAMING ITS SOFT STRONG BLAZE CALM IN THE EARLY EVENING GLOW",
+          "hyp": "while the old gold and the marble stays. Forever gleaming is soft, strong, blaze, calm in the early evening glow."
+        },
+        {
+          "id": "8555-292519-0003",
+          "duration": 14.58,
+          "latency_s": 0.9635434000520036,
+          "cpu_s": 3.65625,
+          "ref": "IN A SUNSET GLOWING OF CRIMSON AND GOLD SHE LIES THE GLORY OF THE WORLD A BEACHED KING'S GALLEY WHOSE SAILS ARE FURLED WHO IS HUNG WITH TAPESTRIES RICH AND OLD",
+          "hyp": "In a sunset glowing of crimson and gold, she lies, the glory of the world. A beached king's galley, whose sails are furled, who is hung with tapestries rich and old."
+        },
+        {
+          "id": "237-134500-0014",
+          "duration": 4.25,
+          "latency_s": 0.7128186000045389,
+          "cpu_s": 2.84375,
+          "ref": "AND EMIL MOWED HIS WAY SLOWLY DOWN TOWARD THE CHERRY TREES",
+          "hyp": "and Emil mowed his way slowly down toward the cherry trees."
+        },
+        {
+          "id": "237-134500-0003",
+          "duration": 3.17,
+          "latency_s": 0.6394050999660976,
+          "cpu_s": 2.421875,
+          "ref": "THE ORCHARD WAS SPARKLING AND RIPPLING IN THE SUN",
+          "hyp": "The orchard was sparkling and rippling in the sun."
+        },
+        {
+          "id": "3570-5694-0021",
+          "duration": 10.555,
+          "latency_s": 0.8506386000080965,
+          "cpu_s": 2.921875,
+          "ref": "WHENEVER AS IN THESE CASES THE MENIAL SERVICE IN QUESTION HAS TO DO DIRECTLY WITH THE PRIMARY LEISURE EMPLOYMENTS OF FIGHTING AND HUNTING IT EASILY ACQUIRES A REFLECTED HONORIFIC CHARACTER",
+          "hyp": "Whenever, as in these cases, the menial servicing question has to do directly with the primary leisure employment of fighting and hunting, it easily acquires a reflected, unariffic character."
+        },
+        {
+          "id": "3570-5694-0017",
+          "duration": 8.335,
+          "latency_s": 0.809718000004068,
+          "cpu_s": 3.078125,
+          "ref": "THE WEARING OF UNIFORMS OR LIVERIES IMPLIES A CONSIDERABLE DEGREE OF DEPENDENCE AND MAY EVEN BE SAID TO BE A MARK OF SERVITUDE REAL OR OSTENSIBLE",
+          "hyp": "The wearing of uniforms or liveries implies a considerable degree of dependence and may even be said to be a mark of servitude, real or ostensible."
+        },
+        {
+          "id": "5683-32865-0002",
+          "duration": 2.78,
+          "latency_s": 0.5786520999972709,
+          "cpu_s": 2.265625,
+          "ref": "HE HAD HIS HAND UPON LAKE'S SHOULDER",
+          "hyp": "He had his hand upon Lake's shoulder."
+        },
+        {
+          "id": "5683-32865-0008",
+          "duration": 6.12,
+          "latency_s": 0.7062230999581516,
+          "cpu_s": 2.84375,
+          "ref": "I BELIEVE I HAVE A LITTLE TASTE THAT WAY THOSE ARE ALL REAL YOU KNOW THOSE JEWELS",
+          "hyp": "I believe I have a little taste that way. Those are all real, you know, those jewels."
+        },
+        {
+          "id": "121-121726-0004",
+          "duration": 4.02,
+          "latency_s": 0.6721176999853924,
+          "cpu_s": 2.625,
+          "ref": "HEAVEN A GOOD PLACE TO BE RAISED TO",
+          "hyp": "Heaven. A good place to be raised to."
+        },
+        {
+          "id": "121-121726-0000",
+          "duration": 8.46,
+          "latency_s": 0.8441411000094377,
+          "cpu_s": 3.40625,
+          "ref": "ALSO A POPULAR CONTRIVANCE WHEREBY LOVE MAKING MAY BE SUSPENDED BUT NOT STOPPED DURING THE PICNIC SEASON",
+          "hyp": "Also, a popular contrivance whereby lovemaking may be suspended but not stopped during the picnic season."
+        }
+      ],
+      "bench_wall_s": 69.3
+    },
+    {
+      "engine": "whisper:small.en",
+      "utterances": 80,
+      "audio_s": 576.6800625,
+      "wer": 0.055266579973992196,
+      "rtf": 0.3382357649991828,
+      "latency_p50_s": 2.304790599970147,
+      "latency_p95_s": 3.3078721949947054,
+      "cpu_s_per_audio_s": 1.3297559597874948,
+      "avg_cores_busy": 3.9314469296016283,
+      "load_s": 1.8327287000138313,
+      "model_size_mb": 486.098798,
+      "peak_rss_mb": 716.5859375,
+      "rows": [
+        {
+          "id": "6930-75918-0000",
+          "duration": 3.505,
+          "latency_s": 2.1673326999880373,
+          "cpu_s": 8.640625,
+          "ref": "CONCORD RETURNED TO ITS PLACE AMIDST THE TENTS",
+          "hyp": "Concord returned to its place amidst the tents."
+        },
+        {
+          "id": "6930-75918-0007",
+          "duration": 3.315,
+          "latency_s": 2.1011718999943696,
+          "cpu_s": 8.359375,
+          "ref": "YOU WILL BE FRANK WITH ME I ALWAYS AM",
+          "hyp": "You will be frank with me. I always am"
+        },
+        {
+          "id": "1320-122617-0003",
+          "duration": 6.285,
+          "latency_s": 2.239277599961497,
+          "cpu_s": 8.859375,
+          "ref": "THERE WAS SOMETHING IN HIS AIR AND MANNER THAT BETRAYED TO THE SCOUT THE UTTER CONFUSION OF THE STATE OF HIS MIND",
+          "hyp": "There was something in his air and manner that betrayed to the scout the utter confusion of the state of his mind."
+        },
+        {
+          "id": "1320-122617-0012",
+          "duration": 7.59,
+          "latency_s": 2.3853794000460766,
+          "cpu_s": 9.203125,
+          "ref": "FOUR OR FIVE OF THE LATTER ONLY LINGERED ABOUT THE DOOR OF THE PRISON OF UNCAS WARY BUT CLOSE OBSERVERS OF THE MANNER OF THEIR CAPTIVE",
+          "hyp": "Four or five of the latter only lingered about the door of the prison of Uncus, wary but close observers of the manner of their captive."
+        },
+        {
+          "id": "5639-40744-0032",
+          "duration": 17.43,
+          "latency_s": 3.0290244999923743,
+          "cpu_s": 12.03125,
+          "ref": "FOR GOD'S SAKE MY LADY MOTHER GIVE ME A WIFE WHO WOULD BE AN AGREEABLE COMPANION NOT ONE WHO WILL DISGUST ME SO THAT WE MAY BOTH BEAR EVENLY AND WITH MUTUAL GOOD WILL THE YOKE IMPOSED ON US BY HEAVEN INSTEAD OF PULLING THIS WAY AND THAT WAY AND FRETTING EACH OTHER TO DEATH",
+          "hyp": "For God's sake, my ladymother, give me a wife who would be an agreeable companion. Not one who will disgust me so that we may both bear evenly and with mutual goodwill the yoke imposed on us by heaven, instead of pulling this way and that way and fretting each other to death."
+        },
+        {
+          "id": "5639-40744-0002",
+          "duration": 8.91,
+          "latency_s": 2.685358199989423,
+          "cpu_s": 9.796875,
+          "ref": "RODOLFO AND HIS COMPANIONS WITH THEIR FACES MUFFLED IN THEIR CLOAKS STARED RUDELY AND INSOLENTLY AT THE MOTHER THE DAUGHTER AND THE SERVANT MAID",
+          "hyp": "Rodolfo and his companions, with their faces muffled in their cloaks, stared rudely and insolently at the mother, the daughter, and the servant maid."
+        },
+        {
+          "id": "260-123440-0018",
+          "duration": 3.64,
+          "latency_s": 2.447290799987968,
+          "cpu_s": 8.859375,
+          "ref": "I AM VERY TIRED OF SWIMMING ABOUT HERE O MOUSE",
+          "hyp": "I am very tired of swimming about here. Oh mouse!"
+        },
+        {
+          "id": "260-123440-0004",
+          "duration": 12.02,
+          "latency_s": 2.724975999968592,
+          "cpu_s": 10.734375,
+          "ref": "ALICE TOOK UP THE FAN AND GLOVES AND AS THE HALL WAS VERY HOT SHE KEPT FANNING HERSELF ALL THE TIME SHE WENT ON TALKING DEAR DEAR HOW QUEER EVERYTHING IS TO DAY",
+          "hyp": "Alice took up the fan and gloves, and as the hall was very hot, she kept fanning herself all the time she went on talking. Dear, dear, how queer everything is today!"
+        },
+        {
+          "id": "7729-102255-0045",
+          "duration": 6.805,
+          "latency_s": 2.313961199950427,
+          "cpu_s": 9.125,
+          "ref": "CAPTAIN MARTIN SAID I SHALL GIVE YOU A PISTOL TO HELP PROTECT YOURSELF IF WORSE COMES TO WORST",
+          "hyp": "Captain Martin said, I shall give you a pistol to help protect yourself if worse comes to worst."
+        },
+        {
+          "id": "7729-102255-0041",
+          "duration": 12.415,
+          "latency_s": 2.547944499994628,
+          "cpu_s": 10.0,
+          "ref": "THE WHOLE PROCEEDING WAS SO CHILDISH THE MISERABLE PLOT SO TRANSPARENT THE OUTRAGE SO GROSS AS TO BRING DISGUST TO THE BETTER CLASS OF BORDER RUFFIANS WHO WERE WITNESSES AND ACCESSORIES",
+          "hyp": "The whole proceeding was so childish, the miserable plot so transparent, the outrage so gross, as to bring disgust to the better class of border ruffians who were witnesses and accessories."
+        },
+        {
+          "id": "2094-142345-0059",
+          "duration": 10.01,
+          "latency_s": 2.5878301999764517,
+          "cpu_s": 10.171875,
+          "ref": "THIS MISSUS POYSER SAID BLUSHING AND BELIEVING THAT THE CAPTAIN WAS REALLY INTERESTED IN HER MILK PANS AND WOULD ADJUST HIS OPINION OF HER TO THE APPEARANCE OF HER DAIRY",
+          "hyp": "This, Mrs. Poisir said blushing, and believing that the captain was really interested in her milk pans, and would adjust his opinion of her to the appearance of her dairy."
+        },
+        {
+          "id": "2094-142345-0045",
+          "duration": 3.005,
+          "latency_s": 2.1348625000100583,
+          "cpu_s": 8.328125,
+          "ref": "OH SIR DON'T MENTION IT SAID MISSUS POYSER",
+          "hyp": "Oh, sir, don't mention it,\" said Mrs. Poiser."
+        },
+        {
+          "id": "3575-170457-0016",
+          "duration": 1.695,
+          "latency_s": 2.011247199960053,
+          "cpu_s": 8.015625,
+          "ref": "FAREWELL MADAM",
+          "hyp": "Farewell, Madam."
+        },
+        {
+          "id": "3575-170457-0023",
+          "duration": 9.095,
+          "latency_s": 2.3472462000208907,
+          "cpu_s": 9.234375,
+          "ref": "I CAREFULLY AVOID ANY APPEARANCE OF PREOCCUPATION AND ECCENTRICITY WHICH MIGHT LEAD THOSE I LIVE AMONGST TO SUSPECT THE NATURE OF MY PURSUITS",
+          "hyp": "I carefully avoid any appearance of preoccupation and eccentricity, which might lead those I live amongst to suspect the nature of my pursuits."
+        },
+        {
+          "id": "7127-75947-0011",
+          "duration": 3.62,
+          "latency_s": 2.525402800005395,
+          "cpu_s": 10.015625,
+          "ref": "REMAIN I IMPLORE YOU THE EVENING IS MOST LOVELY",
+          "hyp": "Remain, I implore you. The evening is most lovely."
+        },
+        {
+          "id": "7127-75947-0004",
+          "duration": 1.905,
+          "latency_s": 2.0758180000120774,
+          "cpu_s": 8.140625,
+          "ref": "EXPLAIN YOURSELF",
+          "hyp": "Explain yourself."
+        },
+        {
+          "id": "2961-960-0012",
+          "duration": 6.89,
+          "latency_s": 2.268345099990256,
+          "cpu_s": 9.078125,
+          "ref": "MANY IF NOT ALL THE ELEMENTS OF THE PRE SOCRATIC PHILOSOPHY ARE INCLUDED IN THE TIMAEUS",
+          "hyp": "Many, if not all, the elements of the presocratic philosophy are included in the Timies."
+        },
+        {
+          "id": "2961-960-0022",
+          "duration": 7.425,
+          "latency_s": 2.1295115999528207,
+          "cpu_s": 8.375,
+          "ref": "PLATO HAD NOT THE COMMAND OF HIS MATERIALS WHICH WOULD HAVE ENABLED HIM TO PRODUCE A PERFECT WORK OF ART",
+          "hyp": "Plato had not the command of his materials, which would have enabled him to produce a perfect work of art."
+        },
+        {
+          "id": "8463-287645-0008",
+          "duration": 3.325,
+          "latency_s": 2.142960600031074,
+          "cpu_s": 8.40625,
+          "ref": "AS USUAL NOTHING WAS DONE IN THE WAY OF PUNISHMENT",
+          "hyp": "As usual, nothing was done in the way of punishment."
+        },
+        {
+          "id": "8463-287645-0010",
+          "duration": 4.325,
+          "latency_s": 2.1641640000161715,
+          "cpu_s": 8.46875,
+          "ref": "HE WORKED ME VERY HARD HE WANTED TO BE BEATING ME ALL THE TIME",
+          "hyp": "He worked me very hard. He wanted to be beating me all the time."
+        },
+        {
+          "id": "8230-279154-0036",
+          "duration": 3.235,
+          "latency_s": 1.847900299995672,
+          "cpu_s": 6.828125,
+          "ref": "A FURTHER STAGE IS RECOGNITION",
+          "hyp": "A further stage is recognition."
+        },
+        {
+          "id": "8230-279154-0015",
+          "duration": 8.05,
+          "latency_s": 1.9549767000135034,
+          "cpu_s": 7.59375,
+          "ref": "THEY MUST HAVE SOME CHARACTERISTIC WHICH MAKES US REGARD THEM AS REFERRING TO MORE OR LESS REMOTE PORTIONS OF THE PAST",
+          "hyp": "They must have some characteristic, which makes us regard them as referring to more or less remote portions of the past."
+        },
+        {
+          "id": "7176-92135-0018",
+          "duration": 8.94,
+          "latency_s": 2.4372340999543667,
+          "cpu_s": 9.578125,
+          "ref": "IN THE MODERN WELL CONSTRUCTED PLAY HE SIMPLY RINGS UP AN IMAGINARY CONFEDERATE AND TELLS HIM WHAT HE IS GOING TO DO COULD ANYTHING BE MORE NATURAL",
+          "hyp": "In the modern, well-constructed play, he simply rings up an imaginary Confederate and tells him what he is going to do. Could anything be more natural?"
+        },
+        {
+          "id": "7176-92135-0034",
+          "duration": 4.465,
+          "latency_s": 2.3358840000000782,
+          "cpu_s": 9.28125,
+          "ref": "THE DUCHESS OF SOUTHBRIDGE TO LORD REGGIE OH REGGIE WHAT DID YOU SAY",
+          "hyp": "The Duchess of Southbridge to Lord Reggie. Oh Reggie, what did you say?"
+        },
+        {
+          "id": "1995-1836-0007",
+          "duration": 3.435,
+          "latency_s": 2.20617650001077,
+          "cpu_s": 8.765625,
+          "ref": "BUT YOU BELIEVE IN SOME EDUCATION ASKED MARY TAYLOR",
+          "hyp": "Do you believe in some education? Ask Mary Taylor."
+        },
+        {
+          "id": "1995-1836-0008",
+          "duration": 6.985,
+          "latency_s": 2.0917490999563597,
+          "cpu_s": 8.28125,
+          "ref": "I BELIEVE IN THE TRAINING OF PEOPLE TO THEIR HIGHEST CAPACITY THE ENGLISHMAN HERE HEARTILY SECONDED HIM",
+          "hyp": "I believe in the training of people to their highest capacity.\" The Englishman here heartily seconded him."
+        },
+        {
+          "id": "1284-1181-0019",
+          "duration": 3.2,
+          "latency_s": 2.1023473999812268,
+          "cpu_s": 8.25,
+          "ref": "I NOW USE THEM AS ORNAMENTAL STATUARY IN MY GARDEN",
+          "hyp": "I now use them as ornamental statuary in my garden."
+        },
+        {
+          "id": "1284-1181-0002",
+          "duration": 3.835,
+          "latency_s": 2.248524800001178,
+          "cpu_s": 8.953125,
+          "ref": "THE HEAD OF THE PATCHWORK GIRL WAS THE MOST CURIOUS PART OF HER",
+          "hyp": "The head of the patchwork girl was the most curious part of her."
+        },
+        {
+          "id": "5142-36377-0003",
+          "duration": 3.91,
+          "latency_s": 2.1519513999810442,
+          "cpu_s": 8.578125,
+          "ref": "AMBROSE MET ME AT THE BOTTOM OF THE STAIRS AND SHOWED ME THE WAY TO THE SUPPER ROOM",
+          "hyp": "Ambrose met me at the bottom of the stairs and showed me the way to the supper room."
+        },
+        {
+          "id": "5142-36377-0008",
+          "duration": 15.425,
+          "latency_s": 2.9369307999731973,
+          "cpu_s": 11.53125,
+          "ref": "MISTER MEADOWCROFT THE ELDER HAVING NOT SPOKEN ONE WORD THUS FAR HIMSELF INTRODUCED THE NEWCOMER TO ME WITH A SIDE GLANCE AT HIS SONS WHICH HAD SOMETHING LIKE DEFIANCE IN IT A GLANCE WHICH AS I WAS SORRY TO NOTICE WAS RETURNED WITH THE DEFIANCE ON THEIR SIDE BY THE TWO YOUNG MEN",
+          "hyp": "Mr. Metacroft, the Elder, having not spoken one word thus far, himself introduced the newcomer to me, with a side glance at his sons, which had something like defiance in it, a glance which, as I was sorry to notice, was returned with the defiance on their side by the two young men."
+        },
+        {
+          "id": "8455-210777-0069",
+          "duration": 8.915,
+          "latency_s": 2.6224949000170454,
+          "cpu_s": 10.421875,
+          "ref": "IF YOU WILL GIVE US YOUR PROMISE TO MEET CAPTAIN BATTLEAX HERE AT THIS TIME TO MORROW WE WILL STRETCH A POINT AND DELAY THE DEPARTURE OF THE JOHN BRIGHT FOR TWENTY FOUR HOURS",
+          "hyp": "If you will give us your promise to meet Captain Adelax here at this time tomorrow, we will stretch a point and delay the departure of the John Bright for 24 hours."
+        },
+        {
+          "id": "8455-210777-0017",
+          "duration": 5.3300625,
+          "latency_s": 2.2330692000105046,
+          "cpu_s": 8.890625,
+          "ref": "MY WIFE ON THE SPUR OF THE MOMENT MANAGED TO GIVE THE GENTLEMEN A VERY GOOD DINNER",
+          "hyp": "My wife, on the spur of the moment, managed to give the gentleman a very good dinner."
+        },
+        {
+          "id": "2830-3980-0046",
+          "duration": 2.84,
+          "latency_s": 2.1649592999601737,
+          "cpu_s": 8.625,
+          "ref": "WAS IT NOT ENOUGH TO SAY FROM GOD THE FATHER",
+          "hyp": "Was it not enough to save from God the Father?"
+        },
+        {
+          "id": "2830-3980-0055",
+          "duration": 7.335,
+          "latency_s": 2.121778600034304,
+          "cpu_s": 8.25,
+          "ref": "TO BESTOW PEACE AND GRACE LIES IN THE PROVINCE OF GOD WHO ALONE CAN CREATE THESE BLESSINGS THE ANGELS CANNOT",
+          "hyp": "To bestow peace and grace lies in the province of God, who alone can create these blessings. The angels cannot."
+        },
+        {
+          "id": "4446-2271-0024",
+          "duration": 3.16,
+          "latency_s": 2.0299222999601625,
+          "cpu_s": 8.109375,
+          "ref": "I SHOULDN'T WONDER IF SHE COULD LAUGH ABOUT IT WITH ME NOW",
+          "hyp": "I shouldn't wonder if she could laugh about it with me now."
+        },
+        {
+          "id": "4446-2271-0007",
+          "duration": 2.1,
+          "latency_s": 2.182760800002143,
+          "cpu_s": 8.65625,
+          "ref": "SHE DOESN'T TAKE UP WITH ANYBODY YOU KNOW",
+          "hyp": "She doesn't take up with anybody, you know?"
+        },
+        {
+          "id": "4077-13754-0003",
+          "duration": 5.68,
+          "latency_s": 2.0448342000017874,
+          "cpu_s": 7.859375,
+          "ref": "MOREOVER HAD THE PEOPLE BEEN INCLINED TO REBELLION WHAT GREATER OPPORTUNITY COULD THEY HAVE WISHED",
+          "hyp": "Moreover, had the people been inclined to rebellion, what greater opportunity could they have wished?"
+        },
+        {
+          "id": "4077-13754-0010",
+          "duration": 11.955,
+          "latency_s": 2.651686500001233,
+          "cpu_s": 10.5625,
+          "ref": "IN EIGHTEEN SIXTY TWO A LAW WAS ENACTED WITH THE PURPOSE OF SUPPRESSING PLURAL MARRIAGE AND AS HAD BEEN PREDICTED IN THE NATIONAL SENATE PRIOR TO ITS PASSAGE IT LAY FOR MANY YEARS A DEAD LETTER",
+          "hyp": "In 1862, a law was enacted with the purpose of suppressing plural marriage, and, as had been predicted in the national senate prior to its passage, it lay for many years a dead letter."
+        },
+        {
+          "id": "1221-135767-0022",
+          "duration": 14.395,
+          "latency_s": 2.605674199992791,
+          "cpu_s": 10.125,
+          "ref": "BUT THE PROPRIETOR APPEARED ALREADY TO HAVE RELINQUISHED AS HOPELESS THE EFFORT TO PERPETUATE ON THIS SIDE OF THE ATLANTIC IN A HARD SOIL AND AMID THE CLOSE STRUGGLE FOR SUBSISTENCE THE NATIVE ENGLISH TASTE FOR ORNAMENTAL GARDENING",
+          "hyp": "But the proprietor appeared already to have relinquished as hopeless the effort to perpetuate, on this side of the Atlantic, in a hard soil, and amid the close struggle for subsistence, the native English taste for ornamental gardening."
+        },
+        {
+          "id": "1221-135767-0019",
+          "duration": 3.78,
+          "latency_s": 2.224015799991321,
+          "cpu_s": 8.640625,
+          "ref": "MOTHER CRIED SHE I SEE YOU HERE LOOK LOOK",
+          "hyp": "Mother cried she, I see you here. Look, look!\""
+        },
+        {
+          "id": "908-157963-0018",
+          "duration": 4.255,
+          "latency_s": 2.260829900042154,
+          "cpu_s": 9.0,
+          "ref": "AND FEAREST THOU BECAUSE I VANISH AND AM SEEN NO MORE",
+          "hyp": "And fear's thou because I vanish and am seen no more."
+        },
+        {
+          "id": "908-157963-0020",
+          "duration": 9.8,
+          "latency_s": 2.21181519998936,
+          "cpu_s": 8.5625,
+          "ref": "TILL WE ARISE LINK'D IN A GOLDEN BAND AND NEVER PART BUT WALK UNITED BEARING FOOD TO ALL OUR TENDER FLOWERS",
+          "hyp": "Till we arise linked in a golden band, and never part, But walk, united bearing, food to all our tender flowers."
+        },
+        {
+          "id": "7021-79759-0005",
+          "duration": 13.02,
+          "latency_s": 2.562475099985022,
+          "cpu_s": 10.0625,
+          "ref": "THE PAIN PRODUCED BY AN ACT OF HASTY AND ANGRY VIOLENCE TO WHICH A FATHER SUBJECTS HIS SON MAY SOON PASS AWAY BUT THE MEMORY OF IT DOES NOT PASS AWAY WITH THE PAIN",
+          "hyp": "The pain produced by an act of hasty and angry violence, to which a father subjects his son, may soon pass away, but the memory of it does not pass away with the pain."
+        },
+        {
+          "id": "7021-79759-0003",
+          "duration": 4.62,
+          "latency_s": 2.0970668999943882,
+          "cpu_s": 8.359375,
+          "ref": "VAST IMPORTANCE AND INFLUENCE OF THIS MENTAL FURNISHING",
+          "hyp": "vast importance and influence of this mental furnishing."
+        },
+        {
+          "id": "8224-274384-0011",
+          "duration": 22.36,
+          "latency_s": 2.7916617000009865,
+          "cpu_s": 10.96875,
+          "ref": "THE ENGLISH IT IS EVIDENT HAD THEY NOT BEEN PREVIOUSLY ASSURED OF RECEIVING THE KING WOULD NEVER HAVE PARTED WITH SO CONSIDERABLE A SUM AND WHILE THEY WEAKENED THEMSELVES BY THE SAME MEASURE HAVE STRENGTHENED A PEOPLE WITH WHOM THEY MUST AFTERWARDS HAVE SO MATERIAL AN INTEREST TO DISCUSS",
+          "hyp": "The English, it is evident, had they not been previously assured of receiving the king, would never have parted with so considerable a sum, and while they weakened themselves by the same measure, have strengthened a people with whom they must afterwards have so material an interest to discuss."
+        },
+        {
+          "id": "8224-274384-0000",
+          "duration": 7.605,
+          "latency_s": 2.2471631999942474,
+          "cpu_s": 8.921875,
+          "ref": "HE PASSED THROUGH HENLEY SAINT ALBANS AND CAME SO NEAR TO LONDON AS HARROW ON THE HILL",
+          "hyp": "He passed through Henley, St Albans, and came so near to London as Harrow on the hill."
+        },
+        {
+          "id": "4507-16021-0025",
+          "duration": 9.215,
+          "latency_s": 2.2133220999967307,
+          "cpu_s": 8.796875,
+          "ref": "TO MEET THE NEEDS OF THIS CONFLICT WRETCHEDNESS HAS INVENTED A LANGUAGE OF COMBAT WHICH IS SLANG",
+          "hyp": "To meet the needs of this conflict, wretchedness has invented a language of combat, which is slang."
+        },
+        {
+          "id": "4507-16021-0052",
+          "duration": 6.275,
+          "latency_s": 2.145345199969597,
+          "cpu_s": 8.375,
+          "ref": "THE REAL HUMAN DIVISION IS THIS THE LUMINOUS AND THE SHADY",
+          "hyp": "The real human division is this, the luminous and the shady."
+        },
+        {
+          "id": "672-122797-0038",
+          "duration": 8.8,
+          "latency_s": 2.671725999971386,
+          "cpu_s": 10.59375,
+          "ref": "THOUGHT THE FIR TREE AND BELIEVED IT ALL BECAUSE THE MAN WHO TOLD THE STORY WAS SO GOOD LOOKING WELL WELL",
+          "hyp": "thought the fir-tree, and believed it all, because the man who told the story was so good-looking. Well, well, well, well, well, well, well, well, well, well, well, well, well, well, well,"
+        },
+        {
+          "id": "672-122797-0004",
+          "duration": 10.25,
+          "latency_s": 2.2471706999931484,
+          "cpu_s": 8.875,
+          "ref": "IN WINTER WHEN THE SNOW LAY GLITTERING ON THE GROUND A HARE WOULD OFTEN COME LEAPING ALONG AND JUMP RIGHT OVER THE LITTLE TREE",
+          "hyp": "In winter, when the snow lay glittering on the ground, a hair would often come leaping along and jump right over the little tree."
+        },
+        {
+          "id": "5105-28241-0010",
+          "duration": 2.31,
+          "latency_s": 1.992020700010471,
+          "cpu_s": 7.6875,
+          "ref": "OCEAN REIGNED SUPREME",
+          "hyp": "Ocean rained supreme."
+        },
+        {
+          "id": "5105-28241-0007",
+          "duration": 1.88,
+          "latency_s": 2.7720678000478074,
+          "cpu_s": 11.0,
+          "ref": "THERE IS NO FEAR OF THAT SIR",
+          "hyp": "There's no fear of that, sir."
+        },
+        {
+          "id": "3729-6852-0036",
+          "duration": 5.24,
+          "latency_s": 2.5650290999910794,
+          "cpu_s": 9.875,
+          "ref": "WHEN THE KING COMES TO PARIS EVERYBODY CALLS OUT VIVE LE ROI",
+          "hyp": "When the king comes to Paris, everybody calls out, vive la Roy."
+        },
+        {
+          "id": "3729-6852-0027",
+          "duration": 3.0,
+          "latency_s": 2.533217199961655,
+          "cpu_s": 9.84375,
+          "ref": "THAT IS TRUE BADAUDERIE",
+          "hyp": "That is true Bad Delt Grey"
+        },
+        {
+          "id": "1089-134691-0016",
+          "duration": 9.06,
+          "latency_s": 2.5408398999716155,
+          "cpu_s": 9.96875,
+          "ref": "THEY WERE VOYAGING ACROSS THE DESERTS OF THE SKY A HOST OF NOMADS ON THE MARCH VOYAGING HIGH OVER IRELAND WESTWARD BOUND",
+          "hyp": "They were voyaging across the deserts of the sky, a host of nomads on the march, voyaging high over Ireland, westward bound."
+        },
+        {
+          "id": "1089-134691-0000",
+          "duration": 2.085,
+          "latency_s": 2.3433811999857426,
+          "cpu_s": 9.34375,
+          "ref": "HE COULD WAIT NO LONGER",
+          "hyp": "He could wait no longer."
+        },
+        {
+          "id": "1188-133604-0019",
+          "duration": 13.93,
+          "latency_s": 2.4130716999643482,
+          "cpu_s": 9.53125,
+          "ref": "THE LARGE LETTER CONTAINS INDEED ENTIRELY FEEBLE AND ILL DRAWN FIGURES THAT IS MERELY CHILDISH AND FAILING WORK OF AN INFERIOR HAND IT IS NOT CHARACTERISTIC OF GOTHIC OR ANY OTHER SCHOOL",
+          "hyp": "The large letter contains, indeed, entirely feeble and ill-drawn figures. That is merely childish and failing work of an inferior hand. It is not characteristic of Gothic, or any other school."
+        },
+        {
+          "id": "1188-133604-0038",
+          "duration": 5.365,
+          "latency_s": 3.756766099948436,
+          "cpu_s": 14.828125,
+          "ref": "BUT NOW HERE IS A SUBJECT OF WHICH YOU WILL WONDER AT FIRST WHY TURNER DREW IT AT ALL",
+          "hyp": "But now here is the subject of which you will wonder at first why Turner drew it at all."
+        },
+        {
+          "id": "2300-131720-0037",
+          "duration": 7.965,
+          "latency_s": 4.170320800039917,
+          "cpu_s": 16.21875,
+          "ref": "HE WEIGHED AND REWEIGHED THE METER PLATES AND PURSUED EVERY LINE OF INVESTIGATION IMAGINABLE BUT ALL IN VAIN",
+          "hyp": "He weighed and re-waved the meter plates, and pursued every line of investigation imaginable but all in vain."
+        },
+        {
+          "id": "2300-131720-0018",
+          "duration": 12.54,
+          "latency_s": 2.9183914000168443,
+          "cpu_s": 11.53125,
+          "ref": "HE SOON FORESAW THAT STILL GREATER ECONOMY WOULD BE NECESSARY FOR COMMERCIAL SUCCESS NOT ALONE FOR THE LARGER TERRITORY OPENING BUT FOR THE COMPACT DISTRICTS OF LARGE CITIES",
+          "hyp": "He soon foresaw that still greater economy would be necessary for commercial success, not alone for the larger territory opening, but for the compact district of large cities."
+        },
+        {
+          "id": "6829-68769-0016",
+          "duration": 4.12,
+          "latency_s": 2.295619999989867,
+          "cpu_s": 9.109375,
+          "ref": "HE UNLOCKED THE DOOR AND CALLED HERE'S VISITORS TOM",
+          "hyp": "He unlocked the door and called here's visitors Tom"
+        },
+        {
+          "id": "6829-68769-0019",
+          "duration": 2.665,
+          "latency_s": 2.7675969999982044,
+          "cpu_s": 10.96875,
+          "ref": "SORRY WE HAVEN'T ANY RECEPTION ROOM IN THE JAIL",
+          "hyp": "Sorry, we haven't any reception room in the jail."
+        },
+        {
+          "id": "1580-141083-0047",
+          "duration": 2.605,
+          "latency_s": 2.3206840999773704,
+          "cpu_s": 9.28125,
+          "ref": "DID YOU LOOK AT THESE PAPERS ON THE TABLE",
+          "hyp": "Did you look at these papers on the table?"
+        },
+        {
+          "id": "1580-141083-0004",
+          "duration": 4.515,
+          "latency_s": 2.2267158000031486,
+          "cpu_s": 8.75,
+          "ref": "I HAD TO READ IT OVER CAREFULLY AS THE TEXT MUST BE ABSOLUTELY CORRECT",
+          "hyp": "I had to read it over carefully, as the text must be absolutely correct."
+        },
+        {
+          "id": "4970-29095-0016",
+          "duration": 6.945,
+          "latency_s": 3.800926800002344,
+          "cpu_s": 15.015625,
+          "ref": "RUTH SAT QUITE STILL FOR A TIME WITH FACE INTENT AND FLUSHED IT WAS OUT NOW",
+          "hyp": "Ruth sat quite still for a time, with face and tint and flushed. It was out now."
+        },
+        {
+          "id": "4970-29095-0020",
+          "duration": 12.365,
+          "latency_s": 4.036943299986888,
+          "cpu_s": 15.6875,
+          "ref": "THERE CERTAINLY WAS NO END TO IT AND EVEN RUTH WAS PHILADELPHIAN ENOUGH TO BELIEVE THAT A STREET OUGHT NOT TO HAVE ANY END OR ARCHITECTURAL POINT UPON WHICH THE WEARY EYE COULD REST",
+          "hyp": "There certainly was no end to it, and even Ruth was Philadelphian enough to believe that a street ought not to have any end or architectural point upon which the weary eye could rest."
+        },
+        {
+          "id": "4992-41797-0001",
+          "duration": 28.41,
+          "latency_s": 3.284246199997142,
+          "cpu_s": 12.921875,
+          "ref": "WELL AS I SAY IT'S AN AWFUL QUEER WORLD THEY CLAP ALL THE BURGLARS INTO JAIL AND THE MURDERERS AND THE WIFE BEATERS I'VE ALLERS THOUGHT A GENTLE REPROOF WOULD BE ENOUGH PUNISHMENT FOR A WIFE BEATER CAUSE HE PROBABLY HAS A LOT O PROVOCATION THAT NOBODY KNOWS AND THE FIREBUGS CAN'T THINK O THE RIGHT NAME SOMETHING LIKE CENDENARIES AN THE BREAKERS O THE PEACE AN WHAT NOT AN YET THE LAW HAS NOTHIN TO SAY TO A MAN LIKE HEN LORD",
+          "hyp": "Well, as I say, it's an awful queer world. They clap all the burglars in jail and the murderers and the wife beaters. I always thought a general reproof would be enough punishment for a wife beater, because he probably has a lot of provocation that nobody knows. And the fire-bugs can't think of the right name something like Sendiaries. And the breakers of the peace and whatnot. And yet the law has nothing to say to a man like Han Lord."
+        },
+        {
+          "id": "4992-41797-0009",
+          "duration": 13.195,
+          "latency_s": 2.8687567999586463,
+          "cpu_s": 11.421875,
+          "ref": "HENRY LORD WITH THE DEGREE OF PH D TO HIS CREDIT HAD BEEN PROFESSOR OF ZOOLOGY AT A NEW ENGLAND COLLEGE BUT HAD RESIGNED HIS POST IN ORDER TO WRITE A SERIES OF SCIENTIFIC TEXT BOOKS",
+          "hyp": "Henry Lord, with a degree of Ph.D. to his credit, had been professor of zoology at a New England college, but had resigned his post in order to write a series of scientific textbooks."
+        },
+        {
+          "id": "61-70968-0004",
+          "duration": 3.885,
+          "latency_s": 2.363312900008168,
+          "cpu_s": 9.390625,
+          "ref": "ALSO THERE WAS A STRIPLING PAGE WHO TURNED INTO A MAID",
+          "hyp": "Also, there was a stripling page who turned into a maid."
+        },
+        {
+          "id": "61-70968-0011",
+          "duration": 6.375,
+          "latency_s": 2.409174599975813,
+          "cpu_s": 9.296875,
+          "ref": "HE GAVE WAY TO THE OTHERS VERY READILY AND RETREATED UNPERCEIVED BY THE SQUIRE AND MISTRESS FITZOOTH TO THE REAR OF THE TENT",
+          "hyp": "He gave way to the others very readily, and retreated unperceived by the squire and mistress Fitzhoothed to the rear of the tent."
+        },
+        {
+          "id": "8555-292519-0005",
+          "duration": 9.575,
+          "latency_s": 2.494869699992705,
+          "cpu_s": 9.96875,
+          "ref": "WHILE THE OLD GOLD AND THE MARBLE STAYS FOREVER GLEAMING ITS SOFT STRONG BLAZE CALM IN THE EARLY EVENING GLOW",
+          "hyp": "While the old gold and the marble stays Forever gleaming is soft, strong, blaze Calm in the early evening glow."
+        },
+        {
+          "id": "8555-292519-0003",
+          "duration": 14.58,
+          "latency_s": 2.5546097999904305,
+          "cpu_s": 10.109375,
+          "ref": "IN A SUNSET GLOWING OF CRIMSON AND GOLD SHE LIES THE GLORY OF THE WORLD A BEACHED KING'S GALLEY WHOSE SAILS ARE FURLED WHO IS HUNG WITH TAPESTRIES RICH AND OLD",
+          "hyp": "In a sunset glowing of crimson and gold she lies, the glory of the world. A beached king's galley whose sails are furled who is hung with tapestries rich and old."
+        },
+        {
+          "id": "237-134500-0014",
+          "duration": 4.25,
+          "latency_s": 1.9333077000337653,
+          "cpu_s": 7.734375,
+          "ref": "AND EMIL MOWED HIS WAY SLOWLY DOWN TOWARD THE CHERRY TREES",
+          "hyp": "and Emil mowed his way slowly down toward the cherry trees."
+        },
+        {
+          "id": "237-134500-0003",
+          "duration": 3.17,
+          "latency_s": 2.053302899992559,
+          "cpu_s": 7.953125,
+          "ref": "THE ORCHARD WAS SPARKLING AND RIPPLING IN THE SUN",
+          "hyp": "The orchard was sparkling and rippling in the sun."
+        },
+        {
+          "id": "3570-5694-0021",
+          "duration": 10.555,
+          "latency_s": 2.4967724999878556,
+          "cpu_s": 9.84375,
+          "ref": "WHENEVER AS IN THESE CASES THE MENIAL SERVICE IN QUESTION HAS TO DO DIRECTLY WITH THE PRIMARY LEISURE EMPLOYMENTS OF FIGHTING AND HUNTING IT EASILY ACQUIRES A REFLECTED HONORIFIC CHARACTER",
+          "hyp": "Whenever, as in these cases, the menial service in question has to do directly with the primary leisure employments of fighting and hunting, it easily acquires a reflected honorific character."
+        },
+        {
+          "id": "3570-5694-0017",
+          "duration": 8.335,
+          "latency_s": 2.4088393000420183,
+          "cpu_s": 9.390625,
+          "ref": "THE WEARING OF UNIFORMS OR LIVERIES IMPLIES A CONSIDERABLE DEGREE OF DEPENDENCE AND MAY EVEN BE SAID TO BE A MARK OF SERVITUDE REAL OR OSTENSIBLE",
+          "hyp": "The wearing of uniforms or liveries implies a considerable degree of dependence and may even be said to be a mark of servitude, real or ostensible."
+        },
+        {
+          "id": "5683-32865-0002",
+          "duration": 2.78,
+          "latency_s": 2.216913799988106,
+          "cpu_s": 8.84375,
+          "ref": "HE HAD HIS HAND UPON LAKE'S SHOULDER",
+          "hyp": "He had his hand upon Lake's shoulder."
+        },
+        {
+          "id": "5683-32865-0008",
+          "duration": 6.12,
+          "latency_s": 2.2907821999979205,
+          "cpu_s": 9.15625,
+          "ref": "I BELIEVE I HAVE A LITTLE TASTE THAT WAY THOSE ARE ALL REAL YOU KNOW THOSE JEWELS",
+          "hyp": "I believe I have a little taste that way. Those are all real, you know, those jewels."
+        },
+        {
+          "id": "121-121726-0004",
+          "duration": 4.02,
+          "latency_s": 2.2789383999770507,
+          "cpu_s": 9.109375,
+          "ref": "HEAVEN A GOOD PLACE TO BE RAISED TO",
+          "hyp": "Heaven, a good place to be raised to."
+        },
+        {
+          "id": "121-121726-0000",
+          "duration": 8.46,
+          "latency_s": 2.273850500001572,
+          "cpu_s": 8.921875,
+          "ref": "ALSO A POPULAR CONTRIVANCE WHEREBY LOVE MAKING MAY BE SUSPENDED BUT NOT STOPPED DURING THE PICNIC SEASON",
+          "hyp": "Also, a popular contrivance whereby lovemaking may be suspended but not stopped during the picnic season."
+        }
+      ],
+      "bench_wall_s": 199.4
+    }
+  ],
+  "notes": "AC power, Windows Balanced power plan, no other heavy processes. Each engine run in a fresh process; 1 warm-up utterance excluded."
+}
