@@ -1,5 +1,7 @@
 # Live Captions
 
+[![CI](https://github.com/tomjose-bv/live-captions/actions/workflows/ci.yml/badge.svg)](https://github.com/tomjose-bv/live-captions/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Real-time captions for anything your Windows PC plays or hears — meetings, videos,
 podcasts — **running entirely on your own machine.**
 
