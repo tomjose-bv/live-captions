@@ -102,3 +102,44 @@ def test_export_writes_markdown(app, monkeypatch, tmp_path):
     content = out.read_text(encoding="utf-8")
     assert content.startswith("# Transcript")
     assert "hello" in content and "not final" not in content
+
+
+def _visible_inside(widget, root):
+    """True if the widget is mapped with a non-trivial area fully inside the root window."""
+    x, y = widget.winfo_rootx() - root.winfo_rootx(), widget.winfo_rooty() - root.winfo_rooty()
+    return (widget.winfo_ismapped() and widget.winfo_height() >= widget.winfo_reqheight()
+            and x >= 0 and y >= 0
+            and x + widget.winfo_width() <= root.winfo_width()
+            and y + widget.winfo_height() <= root.winfo_height())
+
+
+@pytest.mark.parametrize("size", ["default", "minimum"])
+def test_all_controls_visible(tmp_path, size):
+    try:
+        root = tk.Tk()
+    except tk.TclError:
+        pytest.skip("no display available")
+    try:
+        a = ui.App(root, state_path=str(tmp_path / "s.json"), show_consent=False)
+        if size == "minimum":
+            w, h = root.minsize()
+            root.geometry(f"{w}x{h}")
+        root.update()
+        controls = a.source_checks + [a.preview_check, a.status, a.start_btn, a.summary_btn]
+        for c in controls:
+            assert _visible_inside(c, root), c.cget("text")
+    finally:
+        root.destroy()
+
+
+def test_window_has_minimum_size(tmp_path):
+    try:
+        root = tk.Tk()
+    except tk.TclError:
+        pytest.skip("no display available")
+    try:
+        ui.App(root, state_path=str(tmp_path / "s.json"), show_consent=False)
+        w, h = root.minsize()
+        assert w > 1 and h > 1
+    finally:
+        root.destroy()

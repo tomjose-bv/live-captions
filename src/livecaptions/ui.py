@@ -52,12 +52,10 @@ class App:
         self.summary_btn = ttk.Button(bar, text="Summarize", command=self.summarize)
         self.summary_btn.pack(side="right", padx=4)
 
-        self.text = scrolledtext.ScrolledText(root, wrap="word", font=("Segoe UI", 12), undo=True)
-        self.text.pack(fill="both", expand=True, padx=6)
-        self.text.tag_configure("partial", foreground="#888888", font=("Segoe UI", 12, "italic"))
-
+        # Pack the bottom bar before the transcript so the expanding text box can never
+        # squeeze it out of view; the text box gets whatever height is left.
         bottom = ttk.Frame(root, padding=6)
-        bottom.pack(fill="x")
+        bottom.pack(side="bottom", fill="x")
         self.autoscroll = tk.BooleanVar(value=True)
         ttk.Checkbutton(bottom, text="Auto-scroll", variable=self.autoscroll).pack(side="right")
         self.live_preview = tk.BooleanVar(value=True)
@@ -73,6 +71,17 @@ class App:
             cb.pack(side="right", padx=4)
         self.status = ttk.Label(bottom, text="Stopped")
         self.status.pack(side="left")
+
+        # A modest requested height keeps the window's natural size small; the text box
+        # still expands to fill the window.
+        self.text = scrolledtext.ScrolledText(root, wrap="word", font=("Segoe UI", 12),
+                                              undo=True, height=8)
+        self.text.pack(fill="both", expand=True, padx=6)
+        self.text.tag_configure("partial", foreground="#888888", font=("Segoe UI", 12, "italic"))
+
+        # Never let the window shrink below the size needed to show every control.
+        root.update_idletasks()
+        root.minsize(root.winfo_reqwidth(), root.winfo_reqheight())
 
         menu = tk.Menu(root, tearoff=0)
         for label, ev in (("Cut", "<<Cut>>"), ("Copy", "<<Copy>>"), ("Paste", "<<Paste>>")):
