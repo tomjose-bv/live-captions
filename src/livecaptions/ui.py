@@ -5,7 +5,7 @@ import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext, ttk
 
-from . import export, state, summarize
+from . import export, ocr, state, summarize
 from .config import MODELS
 from .transcriber import Transcriber
 from .transcript import append_text
@@ -14,6 +14,20 @@ BANNER_IDLE = ("Captions stay on this PC. Before captioning a call or meeting, "
                "tell everyone and get their consent.", "#fff4ce", "#5c4400")
 BANNER_LIVE = ("● CAPTIONING LIVE — make sure everyone being captioned has agreed.",
                "#c42b1c", "#ffffff")
+
+
+def virtual_screen(root):
+    """(left, top, width, height) of the desktop spanning every monitor."""
+    try:
+        import ctypes
+
+        metric = ctypes.windll.user32.GetSystemMetrics
+        left, top, width, height = metric(76), metric(77), metric(78), metric(79)
+        if width and height:
+            return left, top, width, height
+    except (AttributeError, OSError):
+        pass
+    return 0, 0, root.winfo_screenwidth(), root.winfo_screenheight()
 
 
 class App:
@@ -48,6 +62,9 @@ class App:
         self.model.pack(side="left")
         ttk.Button(bar, text="Clear", command=self.clear).pack(side="right")
         ttk.Button(bar, text="Copy all", command=self.copy_all).pack(side="right", padx=4)
+        ttk.Button(bar, text="Copy new", command=self.copy_new).pack(side="right")
+        self.screen_btn = ttk.Button(bar, text="Read screen area", command=self.pick_screen_area)
+        self.screen_btn.pack(side="right", padx=4)
         ttk.Button(bar, text="Export…", command=self.export).pack(side="right")
         self.summary_btn = ttk.Button(bar, text="Summarize", command=self.summarize)
         self.summary_btn.pack(side="right", padx=4)
@@ -78,6 +95,10 @@ class App:
                                               undo=True, height=8)
         self.text.pack(fill="both", expand=True, padx=6)
         self.text.tag_configure("partial", foreground="#888888", font=("Segoe UI", 12, "italic"))
+        # Everything before this mark has already been copied with "Copy new".
+        self.text.mark_set("copied_upto", "1.0")
+        self.text.mark_gravity("copied_upto", "left")
+        self.reading_screen = False
 
         # Never let the window shrink below the size needed to show every control.
         root.update_idletasks()
@@ -160,8 +181,21 @@ class App:
         self.root.clipboard_append(self.final_text())
         self.status.config(text="Copied all text to clipboard")
 
+    def copy_new(self):
+        """Copy only the text added since the last "Copy new"."""
+        end = "partial_start" if self.partial_active else "end-1c"
+        new = self.text.get("copied_upto", end).lstrip("\n")
+        if not new.strip():
+            self.status.config(text="Nothing new since the last Copy new")
+            return
+        self.root.clipboard_clear()
+        self.root.clipboard_append(new)
+        self.text.mark_set("copied_upto", end)
+        self.status.config(text=f"Copied {len(new.split())} new words to clipboard")
+
     def clear(self):
         self.text.delete("1.0", "end")
+        self.text.mark_set("copied_upto", "1.0")
         self.last_label = None
         self.partial_active = False
         self.last_summary = None
@@ -189,6 +223,102 @@ class App:
             messagebox.showerror("Export failed", str(e), parent=self.root)
             return
         self.status.config(text=f"Exported to {path}")
+
+    # ---------- screen text ----------
+
+    def pick_screen_area(self):
+        if self.reading_screen:
+            return
+        self.root.iconify()      # get out of the way of what the user wants to select
+        self.root.after(250, self._show_area_picker)
+
+    def _show_area_picker(self):
+        left, top, width, height = virtual_screen(self.root)
+        win = tk.Toplevel(self.root)
+        win.overrideredirect(True)
+        win.geometry(f"{width}x{height}+{left}+{top}")
+        win.attributes("-topmost", True)
+        win.attributes("-alpha", 0.3)
+        canvas = tk.Canvas(win, bg="black", cursor="crosshair", highlightthickness=0)
+        canvas.pack(fill="both", expand=True)
+        canvas.create_text(width // 2, 40, fill="white", font=("Segoe UI", 16, "bold"),
+                           text="Drag over the text to read  ·  Esc to cancel")
+        drag = {}
+
+        def press(e):
+            drag["start"] = (e.x_root, e.y_root)
+            drag["rect"] = canvas.create_rectangle(e.x, e.y, e.x, e.y, outline="#ff3b30", width=3)
+
+        def move(e):
+            if "rect" in drag:
+                x0, y0 = drag["start"]
+                canvas.coords(drag["rect"], x0 - left, y0 - top, e.x, e.y)
+
+        def release(e):
+            if "start" not in drag:
+                return
+            bbox = ocr.normalize_rect(*drag["start"], e.x_root, e.y_root)
+            win.destroy()
+            if bbox[2] - bbox[0] < 5 or bbox[3] - bbox[1] < 5:
+                self._restore_window("Selection too small — try again")
+                return
+            # Let the overlay disappear from the screen before capturing.
+            self.root.after(150, lambda: self._read_area(bbox))
+
+        def cancel(_e=None):
+            win.destroy()
+            self._restore_window("Screen read cancelled")
+
+        canvas.bind("<ButtonPress-1>", press)
+        canvas.bind("<B1-Motion>", move)
+        canvas.bind("<ButtonRelease-1>", release)
+        win.bind("<Escape>", cancel)
+        win.focus_force()
+
+    def _restore_window(self, message):
+        self.root.deiconify()
+        self.root.lift()
+        self.status.config(text=message)
+
+    def _read_area(self, bbox):
+        self.reading_screen = True
+        self.screen_btn.config(state="disabled")
+        try:
+            image = ocr.capture(bbox)
+        except Exception as e:
+            self._screen_done(None, f"Couldn't capture the screen: {e}")
+            return
+        self._restore_window("Reading text from screen…")
+
+        def work():
+            try:
+                text, error = ocr.recognize(image), None
+            except ocr.OcrError as e:
+                text, error = None, str(e)
+            except Exception as e:   # never let a background failure kill the app
+                text, error = None, f"Unexpected error: {e}"
+            self.ui_q.put(lambda: self._screen_done(text, error))
+
+        threading.Thread(target=work, daemon=True).start()
+
+    def _screen_done(self, text, error):
+        self.reading_screen = False
+        self.screen_btn.config(state="normal")
+        if error:
+            self._restore_window("Screen read failed")
+            messagebox.showinfo("Screen read failed", error, parent=self.root)
+            return
+        if not text:
+            self.status.config(text="No text found in that area")
+            return
+        self.add_screen_text(text)
+        self.status.config(text=f"Added {len(text.split())} words from the screen")
+
+    def add_screen_text(self, text):
+        self.last_label = None   # every capture starts its own "Screen:" line
+        self.add_final("Screen", text)
+        if self.autoscroll.get():
+            self.text.see("end")
 
     # ---------- summaries ----------
 

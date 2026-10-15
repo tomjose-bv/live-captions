@@ -143,3 +143,77 @@ def test_window_has_minimum_size(tmp_path):
         assert w > 1 and h > 1
     finally:
         root.destroy()
+
+
+def test_copy_new_copies_only_text_since_last_copy_new(app):
+    app.add_final("Them", "first part")
+    app.copy_new()
+    assert app.root.clipboard_get() == "Them: first part"
+    app.add_final("Them", "second part")
+    app.add_final("You", "my reply")
+    app.copy_new()
+    assert app.root.clipboard_get() == " second part\nYou: my reply"
+    app.copy_new()
+    assert app.root.clipboard_get() == " second part\nYou: my reply"   # unchanged
+    assert app.status.cget("text") == "Nothing new since the last Copy new"
+
+
+def test_copy_new_skips_grey_partial_and_is_independent_of_copy_all(app):
+    app.add_final("Them", "settled")
+    app.show_partial("Them", "still talking")
+    app.copy_new()
+    assert app.root.clipboard_get() == "Them: settled"
+    app.copy_all()                      # must not move the Copy new position
+    app.add_final("Them", "still talking now")
+    app.copy_new()
+    assert app.root.clipboard_get() == " still talking now"
+
+
+def test_clear_resets_copy_new(app):
+    app.add_final("Them", "old")
+    app.copy_new()
+    app.clear()
+    app.add_final("Them", "fresh")
+    app.copy_new()
+    assert app.root.clipboard_get() == "Them: fresh"
+
+
+def test_screen_text_gets_its_own_labelled_lines(app):
+    app.add_final("Them", "hello")
+    app.add_screen_text("Slide title\nBullet one")
+    app.add_screen_text("Next slide")
+    app.add_final("Them", "moving on")
+    assert app.final_text() == ("Them: hello\nScreen: Slide title\nBullet one\n"
+                                "Screen: Next slide\nThem: moving on")
+
+
+def test_read_area_adds_text_in_background(app, monkeypatch):
+    monkeypatch.setattr(ui.ocr, "capture", lambda bbox: ("img", bbox))
+    monkeypatch.setattr(ui.ocr, "recognize", lambda image: "Agenda item")
+    app._read_area((0, 0, 100, 40))
+    for _ in range(50):
+        pump(app)
+        if not app.reading_screen:
+            break
+        app.root.after(20)
+    assert app.final_text() == "Screen: Agenda item"
+    assert str(app.screen_btn.cget("state")) == "normal"
+
+
+def test_read_area_reports_ocr_errors(app, monkeypatch):
+    shown = []
+    monkeypatch.setattr(ui.ocr, "capture", lambda bbox: "img")
+
+    def fail(image):
+        raise ui.ocr.OcrError("no language")
+
+    monkeypatch.setattr(ui.ocr, "recognize", fail)
+    monkeypatch.setattr(ui.messagebox, "showinfo", lambda *a, **k: shown.append(a))
+    app._read_area((0, 0, 100, 40))
+    for _ in range(50):
+        pump(app)
+        if not app.reading_screen:
+            break
+        app.root.after(20)
+    assert shown and shown[0][1] == "no language"
+    assert app.final_text() == ""

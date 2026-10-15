@@ -1,9 +1,17 @@
 # Pinned versions known to work (Python 3.12, Windows 11). pyproject.toml has the ranges.
 faster-whisper==1.2.1
 numpy==2.5.3
+pillow==12.3.0
 PyAudioWPatch==0.2.12.8
 truststore==0.10.4
 useful-moonshine-onnx==20251121
+winrt-runtime==3.2.1
+winrt-Windows.Foundation==3.2.1
+winrt-Windows.Foundation.Collections==3.2.1
+winrt-Windows.Globalization==3.2.1
+winrt-Windows.Graphics.Imaging==3.2.1
+winrt-Windows.Media.Ocr==3.2.1
+winrt-Windows.Storage.Streams==3.2.1
 # benchmark extras
 jiwer==4.0.0
 psutil==7.2.2

@@ -33,7 +33,11 @@ fast each model actually is on ordinary laptop hardware.
   English models, CPU only. Pick the speed/accuracy trade-off from the benchmark below.
 - **Pause-aware chunking** with an adaptive noise floor per device, so quiet laptop mic
   arrays still work.
-- **Editable transcript** with Copy all, Clear and **Export…** to `.txt` or `.md`.
+- **Read screen area:** drag over any part of the screen (slides, shared screens, captions in
+  another app) and its text is added to the transcript as a `Screen:` line. It uses the OCR engine
+  built into Windows, so it also works offline.
+- **Editable transcript** with Copy all, **Copy new** (copies only what was added since the last
+  Copy new), Clear and **Export…** to `.txt` or `.md`.
 - **Optional summaries & action items** from a local LLM through any OpenAI-compatible
   endpoint (default: [Ollama](https://ollama.com) on `localhost`). The app works fine
   without it.
@@ -172,6 +176,8 @@ Reproduce:
   Treat transcripts as notes, not records.
 - Summaries depend entirely on the local model you choose; small models miss things and can
   state things that weren't said. Always check them.
+- **Screen reading** uses the OCR languages installed in Windows (Settings > Time & language).
+  It reads printed text well, but handwriting, stylised fonts and very low-contrast text may come out garbled.
 - Interim text is replaced when the phrase finalises; if you edit inside the grey text, the
   edit is discarded.
 
@@ -181,6 +187,8 @@ Reproduce:
   is downloading models (Hugging Face) and, if you run the benchmark, the LibriSpeech
   subset. Summaries go to `localhost` unless you configure otherwise — and the app warns
   before sending text anywhere else.
+- **Screen captures stay in memory.** "Read screen area" grabs only the rectangle you drag,
+  reads it with Windows OCR on this PC, and discards the image.
 - **Nothing is auto-saved.** The transcript lives in the window until you Copy or Export it.
   The only file the app writes on its own is a tiny flag in `%APPDATA%\LiveCaptions\` that
   remembers you've seen the consent notice.

@@ -10,6 +10,16 @@ def env_file_candidates():
     return [os.path.join(os.getcwd(), ".env"), os.path.join(repo_root, ".env")]
 
 
+def enable_dpi_awareness():
+    """Use physical pixels so screen-area selection matches screenshots on scaled displays."""
+    try:
+        import ctypes
+
+        ctypes.windll.shcore.SetProcessDpiAwareness(2)   # per-monitor aware
+    except (AttributeError, OSError):
+        pass
+
+
 def main():
     import truststore
 
@@ -19,6 +29,8 @@ def main():
     from .summarize import load_dotenv
     for path in env_file_candidates():
         load_dotenv(path)
+
+    enable_dpi_awareness()
 
     import tkinter as tk
 

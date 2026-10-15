@@ -12,9 +12,17 @@ dynamic = ["version"]
 dependencies = [
     "faster-whisper>=1.1",
     "numpy>=1.26",
+    "pillow>=10.0",
     "PyAudioWPatch>=0.2.12; sys_platform == 'win32'",
     "truststore>=0.9",
     "useful-moonshine-onnx>=20250000",
+    "winrt-runtime>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Foundation>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Foundation.Collections>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Globalization>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Graphics.Imaging>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Media.Ocr>=3.0; sys_platform == 'win32'",
+    "winrt-Windows.Storage.Streams>=3.0; sys_platform == 'win32'",
 ]
 
 [project.optional-dependencies]
