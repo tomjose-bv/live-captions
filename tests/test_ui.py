@@ -217,3 +217,33 @@ def test_read_area_reports_ocr_errors(app, monkeypatch):
         app.root.after(20)
     assert shown and shown[0][1] == "no language"
     assert app.final_text() == ""
+
+
+def test_scroll_capture_stitches_frames_until_stopped(app, monkeypatch):
+    page = [f"Paragraph {i} of a long scrolling document" for i in range(1, 21)]
+    frames = iter([page[0:8], page[0:8], page[5:13], page[11:20]])
+    shots = []
+
+    def capture(bbox):
+        shots.append(bbox)
+        return f"frame{len(shots)}"
+
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui, "SCROLL_INTERVAL_MS", 10)
+    monkeypatch.setattr(ui.ocr, "capture", capture)
+    monkeypatch.setattr(ui.ocr, "recognize", lambda image: "\n".join(next(frames)))
+    app._start_scroll_capture((0, 0, 400, 300))
+    for _ in range(400):
+        pump(app)
+        if len(shots) >= 4 and not app.scroll["busy"]:
+            break
+        app.root.after(10)
+    app.stop_scroll_capture()
+    for _ in range(100):
+        pump(app)
+        if app.scroll is None:
+            break
+        app.root.after(10)
+    assert app.final_text() == "Screen: " + "\n".join(page)
+    assert not app.reading_screen
+    assert str(app.scroll_btn.cget("state")) == "normal"

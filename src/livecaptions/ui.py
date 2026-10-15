@@ -2,6 +2,7 @@
 
 import queue
 import threading
+import time
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext, ttk
 
@@ -14,6 +15,22 @@ BANNER_IDLE = ("Captions stay on this PC. Before captioning a call or meeting, "
                "tell everyone and get their consent.", "#fff4ce", "#5c4400")
 BANNER_LIVE = ("● CAPTIONING LIVE — make sure everyone being captioned has agreed.",
                "#c42b1c", "#ffffff")
+
+
+SCROLL_INTERVAL_MS = 500      # how often scroll capture looks at the area
+SCROLL_MAX_SECONDS = 15 * 60  # safety stop if the user forgets
+
+
+def exclude_from_capture(win):
+    """Hide a helper window from screenshots (Windows 10 2004+); harmless elsewhere."""
+    try:
+        import ctypes
+
+        win.update_idletasks()
+        hwnd = ctypes.windll.user32.GetParent(win.winfo_id()) or win.winfo_id()
+        ctypes.windll.user32.SetWindowDisplayAffinity(hwnd, 0x11)   # WDA_EXCLUDEFROMCAPTURE
+    except (AttributeError, OSError):
+        pass
 
 
 def virtual_screen(root):
@@ -65,6 +82,8 @@ class App:
         ttk.Button(bar, text="Copy new", command=self.copy_new).pack(side="right")
         self.screen_btn = ttk.Button(bar, text="Read screen area", command=self.pick_screen_area)
         self.screen_btn.pack(side="right", padx=4)
+        self.scroll_btn = ttk.Button(bar, text="Scroll capture", command=self.pick_scroll_area)
+        self.scroll_btn.pack(side="right")
         ttk.Button(bar, text="Export…", command=self.export).pack(side="right")
         self.summary_btn = ttk.Button(bar, text="Summarize", command=self.summarize)
         self.summary_btn.pack(side="right", padx=4)
@@ -99,6 +118,7 @@ class App:
         self.text.mark_set("copied_upto", "1.0")
         self.text.mark_gravity("copied_upto", "left")
         self.reading_screen = False
+        self.scroll = None
 
         # Never let the window shrink below the size needed to show every control.
         root.update_idletasks()
@@ -227,12 +247,20 @@ class App:
     # ---------- screen text ----------
 
     def pick_screen_area(self):
+        self._pick_area("Drag over the text to read  ·  Esc to cancel",
+                        lambda bbox: self.root.after(150, lambda: self._read_area(bbox)))
+
+    def pick_scroll_area(self):
+        self._pick_area("Drag over the area you will scroll  ·  Esc to cancel",
+                        self._start_scroll_capture)
+
+    def _pick_area(self, hint, on_pick):
         if self.reading_screen:
             return
         self.root.iconify()      # get out of the way of what the user wants to select
-        self.root.after(250, self._show_area_picker)
+        self.root.after(250, lambda: self._show_area_picker(hint, on_pick))
 
-    def _show_area_picker(self):
+    def _show_area_picker(self, hint, on_pick):
         left, top, width, height = virtual_screen(self.root)
         win = tk.Toplevel(self.root)
         win.overrideredirect(True)
@@ -242,7 +270,7 @@ class App:
         canvas = tk.Canvas(win, bg="black", cursor="crosshair", highlightthickness=0)
         canvas.pack(fill="both", expand=True)
         canvas.create_text(width // 2, 40, fill="white", font=("Segoe UI", 16, "bold"),
-                           text="Drag over the text to read  ·  Esc to cancel")
+                           text=hint)
         drag = {}
 
         def press(e):
@@ -262,8 +290,7 @@ class App:
             if bbox[2] - bbox[0] < 5 or bbox[3] - bbox[1] < 5:
                 self._restore_window("Selection too small — try again")
                 return
-            # Let the overlay disappear from the screen before capturing.
-            self.root.after(150, lambda: self._read_area(bbox))
+            on_pick(bbox)
 
         def cancel(_e=None):
             win.destroy()
@@ -313,6 +340,116 @@ class App:
             return
         self.add_screen_text(text)
         self.status.config(text=f"Added {len(text.split())} words from the screen")
+
+    # ---------- scroll capture ----------
+
+    def _start_scroll_capture(self, bbox):
+        self.reading_screen = True
+        self.screen_btn.config(state="disabled")
+        self.scroll_btn.config(state="disabled")
+        self.scroll = {"bbox": bbox, "lines": [], "last_bytes": None, "busy": False,
+                       "stopping": False, "frames": 0, "started": time.monotonic()}
+        self.scroll["bar"] = self._scroll_bar(bbox)
+        self.root.after(300, self._scroll_tick)   # let the picker overlay vanish first
+
+    def _scroll_bar(self, bbox):
+        """Small always-on-top bar outside the captured area, with a Stop button."""
+        bar = tk.Toplevel(self.root)
+        bar.overrideredirect(True)
+        bar.attributes("-topmost", True)
+        frame = tk.Frame(bar, bg="#c42b1c", padx=8, pady=4)
+        frame.pack()
+        label = tk.Label(frame, text="● Scroll capture — scroll slowly", bg="#c42b1c",
+                         fg="white", font=("Segoe UI", 10, "bold"))
+        label.pack(side="left")
+        ttk.Button(frame, text="Stop", command=self.stop_scroll_capture).pack(
+            side="left", padx=(8, 0))
+        bar.update_idletasks()
+        w, h = bar.winfo_reqwidth(), bar.winfo_reqheight()
+        left, top, width, height = virtual_screen(self.root)
+        x = min(max(bbox[0], left), left + width - w)
+        y = bbox[1] - h - 6 if bbox[1] - h - 6 >= top else bbox[3] + 6
+        if y + h > top + height:          # area fills the screen height: overlap a corner
+            x, y = left + width - w - 10, top + 10
+        bar.geometry(f"+{x}+{y}")
+        exclude_from_capture(bar)
+        bar.label = label
+        return bar
+
+    def _scroll_tick(self):
+        sc = self.scroll
+        if sc is None or sc["stopping"]:
+            return
+        if not sc["busy"]:
+            if time.monotonic() - sc["started"] > SCROLL_MAX_SECONDS:
+                self.stop_scroll_capture()
+                return
+            try:
+                image = ocr.capture(sc["bbox"])
+            except Exception as e:
+                self._finish_scroll(f"Couldn't capture the screen: {e}")
+                return
+            data = image.tobytes() if hasattr(image, "tobytes") else image
+            if data != sc["last_bytes"]:          # skip OCR while the page isn't moving
+                sc["last_bytes"] = data
+                sc["busy"] = True
+                threading.Thread(target=self._scroll_ocr, args=(sc, image), daemon=True).start()
+        self.root.after(SCROLL_INTERVAL_MS, self._scroll_tick)
+
+    def _scroll_ocr(self, sc, image):
+        try:
+            lines, error = ocr.recognize(image).splitlines(), None
+        except ocr.OcrError as e:
+            lines, error = None, str(e)
+        except Exception as e:   # never let a background failure kill the app
+            lines, error = None, f"Unexpected error: {e}"
+        self.ui_q.put(lambda: self._scroll_frame_done(sc, lines, error))
+
+    def _scroll_frame_done(self, sc, lines, error):
+        sc["busy"] = False
+        if self.scroll is not sc:
+            return
+        if error:
+            self._finish_scroll(error)
+            return
+        sc["lines"] = ocr.merge_lines(sc["lines"], lines)
+        sc["frames"] += 1
+        try:
+            sc["bar"].label.config(
+                text=f"● Scroll capture — {len(sc['lines'])} lines  ·  scroll slowly")
+        except tk.TclError:
+            pass
+        if sc["stopping"]:
+            self._finish_scroll()
+
+    def stop_scroll_capture(self):
+        sc = self.scroll
+        if sc is None or sc["stopping"]:
+            return
+        sc["stopping"] = True
+        if not sc["busy"]:                 # otherwise the frame in flight finishes it
+            self._finish_scroll()
+
+    def _finish_scroll(self, error=None):
+        sc, self.scroll = self.scroll, None
+        if sc is None:
+            return
+        try:
+            sc["bar"].destroy()
+        except tk.TclError:
+            pass
+        self.reading_screen = False
+        self.screen_btn.config(state="normal")
+        self.scroll_btn.config(state="normal")
+        self._restore_window("Scroll capture finished")
+        if error:
+            messagebox.showinfo("Scroll capture stopped", error, parent=self.root)
+        text = "\n".join(sc["lines"])
+        if text.strip():
+            self.add_screen_text(text)
+            self.status.config(text=f"Added {len(sc['lines'])} lines from scroll capture")
+        elif not error:
+            self.status.config(text="No text found while scrolling")
 
     def add_screen_text(self, text):
         self.last_label = None   # every capture starts its own "Screen:" line

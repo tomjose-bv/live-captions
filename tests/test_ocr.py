@@ -51,3 +51,38 @@ def test_recognize_upscales_small_captures():
     except ocr.OcrError as e:
         pytest.skip(str(e))
     assert text == "Small caption text"
+
+
+PAGE = [f"Line {i}: the quick brown fox jumps over item {i}" for i in range(1, 31)]
+
+
+def test_merge_lines_stitches_overlapping_frames():
+    acc = ocr.merge_lines([], PAGE[0:10])
+    acc = ocr.merge_lines(acc, PAGE[6:16])
+    acc = ocr.merge_lines(acc, PAGE[14:24])
+    assert acc == PAGE[0:24]
+
+
+def test_merge_lines_ignores_unchanged_frames():
+    acc = ocr.merge_lines(PAGE[0:10], PAGE[0:10])
+    assert acc == PAGE[0:10]
+
+
+def test_merge_lines_tolerates_ocr_noise_and_cut_lines():
+    noisy = PAGE[7:12]
+    noisy[1] = noisy[1].replace("quick", "quiek")   # OCR read one overlapping line differently
+    acc = ocr.merge_lines(PAGE[0:10] + ["Line 11: the qu"], ["ox jumps over item 7"] + noisy)
+    assert acc[:7] == PAGE[0:7]
+    assert acc[7:] == noisy
+    assert len(acc) == 12
+
+
+def test_merge_lines_marks_gaps_when_scrolled_too_fast():
+    acc = ocr.merge_lines(PAGE[0:5], PAGE[20:25])
+    assert acc == PAGE[0:5] + [ocr.GAP_MARKER] + PAGE[20:25]
+
+
+def test_merge_lines_needs_more_than_a_short_single_line():
+    # "OK" appears at both edges but is too short to prove the frames overlap.
+    assert ocr.merge_lines(["Alpha section text here", "OK"], ["OK", "Beta"]) == [
+        "Alpha section text here", "OK", ocr.GAP_MARKER, "OK", "Beta"]
