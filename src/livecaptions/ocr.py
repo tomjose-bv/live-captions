@@ -6,6 +6,7 @@ imports and tests stay fast.
 
 import asyncio
 import difflib
+import re
 
 MIN_TEXT_HEIGHT = 300   # small captures are upscaled; Windows OCR misses tiny text
 
@@ -19,9 +20,17 @@ def normalize_rect(x0, y0, x1, y1):
     return min(x0, x1), min(y0, y1), max(x0, x1), max(y0, y1)
 
 
+_SPACE_BEFORE_PUNCT = re.compile(r"\s+([.,;:!?%)\]])")
+
+
+def clean_line(line):
+    """Tidy OCR spacing: "122 . Item" -> "122. Item", and collapse runs of spaces."""
+    return _SPACE_BEFORE_PUNCT.sub(r"\1", " ".join(line.split()))
+
+
 def join_lines(lines):
     """Join recognised lines, dropping blanks and stray whitespace."""
-    return "\n".join(line.strip() for line in lines if line and line.strip())
+    return "\n".join(clean_line(line) for line in lines if line and line.strip())
 
 
 GAP_MARKER = "[…]"   # inserted when a scroll capture lost the overlap (scrolled too fast)
@@ -80,6 +89,33 @@ def merge_lines(acc, new):
     return acc + [GAP_MARKER] + new
 
 
+def rejoin_rows(boxes):
+    """Rebuild text lines from OCR line boxes ``(left, top, right, bottom, text)``.
+
+    Windows OCR sometimes splits one visual line into pieces (e.g. a list number and the
+    text after it), and splits it differently from one frame to the next. Pieces whose
+    vertical centres line up and that sit close together horizontally are joined, so the
+    same screen line always reads the same way. Returns lines top to bottom.
+    """
+    rows = []   # each row: [top, bottom, [(left, right, text), ...]]
+    for left, top, right, bottom, text in sorted(boxes, key=lambda b: (b[1] + b[3]) / 2):
+        height = max(bottom - top, 1)
+        centre = (top + bottom) / 2
+        for row in rows:
+            row_centre, row_height = (row[0] + row[1]) / 2, max(row[1] - row[0], 1)
+            if abs(centre - row_centre) > 0.5 * min(height, row_height):
+                continue
+            gap = min(max(0, left - r, l - right) for l, r, _ in row[2])
+            if gap <= 2 * max(height, row_height):
+                row[0], row[1] = min(row[0], top), max(row[1], bottom)
+                row[2].append((left, right, text))
+                break
+        else:
+            rows.append([top, bottom, [(left, right, text)]])
+    rows.sort(key=lambda row: (row[0], min(l for l, _, _ in row[2])))
+    return [" ".join(t for _, _, t in sorted(row[2])) for row in rows]
+
+
 def capture(bbox):
     """Screenshot ``bbox`` (left, top, right, bottom) in physical screen pixels."""
     from PIL import ImageGrab
@@ -118,7 +154,17 @@ async def _recognize(image):
     bitmap = SoftwareBitmap.create_copy_from_buffer(
         writer.detach_buffer(), BitmapPixelFormat.BGRA8, image.width, image.height)
     result = await engine.recognize_async(bitmap)
-    return join_lines(line.text for line in result.lines)
+    boxes = []
+    for line in result.lines:
+        rects = [w.bounding_rect for w in line.words]
+        if not rects:
+            continue
+        left = min(r.x for r in rects)
+        top = min(r.y for r in rects)
+        right = max(r.x + r.width for r in rects)
+        bottom = max(r.y + r.height for r in rects)
+        boxes.append((left, top, right, bottom, line.text))
+    return join_lines(rejoin_rows(boxes))
 
 
 def recognize(image):

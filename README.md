@@ -37,7 +37,8 @@ fast each model actually is on ordinary laptop hardware.
   another app) and its text is added to the transcript as a `Screen:` line. It uses the OCR engine
   built into Windows, so it also works offline.
 - **Scroll capture:** select an area once, then scroll through a long page, chat or document.
-  The area is read about twice a second and the frames are stitched together without repeating
+  The area is read up to about 10 times a second (as fast as OCR keeps up), so you can simply hold
+  the Down arrow, and the frames are stitched together without repeating
   the overlapping lines. Click **Stop** on the small red bar when you reach the end. If you
   scroll too fast for the frames to overlap, a `[…]` line marks the gap.
 - **Editable transcript** with Copy all, **Copy new** (copies only what was added since the last

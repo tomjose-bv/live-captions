@@ -86,3 +86,21 @@ def test_merge_lines_needs_more_than_a_short_single_line():
     # "OK" appears at both edges but is too short to prove the frames overlap.
     assert ocr.merge_lines(["Alpha section text here", "OK"], ["OK", "Beta"]) == [
         "Alpha section text here", "OK", ocr.GAP_MARKER, "OK", "Beta"]
+
+
+def test_clean_line_fixes_ocr_spacing():
+    assert ocr.clean_line("122 . pricing  team , roadmap ( draft )") == "122. pricing team, roadmap ( draft)"
+
+
+def test_rejoin_rows_joins_pieces_of_one_visual_line():
+    boxes = [
+        (40, 52, 400, 70, "pricing team roadmap"),   # text, read as its own line
+        (0, 50, 30, 70, "144."),                       # list number to its left
+        (0, 80, 380, 100, "145. next item"),
+    ]
+    assert ocr.rejoin_rows(boxes) == ["144. pricing team roadmap", "145. next item"]
+
+
+def test_rejoin_rows_keeps_distant_columns_apart():
+    boxes = [(0, 0, 100, 20, "Left column"), (600, 0, 700, 20, "Right column")]
+    assert ocr.rejoin_rows(boxes) == ["Left column", "Right column"]

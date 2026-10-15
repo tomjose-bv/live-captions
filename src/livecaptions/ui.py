@@ -17,7 +17,7 @@ BANNER_LIVE = ("● CAPTIONING LIVE — make sure everyone being captioned has a
                "#c42b1c", "#ffffff")
 
 
-SCROLL_INTERVAL_MS = 500      # how often scroll capture looks at the area
+SCROLL_INTERVAL_MS = 100      # look again as soon as the previous frame is read (~8-10 fps)
 SCROLL_MAX_SECONDS = 15 * 60  # safety stop if the user forgets
 
 
@@ -359,7 +359,7 @@ class App:
         bar.attributes("-topmost", True)
         frame = tk.Frame(bar, bg="#c42b1c", padx=8, pady=4)
         frame.pack()
-        label = tk.Label(frame, text="● Scroll capture — scroll slowly", bg="#c42b1c",
+        label = tk.Label(frame, text="● Scroll capture — scroll or hold ↓", bg="#c42b1c",
                          fg="white", font=("Segoe UI", 10, "bold"))
         label.pack(side="left")
         ttk.Button(frame, text="Stop", command=self.stop_scroll_capture).pack(
@@ -416,7 +416,7 @@ class App:
         sc["frames"] += 1
         try:
             sc["bar"].label.config(
-                text=f"● Scroll capture — {len(sc['lines'])} lines  ·  scroll slowly")
+                text=f"● Scroll capture — {len(sc['lines'])} lines  ·  scroll or hold ↓")
         except tk.TclError:
             pass
         if sc["stopping"]:
