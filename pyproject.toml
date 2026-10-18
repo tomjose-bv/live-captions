@@ -29,6 +29,11 @@ dependencies = [
 bench = ["jiwer>=3.0", "soundfile>=0.12", "psutil>=5.9"]
 dev = ["pytest>=8"]
 
+[project.urls]
+Homepage = "https://github.com/tomjose-bv/live-captions"
+Changelog = "https://github.com/tomjose-bv/live-captions/blob/main/CHANGELOG.md"
+Issues = "https://github.com/tomjose-bv/live-captions/issues"
+
 [project.gui-scripts]
 livecaptions = "livecaptions.app:main"
 
