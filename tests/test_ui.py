@@ -246,7 +246,7 @@ def test_scroll_capture_stitches_frames_until_stopped(app, monkeypatch):
         app.root.after(10)
     assert app.final_text() == "Screen: " + "\n".join(page)
     assert not app.reading_screen
-    assert str(app.scroll_btn.cget("state")) == "normal"
+    assert str(app.screen_btn.cget("state")) == "normal"
 
 
 class FakeRecorder:
@@ -268,25 +268,25 @@ def test_record_area_runs_until_stopped(app, monkeypatch):
     monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
     monkeypatch.setattr(ui.recorder, "ScreenRecorder",
                         lambda *a, **kw: made.append(FakeRecorder(*a, **kw)) or made[-1])
-    app.record_sound.set(False)
+    app.record_sound.set("No sound")
     app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
     assert app.reading_screen and made[0].running and made[0].audio is None
-    assert str(app.record_btn.cget("state")) == "disabled"
+    assert str(app.screen_btn.cget("state")) == "disabled"
     app.pick_screen_area()             # ignored while recording
     app.stop_recording()
     assert not made[0].running and app.recording is None and not app.reading_screen
-    assert str(app.record_btn.cget("state")) == "normal"
+    assert str(app.screen_btn.cget("state")) == "normal"
     assert app.status.cget("text") == "Saved 1:15 recording to C:/tmp/clip.mp4"
 
 
 def test_record_area_without_sound_device_still_records(app, monkeypatch):
-    def no_sound():
+    def no_sound(mic=False):
         raise RuntimeError("No loopback device found")
 
     monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
     monkeypatch.setattr(ui.recorder, "SpeakerAudio", no_sound)
     monkeypatch.setattr(ui.recorder, "ScreenRecorder", FakeRecorder)
-    app.record_sound.set(True)
+    app.record_sound.set("PC sound")
     app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
     app.stop_recording()
     assert app.status.cget("text").endswith("(no sound: No loopback device found)")
@@ -296,10 +296,56 @@ def test_recording_that_stops_by_itself_is_finished(app, monkeypatch):
     monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
     monkeypatch.setattr(ui.recorder, "ScreenRecorder", FakeRecorder)
     monkeypatch.setattr(ui.messagebox, "showinfo", lambda *a, **kw: None)
-    app.record_sound.set(False)
+    app.record_sound.set("No sound")
     app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
     app.recording["rec"].running = False
     app.recording["rec"].error = "Recording stopped: screen locked"
     app._record_tick()
     assert app.recording is None and not app.reading_screen
     assert app.status.cget("text").startswith("Saved 1:15 recording")
+
+
+def test_snapshots_save_only_when_the_area_changes(app, monkeypatch, tmp_path):
+    Image = pytest.importorskip("PIL.Image")
+    screens = iter(["white", "white", "white", "navy", "navy", "white"])
+    shots = []
+
+    def capture(bbox):
+        colour = next(screens, "white")
+        shots.append(colour)
+        return Image.new("RGB", (320, 180), colour)
+
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui, "SNAPSHOT_INTERVAL_MS", 5)
+    monkeypatch.setattr(ui.ocr, "capture", capture)
+    monkeypatch.setattr(ui.ocr, "recognize", lambda image: "Slide text")
+    app._start_snapshots((0, 0, 320, 180), tmp_path / "snaps")
+    for _ in range(600):
+        pump(app)
+        if len(shots) >= 6 and not app.snapping["busy"]:
+            break
+        app.root.after(5)
+    app.stop_snapshots()
+    for _ in range(100):
+        pump(app)
+        if app.snapping is None:
+            break
+        app.root.after(5)
+    assert sorted(p.name for p in (tmp_path / "snaps").glob("*.png")) == [
+        "snapshot-001.png", "snapshot-002.png", "snapshot-003.png"]
+    text = app.final_text()
+    assert text.count("Screen: [") == 3 and "snapshot-003.png]\nSlide text" in text
+    assert not app.reading_screen
+    assert str(app.screen_btn.cget("state")) == "normal"
+    assert app.status.cget("text").startswith("Saved 3 snapshots to")
+
+
+def test_mic_choice_opens_mixed_sound(app, monkeypatch):
+    opened = []
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui.recorder, "SpeakerAudio", lambda mic=False: opened.append(mic) or None)
+    monkeypatch.setattr(ui.recorder, "ScreenRecorder", FakeRecorder)
+    app.record_sound.set("PC sound + mic")
+    app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
+    app.stop_recording()
+    assert opened == [True]

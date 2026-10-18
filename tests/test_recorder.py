@@ -109,3 +109,43 @@ def test_time_limit_stops_recording(tmp_path):
             break
         time.sleep(0.01)
     assert not rec.running and rec.error is None
+
+
+class FakeDevice:
+    def __init__(self, rate, chunks):
+        self.rate, self.channels = rate, 2
+        self.chunks = list(chunks)
+        self.closed = False
+
+    def read(self):
+        return self.chunks.pop(0) if self.chunks else np.zeros((0, 2), dtype=np.int16)
+
+    def close(self):
+        self.closed = True
+
+
+def test_resample_changes_length_by_rate():
+    assert len(recorder.resample(np.ones(441), 44100, 48000)) == 480
+    same = np.arange(5.0)
+    assert recorder.resample(same, 48000, 48000) is same
+
+
+def test_mixer_adds_mic_to_both_channels():
+    pc = np.full((480, 2), 1000, dtype=np.int16)
+    mic = np.full((480, 2), 200, dtype=np.int16)
+    mixer = recorder.Mixer(FakeDevice(48000, [pc]), FakeDevice(48000, [mic]))
+    out = mixer.read()
+    assert out.shape == (480, 2) and (out == 1200).all()
+
+
+def test_mixer_fills_silence_when_the_pc_is_quiet():
+    talk = np.full((48000, 2), 300, dtype=np.int16)        # 1 s of mic, no PC sound
+    mixer = recorder.Mixer(FakeDevice(48000, []), FakeDevice(48000, [talk]))
+    out = mixer.read()
+    assert len(out) == 48000 and (out == 300).all()
+
+
+def test_mixer_clips_instead_of_wrapping():
+    loud = np.full((100, 2), 30000, dtype=np.int16)
+    mixer = recorder.Mixer(FakeDevice(48000, [loud]), FakeDevice(48000, [loud]))
+    assert (mixer.read() == 32767).all()

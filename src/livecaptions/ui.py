@@ -1,12 +1,14 @@
 """Tkinter window."""
 
+import datetime
 import queue
 import threading
 import time
 import tkinter as tk
+from pathlib import Path
 from tkinter import filedialog, messagebox, scrolledtext, ttk
 
-from . import export, ocr, recorder, state, summarize
+from . import export, ocr, recorder, snapshots, state, summarize
 from .config import MODELS
 from .transcriber import Transcriber
 from .transcript import append_text
@@ -19,6 +21,9 @@ BANNER_LIVE = ("● CAPTIONING LIVE — make sure everyone being captioned has a
 
 SCROLL_INTERVAL_MS = 100      # look again as soon as the previous frame is read (~8-10 fps)
 SCROLL_MAX_SECONDS = 15 * 60  # safety stop if the user forgets
+SNAPSHOT_INTERVAL_MS = 1000   # how often Snapshots looks for a change
+SNAPSHOT_MAX_SECONDS = 4 * 60 * 60
+SOUND_CHOICES = ("PC sound", "PC sound + mic", "No sound")
 
 
 def exclude_from_capture(win):
@@ -80,12 +85,16 @@ class App:
         ttk.Button(bar, text="Clear", command=self.clear).pack(side="right")
         ttk.Button(bar, text="Copy all", command=self.copy_all).pack(side="right", padx=4)
         ttk.Button(bar, text="Copy new", command=self.copy_new).pack(side="right")
-        self.screen_btn = ttk.Button(bar, text="Read screen area", command=self.pick_screen_area)
+        # All screen tools share one menu button so the toolbar stays narrow.
+        self.screen_btn = ttk.Menubutton(bar, text="Screen ▾")
+        screen_menu = tk.Menu(self.screen_btn, tearoff=0)
+        for label, command in (("Read screen area", self.pick_screen_area),
+                               ("Scroll capture", self.pick_scroll_area),
+                               ("Snapshots when it changes", self.pick_snapshot_area),
+                               ("Record area to video", self.pick_record_area)):
+            screen_menu.add_command(label=label, command=command)
+        self.screen_btn["menu"] = screen_menu
         self.screen_btn.pack(side="right", padx=4)
-        self.scroll_btn = ttk.Button(bar, text="Scroll capture", command=self.pick_scroll_area)
-        self.scroll_btn.pack(side="right")
-        self.record_btn = ttk.Button(bar, text="Record area", command=self.pick_record_area)
-        self.record_btn.pack(side="right", padx=4)
         ttk.Button(bar, text="Export…", command=self.export).pack(side="right")
         self.summary_btn = ttk.Button(bar, text="Summarize", command=self.summarize)
         self.summary_btn.pack(side="right", padx=4)
@@ -96,9 +105,11 @@ class App:
         bottom.pack(side="bottom", fill="x")
         self.autoscroll = tk.BooleanVar(value=True)
         ttk.Checkbutton(bottom, text="Auto-scroll", variable=self.autoscroll).pack(side="right")
-        self.record_sound = tk.BooleanVar(value=True)
-        ttk.Checkbutton(bottom, text="Record sound",
-                        variable=self.record_sound).pack(side="right", padx=4)
+        self.record_sound = ttk.Combobox(bottom, values=SOUND_CHOICES, state="readonly",
+                                         width=14)
+        self.record_sound.set(SOUND_CHOICES[0])
+        self.record_sound.pack(side="right", padx=4)
+        ttk.Label(bottom, text="Recording:").pack(side="right")
         self.live_preview = tk.BooleanVar(value=True)
         self.preview_check = ttk.Checkbutton(bottom, text="Live preview", variable=self.live_preview)
         self.preview_check.pack(side="right", padx=4)
@@ -125,6 +136,7 @@ class App:
         self.reading_screen = False
         self.scroll = None
         self.recording = None
+        self.snapping = None
 
         # Never let the window shrink below the size needed to show every control.
         root.update_idletasks()
@@ -315,7 +327,7 @@ class App:
 
     def _read_area(self, bbox):
         self.reading_screen = True
-        self.screen_btn.config(state="disabled")
+        self._set_capture_buttons("disabled")
         try:
             image = ocr.capture(bbox)
         except Exception as e:
@@ -336,7 +348,7 @@ class App:
 
     def _screen_done(self, text, error):
         self.reading_screen = False
-        self.screen_btn.config(state="normal")
+        self._set_capture_buttons("normal")
         if error:
             self._restore_window("Screen read failed")
             messagebox.showinfo("Screen read failed", error, parent=self.root)
@@ -457,8 +469,7 @@ class App:
             self.status.config(text="No text found while scrolling")
 
     def _set_capture_buttons(self, state):
-        for btn in (self.screen_btn, self.scroll_btn, self.record_btn):
-            btn.config(state=state)
+        self.screen_btn.config(state=state)
 
     # ---------- screen recording ----------
 
@@ -480,10 +491,10 @@ class App:
                         lambda bbox: self._start_recording(bbox, path))
 
     def _start_recording(self, bbox, path):
-        sound, note = None, ""
-        if self.record_sound.get():
+        sound, note, choice = None, "", self.record_sound.get()
+        if choice != "No sound":
             try:
-                sound = recorder.SpeakerAudio()
+                sound = recorder.SpeakerAudio(mic=choice == "PC sound + mic")
             except Exception as e:
                 note = f" (no sound: {e})"
         try:
@@ -538,6 +549,104 @@ class App:
             self._restore_window("Recording failed")
         if rec.error:
             messagebox.showinfo("Recording stopped", rec.error, parent=self.root)
+
+    # ---------- snapshots ----------
+
+    def pick_snapshot_area(self):
+        if self.reading_screen:
+            return
+        default = snapshots.default_folder()
+        default.parent.mkdir(parents=True, exist_ok=True)
+        folder = filedialog.askdirectory(parent=self.root, initialdir=str(default.parent),
+                                         title="Choose a folder for the snapshots")
+        if not folder:
+            return
+        folder = Path(folder) / default.name
+        self._pick_area("Drag over the area to watch  ·  Esc to cancel",
+                        lambda bbox: self._start_snapshots(bbox, folder))
+
+    def _start_snapshots(self, bbox, folder):
+        self.reading_screen = True
+        self._set_capture_buttons("disabled")
+        self.snapping = {"bbox": bbox, "out": snapshots.SnapshotFolder(folder), "last": None,
+                         "busy": False, "stopping": False, "started": time.monotonic(),
+                         "bar": self._capture_bar(bbox, "● Snapshots — 0 saved",
+                                                  self.stop_snapshots)}
+        self.root.after(300, self._snapshot_tick)
+
+    def _snapshot_tick(self):
+        sn = self.snapping
+        if sn is None or sn["stopping"]:
+            return
+        if time.monotonic() - sn["started"] > SNAPSHOT_MAX_SECONDS:
+            self.stop_snapshots()
+            return
+        if not sn["busy"]:
+            try:
+                image = ocr.capture(sn["bbox"])
+            except Exception as e:
+                self._finish_snapshots(f"Couldn't capture the screen: {e}")
+                return
+            small = snapshots.thumbnail(image)
+            if snapshots.has_changed(sn["last"], small):
+                sn["last"], sn["busy"] = small, True
+                threading.Thread(target=self._snapshot_save, args=(sn, image),
+                                 daemon=True).start()
+        self.root.after(SNAPSHOT_INTERVAL_MS, self._snapshot_tick)
+
+    def _snapshot_save(self, sn, image):
+        when = datetime.datetime.now()
+        try:
+            text = ocr.recognize(image)
+        except Exception:   # a picture without its text is still worth keeping
+            text = ""
+        try:
+            name, error = sn["out"].save(image, text, when), None
+        except Exception as e:
+            name, error = None, f"Couldn't save the snapshot: {e}"
+        self.ui_q.put(lambda: self._snapshot_done(sn, when, name, text, error))
+
+    def _snapshot_done(self, sn, when, name, text, error):
+        sn["busy"] = False
+        if error:
+            if self.snapping is sn:
+                self._finish_snapshots(error)
+            return
+        self.last_label = None
+        self.add_final("Screen", f"[{when:%H:%M:%S} · {name}]"
+                                 + (f"\n{text}" if text.strip() else ""))
+        if self.autoscroll.get():
+            self.text.see("end")
+        try:
+            sn["bar"].label.config(text=f"● Snapshots — {sn['out'].count} saved")
+        except tk.TclError:
+            pass
+        if sn["stopping"] and self.snapping is sn:
+            self._finish_snapshots()
+
+    def stop_snapshots(self):
+        sn = self.snapping
+        if sn is None or sn["stopping"]:
+            return
+        sn["stopping"] = True
+        if not sn["busy"]:
+            self._finish_snapshots()
+
+    def _finish_snapshots(self, error=None):
+        sn, self.snapping = self.snapping, None
+        if sn is None:
+            return
+        try:
+            sn["bar"].destroy()
+        except tk.TclError:
+            pass
+        self.reading_screen = False
+        self._set_capture_buttons("normal")
+        count = sn["out"].count
+        self._restore_window(f"Saved {count} snapshot{'s' if count != 1 else ''} to "
+                             f"{sn['out'].folder}" if count else "No snapshots saved")
+        if error:
+            messagebox.showinfo("Snapshots stopped", error, parent=self.root)
 
     def add_screen_text(self, text):
         self.last_label = None   # every capture starts its own "Screen:" line
@@ -652,5 +761,6 @@ class App:
 
     def on_close(self):
         self.stop_recording()
+        self.stop_snapshots()
         self.transcriber.stop()
         self.root.after(300, self.root.destroy)
