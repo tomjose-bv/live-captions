@@ -33,6 +33,8 @@ fast each model actually is on ordinary laptop hardware.
   English models, CPU only. Pick the speed/accuracy trade-off from the benchmark below.
 - **Pause-aware chunking** with an adaptive noise floor per device, so quiet laptop mic
   arrays still work.
+The screen tools below are in the **Screen ▾** menu.
+
 - **Read screen area:** drag over any part of the screen (slides, shared screens, captions in
   another app) and its text is added to the transcript as a `Screen:` line. It uses the OCR engine
   built into Windows, so it also works offline.
@@ -43,9 +45,19 @@ fast each model actually is on ordinary laptop hardware.
   scroll too fast for the frames to overlap, a `[…]` line marks the gap.
 - **Record area:** choose where to save, drag over any part of the screen, and everything
   that appears there (video, slides, a shared screen, a chat) is recorded to an `.mp4` file
-  (H.264, 15 frames a second) until you click **Stop** on the red bar. Tick **Record sound** to
-  include what the PC is playing. Recording works at the same time as captioning, and the
-  red bar is hidden from the recording.
+  (H.264, 15 frames a second) until you click **Stop** on the red bar. Choose **PC sound**,
+  **PC sound + mic** or **No sound** next to *Recording:* at the bottom of the window.
+  Recording works at the same time as captioning, and the red bar is hidden from the recording.
+- **Snapshots:** choose a folder, drag over an area (a shared screen, slides, a dashboard), and
+  a picture is saved each time its content changes, checked once a second. Each picture's
+  text is read and added to the transcript as `Screen: [14:05:09 · snapshot-001.png]`, and
+  the folder gets a `snapshots.md` timeline with every picture, its time and its text.
+
+![Scroll capture: an article window scrolls while a red bar counts the lines read; on Stop, the whole article appears in the Live Captions transcript](docs/media/scroll-capture.gif)
+
+![Snapshots: three slides change in turn; each change adds a timestamped Screen line with the slide's text to the transcript](docs/media/snapshots.gif)
+
+*Real captures of the app, made with [`scripts/make_demo_gifs.py`](scripts/make_demo_gifs.py) using synthetic demo windows. In the scroll capture the whole article came through except one wrapped line holding only the word "all.", which Windows OCR missed.*
 - **Editable transcript** with Copy all, **Copy new** (copies only what was added since the last
   Copy new), Clear and **Export…** to `.txt` or `.md`.
 - **Optional summaries & action items** from a local LLM through any OpenAI-compatible
@@ -188,7 +200,7 @@ Reproduce:
   state things that weren't said. Always check them.
 - **Screen reading** uses the OCR languages installed in Windows (Settings > Time & language).
   It reads printed text well, but handwriting, stylised fonts and very low-contrast text may come out garbled.
-- **Recording** includes the speaker sound only, not your microphone. Protected video
+- **Recording:** protected video
   (DRM, such as some streaming services) records as a black area, and the mouse pointer is
   not drawn. File size depends on how much changes on screen.
 - Interim text is replaced when the phrase finalises; if you edit inside the grey text, the
@@ -202,8 +214,8 @@ Reproduce:
   before sending text anywhere else.
 - **Screen captures stay in memory.** "Read screen area" grabs only the rectangle you drag,
   reads it with Windows OCR on this PC, and discards the image.
-- **Recordings are saved only where you choose.** "Record area" asks for a file name first,
-  writes the video there while recording, and uploads nothing.
+- **Recordings and snapshots are saved only where you choose.** "Record area" asks for a
+  file name and "Snapshots" for a folder before anything is written, and nothing is uploaded.
 - **Nothing is auto-saved.** The transcript lives in the window until you Copy or Export it.
   The only file the app writes on its own is a tiny flag in `%APPDATA%\LiveCaptions\` that
   remembers you've seen the consent notice.
@@ -218,7 +230,8 @@ Reproduce:
 
 - [x] Screenshot/GIF in this README
 - [x] Record a screen area to video
-- [ ] Microphone sound in recordings
+- [x] Microphone sound in recordings
+- [x] Snapshots of a screen area when its content changes
 - [ ] Hotkey and always-on-top caption overlay
 - [ ] Device pickers (not just the defaults)
 - [ ] Echo handling when not using headphones (suppress mic text that duplicates speaker text)
