@@ -4,6 +4,27 @@ All notable changes to this project are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-10-18
+
+### Added
+
+- Snapshots: watch a screen area and save a picture each time its content changes, with
+  its text added to the transcript and a `snapshots.md` timeline in the chosen folder.
+- Recordings can include the microphone, mixed with the PC's sound
+  (Recording: PC sound / PC sound + mic / No sound).
+- README GIFs of Scroll capture and Snapshots, and `scripts/make_demo_gifs.py` to remake them.
+
+### Changed
+
+- The screen tools (Read screen area, Scroll capture, Snapshots, Record area) are now in one
+  **Screen ▾** menu, so the window's minimum width dropped from 1,528 pixels (0.2.0) to 1,246 on a
+  1920×1080 laptop screen.
+
+### Fixed
+
+- Scroll capture no longer replaces a line it already read with a garbled reading of the
+  same line cut in half at the top edge of the next frame.
+
 ## [0.2.0] - 2026-10-18
 
 ### Added
@@ -39,5 +60,6 @@ First public release.
 
 - Bottom controls stay visible at any window size; the window has a minimum size.
 
+[0.3.0]: https://github.com/tomjose-bv/live-captions/releases/tag/v0.3.0
 [0.2.0]: https://github.com/tomjose-bv/live-captions/releases/tag/v0.2.0
 [0.1.0]: https://github.com/tomjose-bv/live-captions/releases/tag/v0.1.0
