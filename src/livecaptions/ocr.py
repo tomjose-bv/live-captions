@@ -73,7 +73,7 @@ def merge_lines(acc, new):
         return new
     if not new:
         return acc
-    best = None   # (overlap, kept_acc, frame)
+    best = None   # (overlap, kept_acc, frame, acc_overlap)
     for drop_tail in (0, 1):
         kept = acc[:len(acc) - drop_tail] if drop_tail else acc
         for skip in (0, 1):
@@ -82,10 +82,15 @@ def merge_lines(acc, new):
                 if best and k <= best[0]:
                     break
                 if _overlap_ok(kept[len(kept) - k:], frame[:k]):
-                    best = (k, kept[:len(kept) - k], frame)
+                    best = (k, kept[:len(kept) - k], frame, kept[len(kept) - k:])
                     break
     if best:
-        return best[1] + best[2]
+        k, before, frame, old = best
+        if k > 1 and _norm(old[0]) != _norm(frame[0]):
+            # The new frame's first line sits at its top edge, where it may be cut in
+            # half; the earlier frame saw that line whole, so keep its reading.
+            frame = [old[0]] + frame[1:]
+        return before + frame
     return acc + [GAP_MARKER] + new
 
 

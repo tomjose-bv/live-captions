@@ -104,3 +104,11 @@ def test_rejoin_rows_joins_pieces_of_one_visual_line():
 def test_rejoin_rows_keeps_distant_columns_apart():
     boxes = [(0, 0, 100, 20, "Left column"), (600, 0, 700, 20, "Right column")]
     assert ocr.rejoin_rows(boxes) == ["Left column", "Right column"]
+
+
+def test_merge_lines_keeps_the_whole_reading_of_a_line_cut_at_the_top_edge():
+    # The new frame's first line is cut in half and misread, but still close enough to
+    # count as the same line; the earlier frame saw it whole, so its reading is kept.
+    cut = PAGE[8].replace("quick", "qmck").replace("brown", "hrown")
+    acc = ocr.merge_lines(PAGE[0:12], [cut] + PAGE[9:20])
+    assert acc == PAGE[0:20]
