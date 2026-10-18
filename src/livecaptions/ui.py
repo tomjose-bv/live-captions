@@ -6,7 +6,7 @@ import time
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext, ttk
 
-from . import export, ocr, state, summarize
+from . import export, ocr, recorder, state, summarize
 from .config import MODELS
 from .transcriber import Transcriber
 from .transcript import append_text
@@ -84,6 +84,8 @@ class App:
         self.screen_btn.pack(side="right", padx=4)
         self.scroll_btn = ttk.Button(bar, text="Scroll capture", command=self.pick_scroll_area)
         self.scroll_btn.pack(side="right")
+        self.record_btn = ttk.Button(bar, text="Record area", command=self.pick_record_area)
+        self.record_btn.pack(side="right", padx=4)
         ttk.Button(bar, text="Export…", command=self.export).pack(side="right")
         self.summary_btn = ttk.Button(bar, text="Summarize", command=self.summarize)
         self.summary_btn.pack(side="right", padx=4)
@@ -94,6 +96,9 @@ class App:
         bottom.pack(side="bottom", fill="x")
         self.autoscroll = tk.BooleanVar(value=True)
         ttk.Checkbutton(bottom, text="Auto-scroll", variable=self.autoscroll).pack(side="right")
+        self.record_sound = tk.BooleanVar(value=True)
+        ttk.Checkbutton(bottom, text="Record sound",
+                        variable=self.record_sound).pack(side="right", padx=4)
         self.live_preview = tk.BooleanVar(value=True)
         self.preview_check = ttk.Checkbutton(bottom, text="Live preview", variable=self.live_preview)
         self.preview_check.pack(side="right", padx=4)
@@ -119,6 +124,7 @@ class App:
         self.text.mark_gravity("copied_upto", "left")
         self.reading_screen = False
         self.scroll = None
+        self.recording = None
 
         # Never let the window shrink below the size needed to show every control.
         root.update_idletasks()
@@ -345,24 +351,24 @@ class App:
 
     def _start_scroll_capture(self, bbox):
         self.reading_screen = True
-        self.screen_btn.config(state="disabled")
-        self.scroll_btn.config(state="disabled")
+        self._set_capture_buttons("disabled")
         self.scroll = {"bbox": bbox, "lines": [], "last_bytes": None, "busy": False,
                        "stopping": False, "frames": 0, "started": time.monotonic()}
-        self.scroll["bar"] = self._scroll_bar(bbox)
+        self.scroll["bar"] = self._capture_bar(
+            bbox, "● Scroll capture — scroll or hold ↓", self.stop_scroll_capture)
         self.root.after(300, self._scroll_tick)   # let the picker overlay vanish first
 
-    def _scroll_bar(self, bbox):
+    def _capture_bar(self, bbox, text, on_stop):
         """Small always-on-top bar outside the captured area, with a Stop button."""
         bar = tk.Toplevel(self.root)
         bar.overrideredirect(True)
         bar.attributes("-topmost", True)
         frame = tk.Frame(bar, bg="#c42b1c", padx=8, pady=4)
         frame.pack()
-        label = tk.Label(frame, text="● Scroll capture — scroll or hold ↓", bg="#c42b1c",
-                         fg="white", font=("Segoe UI", 10, "bold"))
+        label = tk.Label(frame, text=text, bg="#c42b1c", fg="white",
+                         font=("Segoe UI", 10, "bold"))
         label.pack(side="left")
-        ttk.Button(frame, text="Stop", command=self.stop_scroll_capture).pack(
+        ttk.Button(frame, text="Stop", command=on_stop).pack(
             side="left", padx=(8, 0))
         bar.update_idletasks()
         w, h = bar.winfo_reqwidth(), bar.winfo_reqheight()
@@ -439,8 +445,7 @@ class App:
         except tk.TclError:
             pass
         self.reading_screen = False
-        self.screen_btn.config(state="normal")
-        self.scroll_btn.config(state="normal")
+        self._set_capture_buttons("normal")
         self._restore_window("Scroll capture finished")
         if error:
             messagebox.showinfo("Scroll capture stopped", error, parent=self.root)
@@ -450,6 +455,89 @@ class App:
             self.status.config(text=f"Added {len(sc['lines'])} lines from scroll capture")
         elif not error:
             self.status.config(text="No text found while scrolling")
+
+    def _set_capture_buttons(self, state):
+        for btn in (self.screen_btn, self.scroll_btn, self.record_btn):
+            btn.config(state=state)
+
+    # ---------- screen recording ----------
+
+    def pick_record_area(self):
+        if self.reading_screen:
+            return
+        default = recorder.new_recording_path()
+        try:
+            default.parent.mkdir(parents=True, exist_ok=True)
+        except OSError:
+            pass
+        path = filedialog.asksaveasfilename(
+            parent=self.root, title="Save recording as", defaultextension=".mp4",
+            initialdir=str(default.parent), initialfile=default.name,
+            filetypes=[("MP4 video", "*.mp4")])
+        if not path:
+            return
+        self._pick_area("Drag over the area to record  ·  Esc to cancel",
+                        lambda bbox: self._start_recording(bbox, path))
+
+    def _start_recording(self, bbox, path):
+        sound, note = None, ""
+        if self.record_sound.get():
+            try:
+                sound = recorder.SpeakerAudio()
+            except Exception as e:
+                note = f" (no sound: {e})"
+        try:
+            rec = recorder.ScreenRecorder(bbox, path, audio=sound)
+            rec.start()
+        except Exception as e:
+            if sound is not None:
+                sound.close()
+            self._restore_window("Recording failed")
+            messagebox.showinfo("Recording failed", f"Couldn't start recording: {e}",
+                                parent=self.root)
+            return
+        self.reading_screen = True
+        self._set_capture_buttons("disabled")
+        self.recording = {"rec": rec, "note": note,
+                          "bar": self._capture_bar(bbox, "● Recording 0:00",
+                                                   self.stop_recording)}
+        self.root.after(500, self._record_tick)
+
+    def _record_tick(self):
+        rc = self.recording
+        if rc is None:
+            return
+        if not rc["rec"].running:          # stopped by itself: error or time limit
+            self.stop_recording()
+            return
+        secs = int(rc["rec"].seconds)
+        try:
+            rc["bar"].label.config(text=f"● Recording {secs // 60}:{secs % 60:02d}"
+                                        f"{'' if rc['rec'].audio else ' (no sound)'}")
+        except tk.TclError:
+            pass
+        self.root.after(500, self._record_tick)
+
+    def stop_recording(self):
+        rc, self.recording = self.recording, None
+        if rc is None:
+            return
+        try:
+            rc["bar"].destroy()
+        except tk.TclError:
+            pass
+        rec = rc["rec"]
+        path = rec.stop()
+        self.reading_screen = False
+        self._set_capture_buttons("normal")
+        secs = int(rec.seconds)
+        if rec.frames:
+            self._restore_window(f"Saved {secs // 60}:{secs % 60:02d} recording to {path}"
+                                 + rc["note"])
+        else:
+            self._restore_window("Recording failed")
+        if rec.error:
+            messagebox.showinfo("Recording stopped", rec.error, parent=self.root)
 
     def add_screen_text(self, text):
         self.last_label = None   # every capture starts its own "Screen:" line
@@ -563,5 +651,6 @@ class App:
         self.root.after(150, self.poll)
 
     def on_close(self):
+        self.stop_recording()
         self.transcriber.stop()
         self.root.after(300, self.root.destroy)

@@ -247,3 +247,59 @@ def test_scroll_capture_stitches_frames_until_stopped(app, monkeypatch):
     assert app.final_text() == "Screen: " + "\n".join(page)
     assert not app.reading_screen
     assert str(app.scroll_btn.cget("state")) == "normal"
+
+
+class FakeRecorder:
+    def __init__(self, bbox, path, audio=None):
+        self.bbox, self.path, self.audio = bbox, path, audio
+        self.running, self.seconds, self.error, self.frames = False, 0.0, None, 0
+
+    def start(self):
+        self.running = True
+
+    def stop(self):
+        self.running = False
+        self.seconds, self.frames = 75.4, 1131
+        return self.path
+
+
+def test_record_area_runs_until_stopped(app, monkeypatch):
+    made = []
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui.recorder, "ScreenRecorder",
+                        lambda *a, **kw: made.append(FakeRecorder(*a, **kw)) or made[-1])
+    app.record_sound.set(False)
+    app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
+    assert app.reading_screen and made[0].running and made[0].audio is None
+    assert str(app.record_btn.cget("state")) == "disabled"
+    app.pick_screen_area()             # ignored while recording
+    app.stop_recording()
+    assert not made[0].running and app.recording is None and not app.reading_screen
+    assert str(app.record_btn.cget("state")) == "normal"
+    assert app.status.cget("text") == "Saved 1:15 recording to C:/tmp/clip.mp4"
+
+
+def test_record_area_without_sound_device_still_records(app, monkeypatch):
+    def no_sound():
+        raise RuntimeError("No loopback device found")
+
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui.recorder, "SpeakerAudio", no_sound)
+    monkeypatch.setattr(ui.recorder, "ScreenRecorder", FakeRecorder)
+    app.record_sound.set(True)
+    app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
+    app.stop_recording()
+    assert app.status.cget("text").endswith("(no sound: No loopback device found)")
+
+
+def test_recording_that_stops_by_itself_is_finished(app, monkeypatch):
+    monkeypatch.setattr(ui, "exclude_from_capture", lambda win: None)
+    monkeypatch.setattr(ui.recorder, "ScreenRecorder", FakeRecorder)
+    monkeypatch.setattr(ui.messagebox, "showinfo", lambda *a, **kw: None)
+    app.record_sound.set(False)
+    app._start_recording((0, 0, 400, 300), "C:/tmp/clip.mp4")
+    app.recording["rec"].running = False
+    app.recording["rec"].error = "Recording stopped: screen locked"
+    app._record_tick()
+    assert app.recording is None and not app.reading_screen
+    assert app.status.cget("text").startswith("Saved 1:15 recording")

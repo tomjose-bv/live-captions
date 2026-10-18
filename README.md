@@ -41,6 +41,11 @@ fast each model actually is on ordinary laptop hardware.
   the Down arrow, and the frames are stitched together without repeating
   the overlapping lines. Click **Stop** on the small red bar when you reach the end. If you
   scroll too fast for the frames to overlap, a `[…]` line marks the gap.
+- **Record area:** choose where to save, drag over any part of the screen, and everything
+  that appears there (video, slides, a shared screen, a chat) is recorded to an `.mp4` file
+  (H.264, 15 frames a second) until you click **Stop** on the red bar. Tick **Record sound** to
+  include what the PC is playing. Recording works at the same time as captioning, and the
+  red bar is hidden from the recording.
 - **Editable transcript** with Copy all, **Copy new** (copies only what was added since the last
   Copy new), Clear and **Export…** to `.txt` or `.md`.
 - **Optional summaries & action items** from a local LLM through any OpenAI-compatible
@@ -183,6 +188,9 @@ Reproduce:
   state things that weren't said. Always check them.
 - **Screen reading** uses the OCR languages installed in Windows (Settings > Time & language).
   It reads printed text well, but handwriting, stylised fonts and very low-contrast text may come out garbled.
+- **Recording** includes the speaker sound only, not your microphone. Protected video
+  (DRM, such as some streaming services) records as a black area, and the mouse pointer is
+  not drawn. File size depends on how much changes on screen.
 - Interim text is replaced when the phrase finalises; if you edit inside the grey text, the
   edit is discarded.
 
@@ -194,10 +202,12 @@ Reproduce:
   before sending text anywhere else.
 - **Screen captures stay in memory.** "Read screen area" grabs only the rectangle you drag,
   reads it with Windows OCR on this PC, and discards the image.
+- **Recordings are saved only where you choose.** "Record area" asks for a file name first,
+  writes the video there while recording, and uploads nothing.
 - **Nothing is auto-saved.** The transcript lives in the window until you Copy or Export it.
   The only file the app writes on its own is a tiny flag in `%APPDATA%\LiveCaptions\` that
   remembers you've seen the consent notice.
-- **Get consent.** Captioning other people is a form of recording. Tell everyone on a call or
+- **Get consent.** Captioning or screen-recording other people is a form of recording. Tell everyone on a call or
   in a room before you caption them, and respect a "no". Laws differ by country and state —
   some require every participant's consent. The app shows a consent notice on first run and
   a banner that turns red while it's listening; it can't make that conversation for you.
@@ -207,6 +217,8 @@ Reproduce:
 ## Roadmap
 
 - [x] Screenshot/GIF in this README
+- [x] Record a screen area to video
+- [ ] Microphone sound in recordings
 - [ ] Hotkey and always-on-top caption overlay
 - [ ] Device pickers (not just the defaults)
 - [ ] Echo handling when not using headphones (suppress mic text that duplicates speaker text)
